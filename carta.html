@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta — Nou Segle 12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <style>
+    /* ---- Carta-specifieke stijlen ---- */
+    .carta-hero {
+      padding: 64px 40px 48px;
+      text-align: center;
+    }
+    .carta-hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 8px;
+    }
+    .carta-hero p {
+      font-size: 15px;
+      color: #7a7a7a;
+      font-weight: 300;
+    }
+
+    /* Subtiele achtergrond */
+    .carta-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background-image: url('Brand_assets/Images/DSC09552 kopie.JPG');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.13;
+      pointer-events: none;
+    }
+
+    /* Categorieënlijst (niet sticky — Elementor gratis kan geen sticky subnav) */
+    .carta-nav {
+      padding: 0 40px 40px;
+    }
+    .carta-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .carta-nav a {
+      display: inline-block;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 400;
+      color: #7a7a7a;
+      border: 1px solid #e8e0e0;
+      border-radius: 20px;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .carta-nav a:hover {
+      color: #7e1041;
+      border-color: #7e1041;
+      background: #fdf0f3;
+    }
+
+    /* Carta hoofdinhoud */
+    .carta-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    /* 2-koloms menu layout */
+    .carta-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 56px;
+      align-items: start;
+    }
+    .carta-col {
+      min-width: 0;
+    }
+
+    /* Bebidas sectie */
+    .bebidas-wrapper {
+      background: #f5ede5;
+      padding: 72px 40px;
+      margin-top: 24px;
+    }
+    .bebidas-wijn-foto {
+      max-width: 1200px;
+      margin: 0 auto 48px;
+      border-radius: 12px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .bebidas-wijn-foto img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .bebidas-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .bebidas-lista {
+      columns: 3;
+      column-gap: 40px;
+    }
+    .bebidas-lista h3.menu-subcat {
+      break-inside: avoid;
+      break-after: avoid;
+    }
+    .bebidas-lista .menu-item {
+      break-inside: avoid;
+    }
+    .bebidas-lista p[style] {
+      break-inside: avoid;
+      break-after: avoid;
+    }
+    .bebidas-header {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+    }
+    .bebidas-header h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 4px;
+    }
+
+    /* Categorie blok */
+    .menu-category {
+      padding-top: 72px;
+    }
+    .menu-category-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 4px;
+    }
+    .menu-category-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: #7a7a7a;
+      font-style: italic;
+      margin-bottom: 32px;
+    }
+    .menu-category-note {
+      font-size: 13px;
+      font-weight: 300;
+      color: #7a7a7a;
+      font-style: italic;
+      margin-bottom: 24px;
+      padding: 12px 16px;
+      background: #faf7f7;
+      border-left: 3px solid #f4aeb7;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* Menu item */
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid #f0eded;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+    .menu-item-info {
+      flex: 1;
+    }
+    .menu-item-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #3a3a3a;
+      margin-bottom: 3px;
+    }
+    .menu-item-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: #7a7a7a;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .menu-item-price {
+      font-size: 15px;
+      font-weight: 600;
+      color: #7e1041;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Subcategorie binnen een sectie */
+    .menu-subcategory {
+      margin-top: 32px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e8e0e0;
+    }
+    .menu-subcategory-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7e1041;
+    }
+    h3.menu-subcat {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7e1041;
+      margin-top: 28px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e8e0e0;
+    }
+    .menu-subcategory-sub {
+      font-size: 12px;
+      font-weight: 300;
+      font-style: italic;
+      color: #7a7a7a;
+      margin-top: 2px;
+    }
+
+    /* Extras / personaliza */
+    .menu-extras {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: #faf7f7;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 300;
+      color: #7a7a7a;
+      font-style: italic;
+    }
+
+    /* Divider tussen categorieën */
+    .carta-divider {
+      border: none;
+      border-top: 1px solid #e8e0e0;
+      margin: 0;
+    }
+
+    /* Allergenen */
+    .alergeninfo {
+      margin-top: 64px;
+      padding: 32px;
+      background: #faf7f7;
+      border-radius: 8px;
+    }
+    .alergeninfo h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #59103d;
+      margin-bottom: 12px;
+    }
+    .alergeninfo p {
+      font-size: 14px;
+      color: #7a7a7a;
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .carta-hero {
+        padding: 48px 20px 32px;
+      }
+      .carta-hero h1 {
+        font-size: 28px;
+      }
+      .carta-nav {
+        padding: 0 20px;
+        top: 57px;
+      }
+      .carta-nav a {
+        padding: 12px 12px;
+        font-size: 12px;
+      }
+      .carta-content {
+        padding: 0 20px 64px;
+      }
+      .carta-columns {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .bebidas-lista {
+        columns: 1;
+      }
+      .bebidas-wrapper {
+        padding: 48px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carta-bg"></div>
+
+  <!-- ==================== NAVIGATIE ==================== -->
+  <nav class="nav nav--solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12" style="height:72px;width:auto;">
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="carta.html" class="active" data-i18n="nav_carta">Carta</a></li>
+        <li><a href="quienes-somos.html" data-i18n="nav_quienes">Quiénes somos</a></li>
+        <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
+        <li>
+          <div class="lang-switch">
+            <a href="#" data-lang="es" class="active">ES</a>
+            <a href="#" data-lang="de">DE</a>
+            <a href="#" data-lang="en">EN</a>
+            <a href="#" data-lang="fr">FR</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HEADER ==================== -->
+  <div class="carta-hero">
+    <h1 data-i18n="carta_page_title">Nuestra Carta</h1>
+    <p data-i18n="carta_page_sub">Agosto 2026 · Plaza de L'Orient 1, Capdepera · Todos los precios incluyen IVA</p>
+  </div>
+
+  <!-- ==================== CATEGORIEËNMENU ==================== -->
+  <nav class="carta-nav" aria-label="Categorías">
+    <div class="carta-nav-inner">
+      <a href="#mañana"      data-i18n="cat_nav_manana">Mañana</a>
+      <a href="#bocadillos"  data-i18n="cat_nav_bocadillos">Bocadillos</a>
+      <a href="#tapas"       data-i18n="cat_nav_tapas">Tapas</a>
+      <a href="#sopas"       data-i18n="cat_nav_sopas">Sopas</a>
+      <a href="#ensaladas"   data-i18n="cat_nav_ensaladas">Ensaladas</a>
+      <a href="#pizzas"      data-i18n="cat_nav_pizzas">Pizzas</a>
+      <a href="#flammkuchen" data-i18n="cat_nav_flammkuchen">Flammkuchen</a>
+      <a href="#hamburguesas" data-i18n="cat_nav_hamburguesas">Hamburguesas</a>
+      <a href="#carnes"      data-i18n="cat_nav_carnes">Carnes</a>
+      <a href="#pescados"    data-i18n="cat_nav_pescados">Pescados</a>
+      <a href="#pasta"       data-i18n="cat_nav_pasta">Pasta & Arroz</a>
+      <a href="#infantil"    data-i18n="cat_nav_infantil">Infantil</a>
+      <a href="#postres"     data-i18n="cat_nav_postres">Postres</a>
+      <a href="#bebidas"     data-i18n="cat_nav_bebidas">Bebidas</a>
+    </div>
+  </nav>
+
+  <!-- ==================== MENUCONTENT ==================== -->
+  <main class="carta-content">
+  <div class="carta-columns">
+  <div class="carta-col">
+
+    <!-- CAPRICHOS DE LA MAÑANA -->
+    <section class="menu-category" id="mañana">
+      <h2 class="menu-category-title" data-i18n="cat_h2_manana">Caprichos de la Mañana</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Croissant</div>
+          <div class="menu-item-desc">Clásico</div>
+        </div>
+        <div class="menu-item-price">2,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Croissant con queso (caliente)</div>
+          <div class="menu-item-desc">Perfecto para empezar el día.</div>
+        </div>
+        <div class="menu-item-price">3,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Croissant con queso y jamón york (caliente)</div>
+          <div class="menu-item-desc">Equilibrio entre suavidad y sabor.</div>
+        </div>
+        <div class="menu-item-price">4,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tostada con Tortilla Francesa y Aguacate</div>
+          <div class="menu-item-desc">Pan tostado con tomate, aceite de oliva virgen extra, tortilla francesa y aguacate fresco.</div>
+        </div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tostada con Huevo Frito, Queso de Cabra y Aguacate</div>
+          <div class="menu-item-desc">Pan tostado con tomate, aceite de oliva virgen extra, queso de cabra con miel, huevo frito y aguacate fresco.</div>
+        </div>
+        <div class="menu-item-price">12,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tostada con queso, mantequilla y mermelada</div>
+          <div class="menu-item-desc">Contraste dulce y salado sobre pan crujiente.</div>
+        </div>
+        <div class="menu-item-price">5,00 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tostada con mantequilla y mermelada</div>
+          <div class="menu-item-desc">Tradicional y siempre irresistible.</div>
+        </div>
+        <div class="menu-item-price">3,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tostada con tomate, aceite de oliva y aceitunas</div>
+          <div class="menu-item-desc">Sabor mediterráneo en cada bocado.</div>
+        </div>
+        <div class="menu-item-price">3,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Quark con granola, frutas de temporada y chía</div>
+          <div class="menu-item-desc">Cremoso, fresco y saludable.</div>
+        </div>
+        <div class="menu-item-price">8,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Desayuno de Queso <span style="font-weight:300;">(1 persona)</span></div>
+          <div class="menu-item-desc">Selección de quesos variados, mermelada, miel, mantequilla, Nutella, croissant, panes variados y pequeño zumo de naranja.</div>
+        </div>
+        <div class="menu-item-price">15,00 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Desayuno "Nou Segle 12" <span style="font-weight:300;">(1 persona)</span></div>
+          <div class="menu-item-desc">Selección de quesos y embutidos, quark con fruta, huevos revueltos, bacon, mermelada, miel, mantequilla y nutella, croissant, panes variados y pequeño zumo de naranja. Una experiencia para empezar el día sin prisas.</div>
+        </div>
+        <div class="menu-item-price">15,00 €</div>
+      </div>
+
+      <!-- Huevos Campesinos (subcategorie) -->
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Huevos Campesinos</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Strammermax</div>
+          <div class="menu-item-desc">Tres huevos fritos sobre pan mallorquín con jamón york.</div>
+        </div>
+        <div class="menu-item-price">11,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Huevos fritos (3 uds.)</div>
+          <div class="menu-item-desc">Servidos al punto, con pan.</div>
+        </div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Huevos revueltos (3 uds.)</div>
+          <div class="menu-item-desc">Cremosos y suaves, con pan.</div>
+        </div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tortilla francesa (3 huevos)</div>
+          <div class="menu-item-desc">Clásica, con pan.</div>
+        </div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+
+      <div class="menu-extras">
+        Extras: cebolla, tomate, champiñones 1,00 € · jamón york, queso o bacon 1,50 € · ¼ de aguacate fresco o jamón serrano 2,00 €
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- BOCADILLOS -->
+    <section class="menu-category" id="bocadillos">
+      <h2 class="menu-category-title" data-i18n="cat_h2_bocadillos">Bocadillos</h2>
+
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Pan Baguette</div>
+        <div class="menu-subcategory-sub">Con tomate, lechuga fresca y aceite de oliva</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Queso</div></div>
+        <div class="menu-item-price">8,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Jamón York</div></div>
+        <div class="menu-item-price">8,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Jamón Serrano</div></div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Queso y Jamón York</div></div>
+        <div class="menu-item-price">11,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Queso y Jamón Serrano</div></div>
+        <div class="menu-item-price">11,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Atún con huevo, cebolla roja, pepinillo y Mayonesa</div></div>
+        <div class="menu-item-price">11,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Bacon y Queso (caliente)</div></div>
+        <div class="menu-item-price">11,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Pollo, Bacon y Queso (caliente)</div></div>
+        <div class="menu-item-price">13,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Lomo, Bacon y Queso (caliente)</div></div>
+        <div class="menu-item-price">13,50 €</div>
+      </div>
+
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Pa amb Oli</div>
+        <div class="menu-subcategory-sub">Pan mallorquín con tomate y aceite de oliva</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Jamón Serrano</div></div>
+        <div class="menu-item-price">13,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Queso Mahón</div></div>
+        <div class="menu-item-price">13,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Jamón Serrano y queso Mahón</div></div>
+        <div class="menu-item-price">15,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Sobrasada, queso de cabra y miel</div></div>
+        <div class="menu-item-price">16,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Atún y cebolla roja</div></div>
+        <div class="menu-item-price">16,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Bacon y queso (caliente)</div></div>
+        <div class="menu-item-price">14,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Pollo, bacon y queso (caliente)</div></div>
+        <div class="menu-item-price">17,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Lomo, bacon y queso (caliente)</div></div>
+        <div class="menu-item-price">17,00 €</div>
+      </div>
+
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Sandwich</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Queso</div></div>
+        <div class="menu-item-price">6,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Jamón york y queso</div></div>
+        <div class="menu-item-price">7,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Atún</div></div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Vegetal</div>
+          <div class="menu-item-desc">Lechuga, tomate, huevo duro, pepino, pimientos de colores y Salsa Cocktail</div>
+        </div>
+        <div class="menu-item-price">10,00 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- TAPAS -->
+    <section class="menu-category" id="tapas">
+      <h2 class="menu-category-title" data-i18n="cat_h2_tapas">Tapas y más…</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pan de pizza con alioli y aceitunas</div>
+          <div class="menu-item-desc">Crujiente y aromático.</div>
+        </div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Bruschetta</div>
+          <div class="menu-item-desc">Tomate fresco, ajo, albahaca y aceite de oliva.</div>
+        </div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tabla de Jamón Ibérico (80 g)</div>
+          <div class="menu-item-desc">Jamón ibérico cortado fino, acompañado de pan crujiente, aceitunas, guindillas y frutos secos seleccionados.</div>
+        </div>
+        <div class="menu-item-price">22,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tabla de Quesos</div>
+          <div class="menu-item-desc">Selección variada de quesos con nueces, aceitunas, uvas frescas, mermelada de arándanos y cesta de pan.</div>
+        </div>
+        <div class="menu-item-price">22,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tapas Mix "Nou Segle 12"</div>
+          <div class="menu-item-desc">Patatas bravas crujientes, chipirones, dátiles con bacon, pimientos de padrón, boquerones fritos, ensaladilla de pulpo, hummus clásico, alioli casero y pan tostado con trampó.</div>
+        </div>
+        <div class="menu-item-price">24,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tapas Mix Vegetal</div>
+          <div class="menu-item-desc">Pan con trampó, hummus clásico, pimientos de padrón, croquetas de espinacas, berenjenas, pimientos asados, patatas bravas y verduras a la plancha.</div>
+        </div>
+        <div class="menu-item-price">24,50 €</div>
+      </div>
+
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Tapas de Carne</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Alitas de pollo</div></div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Croquetas de Jamón Curado (6 uds)</div></div>
+        <div class="menu-item-price">10,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Albóndigas con Salsa de Tomate picante</div></div>
+        <div class="menu-item-price">7,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Dátiles con Bacon</div></div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Carpaccio de ternera con queso parmesano</div></div>
+        <div class="menu-item-price">17,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pequeño Entrecot Angus de Irlanda (120 g)</div>
+          <div class="menu-item-desc">Acompañado de guarnición de Pa amb Oli.</div>
+        </div>
+        <div class="menu-item-price">14,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Bitterballen con Salsa Joppie (Holandés)</div></div>
+        <div class="menu-item-price">10,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Huevos estrellados con sobrasada</div>
+          <div class="menu-item-desc">Patatas salteadas, huevo y sobrasada mallorquina.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Pincho de pollo (2 uds) con Salsa Saté y cebolla crujiente</div></div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Mini hamburguesa 100% ternera, tomate, lechuga y Salsa Cóctel</div></div>
+        <div class="menu-item-price">7,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Mini chorizo sobre pan mallorquín</div></div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Tapa Vitello Tonnato</div></div>
+        <div class="menu-item-price">17,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Mini brioche con Pulled Pork y cebolla crujiente</div></div>
+        <div class="menu-item-price">7,50 €</div>
+      </div>
+
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Tapas de Pescado</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Chipirones con Alioli</div></div>
+        <div class="menu-item-price">12,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Calamares a la romana con Alioli</div></div>
+        <div class="menu-item-price">11,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Boquerones fritos con Alioli</div></div>
+        <div class="menu-item-price">8,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Ensaladilla de Pulpo</div></div>
+        <div class="menu-item-price">12,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Gambas Panko con Salsa Sweet Chilli y Confitura de Mango-Piña</div></div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Tartar de atún, wakame, aguacate, tomate, cebolla roja y wasabi</div></div>
+        <div class="menu-item-price">17,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Gambas al ajillo</div></div>
+        <div class="menu-item-price">17,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Taco con gambas, wakame, aguacate, tomate cherry y lima</div></div>
+        <div class="menu-item-price">9,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Pulpo a la Gallega</div></div>
+        <div class="menu-item-price">15,00 €</div>
+      </div>
+
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Tapas Vegetarianas</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Tortilla española con cebolla</div></div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Hummus clásico con Crudités</div></div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Pimientos de padrón</div></div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Croquetas de espinacas (6 uds)</div></div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Camembert frito con mermelada de arándanos y uva</div></div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Parrillada de verduras, hummus, berenjena, pimientos asados y piña</div></div>
+        <div class="menu-item-price">16,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Nachos "Doritos" con guacamole, jalapeños y Salsa Sweet Chilli</div></div>
+        <div class="menu-item-price">12,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Carpaccio de Remolacha con pistachos y queso parmesano</div></div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Carpaccio de Zucchini con Salsa pesto, nueces, piñones y Parmesano</div></div>
+        <div class="menu-item-price">9,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Patatas bravas con Salsa Kimchi (picante)</div></div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Ración de Patatas Fritas</div></div>
+        <div class="menu-item-price">6,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Ración Patatas Teja</div></div>
+        <div class="menu-item-price">7,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Ración de Patatas Boniato</div></div>
+        <div class="menu-item-price">7,50 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- SOPAS -->
+    <section class="menu-category" id="sopas">
+      <h2 class="menu-category-title" data-i18n="cat_h2_sopas">Sopas</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Sopa de Tomate</div>
+          <div class="menu-item-desc">Suave, reconfortante y aromática.</div>
+        </div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Sopa Goulash</div>
+          <div class="menu-item-desc">Intensa, tradicional y especiada.</div>
+        </div>
+        <div class="menu-item-price">10,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Gazpacho Andaluz "Nou Segle 12" <span style="font-weight:300;">(Temporada)</span></div>
+          <div class="menu-item-desc">Refrescante y lleno de verano.</div>
+        </div>
+        <div class="menu-item-price">10,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Sopa del Día <span style="font-weight:300;">(Temporada)</span></div>
+        </div>
+        <div class="menu-item-price">7,50 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- ENSALADAS -->
+    <section class="menu-category" id="ensaladas">
+      <h2 class="menu-category-title" data-i18n="cat_h2_ensaladas">Ensaladas</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Ensalada Mixta pequeña / normal</div></div>
+        <div class="menu-item-price">7,50 € / 11,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Ensalada César</div>
+          <div class="menu-item-desc">Lechuga romana, pollo, bacon, parmesano, salsa césar y picatostes.</div>
+        </div>
+        <div class="menu-item-price">16,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Trampó</div>
+          <div class="menu-item-desc">Tomate, cebolla y pimientos verdes, puro Mediterráneo.</div>
+        </div>
+        <div class="menu-item-price">8,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Ensalada "El Sol"</div>
+          <div class="menu-item-desc">Selección de lechugas, fruta de temporada, nueces, queso feta, bacon y salsa miel-mostaza.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Ensalada de atún</div>
+          <div class="menu-item-desc">Selección de lechugas, tomate cherry, cebolla roja, atún y vinagreta de la casa.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tartar de Aguacate y Fresa</div>
+          <div class="menu-item-desc">Cremoso y afrutado, con vinagreta de fresa.</div>
+        </div>
+        <div class="menu-item-price">13,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Caprese</div>
+          <div class="menu-item-desc">Tomate, mozzarella di bufala, albahaca y aceite de oliva.</div>
+        </div>
+        <div class="menu-item-price">13,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Ensalada Rúcula</div>
+          <div class="menu-item-desc">Selección de lechugas, rúcula, parmesano, piñones, tomate seco, zanahoria rallada y salsa miel-mostaza.</div>
+        </div>
+        <div class="menu-item-price">14,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Ensalada Griega</div>
+          <div class="menu-item-desc">Tomate, pepino, cebolla roja, pimientos italianos, olivas negras, queso feta, orégano, aliñada con aceite de oliva.</div>
+        </div>
+        <div class="menu-item-price">13,50 €</div>
+      </div>
+
+      <div class="menu-extras">
+        Personaliza tu ensalada: gambas o queso de cabra 3,50 € · tiras de ternera 6,00 € · pollo 3,00 €
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- PIZZAS -->
+  </div><!-- end carta-col left -->
+  <div class="carta-col">
+
+    <section class="menu-category" id="pizzas">
+      <h2 class="menu-category-title" data-i18n="cat_h2_pizzas">Pizzas Caseras</h2>
+      <p class="menu-category-sub">Todas nuestras pizzas llevan salsa de tomate, mezcla de tres quesos y orégano.</p>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Margarita</div>
+          <div class="menu-item-desc">Clásica, sencilla y equilibrada.</div>
+        </div>
+        <div class="menu-item-price">12,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Prosciutto</div>
+          <div class="menu-item-desc">Con jamón york, suave y perfecta para todos los gustos.</div>
+        </div>
+        <div class="menu-item-price">13,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Salami</div>
+          <div class="menu-item-desc">Carácter especiado y sabor profundo.</div>
+        </div>
+        <div class="menu-item-price">13,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Vegetariana</div>
+          <div class="menu-item-desc">Pimientos de colores, champiñones y brócoli.</div>
+        </div>
+        <div class="menu-item-price">14,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Regina</div>
+          <div class="menu-item-desc">Jamón york y champiñones, combinación clásica y equilibrada.</div>
+        </div>
+        <div class="menu-item-price">14,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Caprese</div>
+          <div class="menu-item-desc">Tomate, mozzarella y albahaca.</div>
+        </div>
+        <div class="menu-item-price">15,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Rúcula</div>
+          <div class="menu-item-desc">Rúcula fresca, jamón serrano y parmesano.</div>
+        </div>
+        <div class="menu-item-price">16,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Gambaretti</div>
+          <div class="menu-item-desc">Gambas, aceitunas negras y ajo. Sabor marino intenso y aromático.</div>
+        </div>
+        <div class="menu-item-price">18,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Picante</div>
+          <div class="menu-item-desc">Salami, bacon, champiñones y chili.</div>
+        </div>
+        <div class="menu-item-price">14,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Pulled Pork</div>
+          <div class="menu-item-desc">Con salsa barbacoa.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Hawaii</div>
+          <div class="menu-item-desc">Jamón york y piña (sin orégano).</div>
+        </div>
+        <div class="menu-item-price">14,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Atún</div>
+          <div class="menu-item-desc">Atún, cebolla y ajo.</div>
+        </div>
+        <div class="menu-item-price">15,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza 4 Stagioni</div>
+          <div class="menu-item-desc">Jamón york, salami, champiñones y pimientos.</div>
+        </div>
+        <div class="menu-item-price">14,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza 4 Quesos</div>
+          <div class="menu-item-desc">Roquefort y queso de cabra.</div>
+        </div>
+        <div class="menu-item-price">14,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pizza Salmón</div>
+          <div class="menu-item-desc">Salmón y brócoli.</div>
+        </div>
+        <div class="menu-item-price">15,00 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- FLAMMKUCHEN -->
+    <section class="menu-category" id="flammkuchen">
+      <h2 class="menu-category-title" data-i18n="cat_h2_flammkuchen">Flammkuchen</h2>
+      <p class="menu-category-sub">Base de masa crujiente cubierta con Crème Fraîche</p>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Clásico, "Elsass"</div>
+          <div class="menu-item-desc">Cebolla y bacon, tradicional y sabroso.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pera</div>
+          <div class="menu-item-desc">Pera caramelizada, rúcula y nueces, tomate cherry y dátiles.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Manzana</div>
+          <div class="menu-item-desc">Manzana caramelizada y queso de cabra, nueces y dátiles.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Vegetal</div>
+          <div class="menu-item-desc">Pimientos, champiñones, cebolla roja y puerro.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Salmón</div>
+          <div class="menu-item-desc">Salmón ahumado, brócoli y eneldo fresco.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- HAMBURGUESAS -->
+    <section class="menu-category" id="hamburguesas">
+      <h2 class="menu-category-title" data-i18n="cat_h2_hamburguesas">Hamburguesas</h2>
+      <p class="menu-category-sub">Pan brioche artesanal · Acompañadas con patatas fritas</p>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Hamburguesa "Classic"</div>
+          <div class="menu-item-desc">200 g de ternera, tomate fresco, pepinillo, lechuga y Salsa Cocktail.</div>
+        </div>
+        <div class="menu-item-price">17,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Cheeseburger</div>
+          <div class="menu-item-desc">200 g de ternera con queso cheddar fundido, tomate, pepinillo, lechuga y Salsa Cocktail.</div>
+        </div>
+        <div class="menu-item-price">18,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Hamburguesa "Nou Segle 12"</div>
+          <div class="menu-item-desc">200 g de ternera con bacon crujiente, queso fundido, tomate, lechuga, cebolla, pepinillo y Salsa Cocktail.</div>
+        </div>
+        <div class="menu-item-price">19,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Hamburguesa "Veggie"</div>
+          <div class="menu-item-desc">Burger vegetal casera de quinoa, maíz y frijoles, con tomate, lechuga, cebolla y Salsa Cocktail. Acompañada de boniatos fritos y pimientos de padrón.</div>
+        </div>
+        <div class="menu-item-price">19,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Hamburguesa de Pollo Crujiente</div>
+          <div class="menu-item-desc">Pechuga de pollo rebozado, tomate, lechuga, guacamole y Salsa Sweet Chili.</div>
+        </div>
+        <div class="menu-item-price">19,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Hamburguesa "Pulled Pork"</div>
+          <div class="menu-item-desc">Cerdo desmenuzado cocinado a baja temperatura con Salsa Barbacoa, lechuga y cebolla crujiente.</div>
+        </div>
+        <div class="menu-item-price">19,50 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- CARNES -->
+    <section class="menu-category" id="carnes">
+      <h2 class="menu-category-title" data-i18n="cat_h2_carnes">Carnes</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pechuga de Pollo a la plancha</div>
+          <div class="menu-item-desc">Con salsa de champiñones y patatas teja.</div>
+        </div>
+        <div class="menu-item-price">19,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Currywurst con patatas fritas</div></div>
+        <div class="menu-item-price">14,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Escalope a la Vienesa</div>
+          <div class="menu-item-desc">Con patatas salteadas con bacon y cebolla.</div>
+        </div>
+        <div class="menu-item-price">20,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Vitello Tonnato</div>
+          <div class="menu-item-desc">Con patatas salteadas con bacon y cebolla.</div>
+        </div>
+        <div class="menu-item-price">23,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Roastbeef en su punto "frío"</div>
+          <div class="menu-item-desc">Con patatas salteadas con bacon y cebolla y Salsa Remoulade.</div>
+        </div>
+        <div class="menu-item-price">22,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pluma Ibérica "Certificada Victor Gómez"</div>
+          <div class="menu-item-desc">Con verduras salteadas, mantequilla de hierbas y patatas teja.</div>
+        </div>
+        <div class="menu-item-price">31,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Entrecot Angus Irlanda (250 g)</div>
+          <div class="menu-item-desc">Con verduras salteadas, mantequilla de hierbas y patatas teja.</div>
+        </div>
+        <div class="menu-item-price">33,50 €</div>
+      </div>
+
+      <div class="menu-extras">
+        Elige tu salsa: Roquefort, Pimienta o Champignon — 3,50 €
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- PESCADOS -->
+    <section class="menu-category" id="pescados">
+      <h2 class="menu-category-title" data-i18n="cat_h2_pescados">Pescados</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Pulpo a la brasa</div>
+          <div class="menu-item-desc">Servido con puré cremoso de patatas.</div>
+        </div>
+        <div class="menu-item-price">26,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Calamar a la plancha</div>
+          <div class="menu-item-desc">Acompañado de emulsión suave de ajo, perejil fresco, aceite de oliva y patatas fritas.</div>
+        </div>
+        <div class="menu-item-price">26,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Filete de Salmón</div>
+          <div class="menu-item-desc">Cocinado al punto, acompañado de verduras a la plancha, patatas doradas y delicada mermelada artesanal de tomate.</div>
+        </div>
+        <div class="menu-item-price">24,50 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- PASTA & ARROZ -->
+    <section class="menu-category" id="pasta">
+      <h2 class="menu-category-title" data-i18n="cat_h2_pasta">Pasta & Arroz</h2>
+      <p class="menu-category-sub">Disponible opción sin gluten.</p>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Espaguetis Bolognesa</div>
+          <div class="menu-item-desc">Salsa de carne tradicional cocinada lentamente con tomate natural.</div>
+        </div>
+        <div class="menu-item-price">12,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Espaguetis Rúcula</div>
+          <div class="menu-item-desc">Parmesano, piñones y tomate seco. Aromática y equilibrada.</div>
+        </div>
+        <div class="menu-item-price">16,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Espaguetis Aglio e Olio (picante)</div>
+          <div class="menu-item-desc">Sencilla, intensa y ligeramente atrevida.</div>
+        </div>
+        <div class="menu-item-price">11,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Espaguetis Bessó (picante)</div>
+          <div class="menu-item-desc">Salsa de pimienta con tiras de ternera.</div>
+        </div>
+        <div class="menu-item-price">21,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Espaguetis Gambas</div>
+          <div class="menu-item-desc">Con Salsa de Bogavante y cebollino.</div>
+        </div>
+        <div class="menu-item-price">23,00 €</div>
+      </div>
+
+      <div class="menu-subcategory">
+        <div class="menu-subcategory-title">Arroz</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Arroz de la Huerta</div>
+          <div class="menu-item-desc">Arroz Basmati con verduras salteadas, sésamo y Salsa de Soja.</div>
+        </div>
+        <div class="menu-item-price">15,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Arroz al Curry</div>
+          <div class="menu-item-desc">Arroz Basmati con Salsa Curry, verduras y leche de coco.</div>
+        </div>
+        <div class="menu-item-price">16,50 €</div>
+      </div>
+
+      <div class="menu-extras">
+        Completa tu pasta o arroz: gambas 3,50 € · tiras de ternera 6,00 € · pollo 3,00 €
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- MENÚ INFANTIL -->
+    <section class="menu-category" id="infantil">
+      <h2 class="menu-category-title" data-i18n="cat_h2_infantil">Menú Infantil</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Espaguetis Bolognesa</div></div>
+        <div class="menu-item-price">7,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Espaguetis Napoli</div></div>
+        <div class="menu-item-price">6,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Pechuga de Pollo con patatas fritas o puré de patatas</div></div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Hamburguesa con patatas fritas</div></div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Nuggets con patatas fritas</div></div>
+        <div class="menu-item-price">7,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Patatas fritas</div></div>
+        <div class="menu-item-price">6,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info"><div class="menu-item-name">Puré de Patatas</div></div>
+        <div class="menu-item-price">5,00 €</div>
+      </div>
+    </section>
+
+    <hr class="carta-divider">
+
+    <!-- POSTRES -->
+    <section class="menu-category" id="postres">
+      <h2 class="menu-category-title" data-i18n="cat_h2_postres">Postres</h2>
+
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Tiramisú</div>
+          <div class="menu-item-desc">Cremoso, delicado y con auténtico sabor italiano.</div>
+        </div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Crema catalana</div>
+          <div class="menu-item-desc">Tradicional, con azúcar caramelizado.</div>
+        </div>
+        <div class="menu-item-price">7,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Crêpe con Nutella</div>
+          <div class="menu-item-desc">Fina, dulce.</div>
+        </div>
+        <div class="menu-item-price">5,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Cardenal de Lloseta</div>
+          <div class="menu-item-desc">Un clásico de Mallorca.</div>
+        </div>
+        <div class="menu-item-price">8,00 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Fresas Naturales con Nata y/o Bola de Vainilla</div>
+        </div>
+        <div class="menu-item-price">8,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Helado de vainilla con licor de huevo</div>
+          <div class="menu-item-desc">Suave y aromático.</div>
+        </div>
+        <div class="menu-item-price">8,50 €</div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-info">
+          <div class="menu-item-name">Copa de helado</div>
+          <div class="menu-item-desc">Consulta nuestro expositor de helados y descubre sabores y colores.</div>
+        </div>
+        <div class="menu-item-price">4,00 €</div>
+      </div>
+
+      <p style="margin-top:20px;font-size:13px;font-style:italic;color:#7a7a7a;text-align:center;">
+        Descubre todos los postres caseros del día en nuestra vitrina de tartas
+      </p>
+    </section>
+
+    <div style="margin-top:32px;border-radius:12px;overflow:hidden;line-height:0;">
+      <img src="Brand_assets/Images/DSC09920 kopie.JPG" alt="Postres Nou Segle 12" style="width:100%;height:auto;display:block;">
+    </div>
+
+  </div><!-- end carta-col right -->
+  </div><!-- end carta-columns -->
+
+  </main>
+
+  <!-- ==================== BEBIDAS ==================== -->
+  <section id="bebidas" class="bebidas-wrapper">
+    <div class="bebidas-header">
+      <span class="section-label" data-i18n="cat_h2_bebidas">Bebidas</span>
+      <h2>Para beber</h2>
+    </div>
+    <div class="bebidas-wijn-foto">
+      <img src="Brand_assets/Images/DSC09960 kopie.JPG" alt="Vinos Mallorca — Nou Segle 12">
+    </div>
+    <div class="bebidas-inner">
+      <div class="bebidas-lista">
+
+      <h3 class="menu-subcat">Café</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Café Solo</div></div><div class="menu-item-price">2,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Café Cortado</div></div><div class="menu-item-price">2,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Espresso Doble</div></div><div class="menu-item-price">3,40 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tinto de Verano 0,25l</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Café con Leche <span style="font-weight:300;font-size:13px;">mit Milch</span></div></div><div class="menu-item-price">2,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Capuchino</div></div><div class="menu-item-price">3,75 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cappuccino con Nata <span style="font-weight:300;font-size:13px;">Sahne</span></div></div><div class="menu-item-price">4,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cappuccino <span style="font-weight:300;font-size:13px;">Heißer Lacas</span></div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Café con Leche Grande</div></div><div class="menu-item-price">3,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Carajillo</div></div><div class="menu-item-price">3,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Latte Macchiato <span style="font-weight:300;font-size:13px;">Heißer Lacas</span></div></div><div class="menu-item-price">4,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Latte Macchiato Sahne</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Kaas Caliente con Avena</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Heißer Lacas Sahne</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Vaso de Leche</div></div><div class="menu-item-price">2,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Café Frío</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Iskakao</div></div><div class="menu-item-price">6,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Irisch Kaffee</div></div><div class="menu-item-price">7,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Barraquito</div></div><div class="menu-item-price">6,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Strawberry and Banana</div></div><div class="menu-item-price">6,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chocolate a la taza clásico</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Kässchokolade mit Schokolade</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cola Cao</div></div><div class="menu-item-price">2,60 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fever Tree</div></div><div class="menu-item-price">2,60 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Agua / Wasser</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Agua sin gas 0,5l</div></div><div class="menu-item-price">3,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Agua sin gas 1l</div></div><div class="menu-item-price">5,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Agua con gas 0,5l</div></div><div class="menu-item-price">3,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Agua con gas 1l</div></div><div class="menu-item-price">5,50 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Refrescos / Erfrischungen</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Coca Cola</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Coca Cola Zero</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fanta Naranja / Orange</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fanta Limón / Zitrone</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Sprite</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Nestea Maracuyá</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Apfelschorle</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Spexie</div></div><div class="menu-item-price">3,40 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bitter Kas</div></div><div class="menu-item-price">3,40 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Aquarius Limón</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fever Tree Tónica</div></div><div class="menu-item-price">3,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fever Tree Ginger Limón</div></div><div class="menu-item-price">3,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fever Tree Bitter Lemon</div></div><div class="menu-item-price">3,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fever Tree Ginger Ale</div></div><div class="menu-item-price">3,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fever Tree Ginger Beer</div></div><div class="menu-item-price">3,25 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Zumos / Säfte</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Naranja / Orangensaft 0,2l</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Piña / Ananassaft 0,2l</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Albaricoq / Aprikosaft 0,2l</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Melocotón / Pfirsich 0,2l</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tomate / Tomatensaft 0,2l</div></div><div class="menu-item-price">3,20 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Zumos Naturales</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Naranja / Orangensaft 0,25l</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Triflasco</div></div><div class="menu-item-price">6,50 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Smoothies — 7,75 €</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Piña Colada</div><div class="menu-item-desc">Piña, Coco, Ananás, Kookanut / Pineapple, Coconut, Ananas, Noix de coco</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Peach Paradise</div><div class="menu-item-desc">Melocotón, Papaya, Fresa / Pfirsich, Papaya, Erdbeere / Peach, Papaya, Strawberry / Pêche, Papaye, Fraise</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Red Banana</div><div class="menu-item-desc">Fresa y plátano / Erdbeere und Banane / Strawberry and Banana / Fraise et Banane</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Berry Dreams</div><div class="menu-item-desc">Fresa, Frambuesa, Arándanos / Erdbeere, Himbeere, Blaubeere</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Triple M</div><div class="menu-item-desc">Mango, Melón, Maracuyá / Mango, Melone, Passionfrucht</div></div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Natural Green</div><div class="menu-item-desc">Brócoli, Espinaca, Apio, Plátano, Piña, Mango</div></div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Té / Infusiones</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Negro, Verde, Verde con Hierbabuena</div></div><div class="menu-item-price">2,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Early Grey Blue, Rooibos</div></div><div class="menu-item-price">2,90 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Sangría</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Sangría <em style="font-size:13px;font-weight:300;">Tinto, Blanco a Cava</em></div></div><div class="menu-item-price">Copa 0,35l: 8,00 € · Jarra 1l: 22,50 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Cerveza / Bier — San Miguel</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">San Miguel 0,25l</div></div><div class="menu-item-price">2,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">San Miguel 0,5l</div></div><div class="menu-item-price">3,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Xopet Limón o Spritz 0,25l</div></div><div class="menu-item-price">3,10 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Xopet Limón o Spritz 0,5l</div></div><div class="menu-item-price">4,10 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">San Miguel Sin Gluten 0,33l</div></div><div class="menu-item-price">3,20 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Botellas / Flaschen</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">San Miguel 0% 0,25l</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Alhambra Reserva 1925 0,33l</div></div><div class="menu-item-price">3,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Estrella Damm 0,2l</div></div><div class="menu-item-price">2,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Estrella Damm 0,33l</div></div><div class="menu-item-price">2,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Estrella Gálica 0,33l</div></div><div class="menu-item-price">2,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Franziskaner 0,5l</div></div><div class="menu-item-price">4,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Franziskaner 0,00% 0,5l</div></div><div class="menu-item-price">4,90 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Cocktails — 10,90 €</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mojito</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Pornstar Martini</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Margarita</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cosmopolitan</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Amaretto Sour</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Espreso Martini</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Negroni</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Virgin Mojito 0,00%</div></div><div class="menu-item-price">10,90 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">San Francisco 0,00%</div></div><div class="menu-item-price">8,00 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Aperitivos — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Hugo</div></div><div class="menu-item-price">6,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Aperol Spritz</div></div><div class="menu-item-price">6,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Campari</div></div><div class="menu-item-price">6,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tío Pepe</div></div><div class="menu-item-price">3,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tinto de Verano 0,25l</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Lillet Gilling Berry</div></div><div class="menu-item-price">6,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Campari Orange</div></div><div class="menu-item-price">6,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Limoncello Spritz</div></div><div class="menu-item-price">6,95 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Aperitivos Sin Alcohol — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Hugo</div></div><div class="menu-item-price">6,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Aperol Spritz</div></div><div class="menu-item-price">6,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Campari</div></div><div class="menu-item-price">6,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tío Pepe</div></div><div class="menu-item-price">3,25 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Göffler (Ginebra tónica)</div></div><div class="menu-item-price">6,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Johnny Walker Red Label</div></div><div class="menu-item-price">3,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">J&B</div></div><div class="menu-item-price">3,50 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Vermouth — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Martini Bianco</div></div><div class="menu-item-price">3,75 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Martini Rosso</div></div><div class="menu-item-price">3,75 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Martini Dry</div></div><div class="menu-item-price">3,75 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Martini Rosato</div></div><div class="menu-item-price">3,75 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Ginebra — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">G'Vine</div></div><div class="menu-item-price">7,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Gin Mare</div></div><div class="menu-item-price">7,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Hendrick's</div></div><div class="menu-item-price">7,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">The London No 1</div></div><div class="menu-item-price">7,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Puerto de Indias Fresas</div></div><div class="menu-item-price">5,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bombay Sapphire</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Seagram's</div></div><div class="menu-item-price">5,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tanqueray</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beefeater</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Rokiqué</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bombay</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Gordon's</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Innui Menorca Premium</div></div><div class="menu-item-price">6,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Nordés</div></div><div class="menu-item-price">4,50 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Vodka — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Absolut</div></div><div class="menu-item-price">4,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Beluga</div></div><div class="menu-item-price">5,00 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Ron — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Havanna Club 7</div></div><div class="menu-item-price">6,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Barceló</div></div><div class="menu-item-price">5,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Havanna Club 3</div></div><div class="menu-item-price">5,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Brugal</div></div><div class="menu-item-price">5,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bacardí</div></div><div class="menu-item-price">5,00 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Whisky — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cardhu 12 YO</div></div><div class="menu-item-price">6,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Chivas Regal 12 YO</div></div><div class="menu-item-price">6,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Jack Daniel's</div></div><div class="menu-item-price">6,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Johnny Walker Red Label</div></div><div class="menu-item-price">3,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">J&B</div></div><div class="menu-item-price">3,50 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Licores — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mezclados</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Hierbas, dulce, mix, seco</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Anni de Rosé</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Marc Brziard</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Absinthe</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Crema Catalana</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Licor 43</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Anos a estrella de Artà</div></div><div class="menu-item-price">3,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Ramazzotti</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Pernod</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fernet Branca</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Fermet Menta</div></div><div class="menu-item-price">3,70 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Grappa 2 cl</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Sambuca 2 cl</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Amaretto</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Jägermeister</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cointreau</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bachanán</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tia Maria</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Baileys</div></div><div class="menu-item-price">4,20 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Tequila 2 cl</div></div><div class="menu-item-price">2,95 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Limoncello</div></div><div class="menu-item-price">4,20 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Brandy — 4 cl</h3>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Carlos I</div></div><div class="menu-item-price">7,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Suau</div></div><div class="menu-item-price">7,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Cardenal Mendoza</div></div><div class="menu-item-price">7,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Magno</div></div><div class="menu-item-price">5,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Brandy 103</div></div><div class="menu-item-price">5,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Terry</div></div><div class="menu-item-price">4,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Rémy Martin</div></div><div class="menu-item-price">7,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Suau Orange</div></div><div class="menu-item-price">6,00 €</div></div>
+
+      <h3 class="menu-subcat" style="margin-top:28px;">Vino / Wein</h3>
+      <p style="font-size:13px;color:#7a7a7a;margin-bottom:12px;">Copa 125ml · Botella</p>
+
+      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#59103d;margin:12px 0 6px;">Tinto / Rotwein</p>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">J.L. Ferrer "Dues" <em style="font-weight:300;font-size:13px;">Cabernet Sauvignon y Montonega, Mallorca</em></div></div><div class="menu-item-price">4,70 € · 24,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Marqués Riscal <em style="font-weight:300;font-size:13px;">Reserva, Rioja</em></div></div><div class="menu-item-price">4,70 € · 27,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Portia <em style="font-weight:300;font-size:13px;">Jóvenz, Ribera del Duero</em></div></div><div class="menu-item-price">4,70 € · 24,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Alé (Merlot) <em style="font-weight:300;font-size:13px;">Mallorca</em></div></div><div class="menu-item-price">39,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Torres Mas Batllet Rosé <em style="font-weight:300;font-size:13px;">Penedès</em></div></div><div class="menu-item-price">35,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Binigrau "Novell" <em style="font-weight:300;font-size:13px;">Primaria Chardonnay, Mallorca</em></div></div><div class="menu-item-price">36,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Ses Ferriges <em style="font-weight:300;font-size:13px;">Cabernet, Merlot y Syrah, Mallorca</em></div></div><div class="menu-item-price">29,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Marqués Fiscal M <em style="font-weight:300;font-size:13px;">Tempranillo, Graciano</em></div></div><div class="menu-item-price">41,00 €</div></div>
+
+      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#59103d;margin:20px 0 6px;">Blanco / Weißwein</p>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">J.L. Ferrer "Dues" <em style="font-weight:300;font-size:13px;">Chardonnay y Montonega, Mallorca</em></div></div><div class="menu-item-price">4,70 € · 24,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Marqués Riscal <em style="font-weight:300;font-size:13px;">Rueda Orgánico</em></div></div><div class="menu-item-price">4,70 € · 27,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Torres Real Gastro <em style="font-weight:300;font-size:13px;">Blanca, Chardonnay y Moscatel, Mallorca</em></div></div><div class="menu-item-price">35,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mar de Frades <em style="font-weight:300;font-size:13px;">Albariño, Rías Baixas</em></div></div><div class="menu-item-price">38,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Quilbéu <em style="font-weight:300;font-size:13px;">Callet[o] Su Anna No Annia Nº Artura</em></div></div><div class="menu-item-price">38,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Muga Rosé <em style="font-weight:300;font-size:13px;">Garnacha, Maceración Rosé</em></div></div><div class="menu-item-price">38,00 €</div></div>
+
+      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#59103d;margin:20px 0 6px;">Rosado / Rosé</p>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">J.L. Ferrer "Dues" <em style="font-weight:300;font-size:13px;">Montenegro, Cabernet Sauvignon y Merlot, Mallorca</em></div></div><div class="menu-item-price">4,70 € · 24,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Bou Rosa <em style="font-weight:300;font-size:13px;">Rioja</em></div></div><div class="menu-item-price">4,70 € · 24,50 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Torres Blanc de Blanc <em style="font-weight:300;font-size:13px;">Chardonnay y Moscatel, Mallorca</em></div></div><div class="menu-item-price">35,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Torres Stairways to Heaven <em style="font-weight:300;font-size:13px;">Sauvignon Blanc, Chardonnay y Tempranillo, "Owners Edition"</em></div></div><div class="menu-item-price">38,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Quilbéu <em style="font-weight:300;font-size:13px;">Prensal, Callet[o] Su Anna Nº Artura</em></div></div><div class="menu-item-price">38,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Muga Blanc de Blancs <em style="font-weight:300;font-size:13px;">Mallorca</em></div></div><div class="menu-item-price">33,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">M. Galabret "Ken Castle" <em style="font-weight:300;font-size:13px;">Malvasia, Callet, Tempranillo, Syrah y Pinot Noir, Mallorca</em></div></div><div class="menu-item-price">31,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">J.L. Ferrer Veritas Reg <em style="font-weight:300;font-size:13px;">Mantonegro y Moll, Mallorca</em></div></div><div class="menu-item-price">33,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Maria Bella Rosé <em style="font-weight:300;font-size:13px;">Mantonegro, Syrah, Cabernet Sauvignon, Mallorca</em></div></div><div class="menu-item-price">29,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Muga Rosé <em style="font-weight:300;font-size:13px;">Garnacha, Maceración Rosé</em></div></div><div class="menu-item-price">38,00 €</div></div>
+
+      <p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#59103d;margin:20px 0 6px;">Cava</p>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mistinguett Brut</div></div><div class="menu-item-price">4,50 € · 25,00 €</div></div>
+      <div class="menu-item"><div class="menu-item-info"><div class="menu-item-name">Mistinguett Rosé</div></div><div class="menu-item-price">5,00 € · 28,00 €</div></div>
+
+      </div><!-- end bebidas-lista -->
+    </div><!-- end bebidas-inner -->
+  </section>
+
+  <!-- ALLERGENEN INFO + CTA -->
+  <main class="carta-content" style="padding-top:0;">
+    <div class="alergeninfo">
+      <h2 data-i18n="carta_alergen_h">Información sobre Alérgenos</h2>
+      <p data-i18n="carta_alergen_1">Este establecimiento cuenta con información sobre alérgenos de todos sus productos (Real Decreto 126/2015). Consulte por nuestra carta de alérgenos.</p>
+      <p data-i18n="carta_alergen_2">Este establecimiento cumple con lo establecido en el Real Decreto 1021/2022 en lo relativo a la prevención de parasitosis de anisakis en productos de pesca sin sufrir tratamientos térmicos.</p>
+      <p data-i18n="carta_iva">Todos nuestros precios incluyen IVA.</p>
+    </div>
+
+    <!-- WhatsApp CTA -->
+    <div style="text-align:center;margin-top:48px;padding:40px 0;border-top:1px solid #e8e0e0;">
+      <p style="font-size:15px;color:#7a7a7a;margin-bottom:20px;" data-i18n="carta_cta_txt">¿Te apetece? Reserva tu mesa directamente por WhatsApp.</p>
+      <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" data-i18n-href="whatsapp_href_reservar" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        <span data-i18n="btn_whatsapp">Reservar por WhatsApp</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2026 Nou Segle 12 · Plaza de L'Orient 1, Capdepera · +34 871 201 276</span>
+      <div class="footer-links">
+        <a href="#" data-i18n="footer_legal">Aviso Legal</a>
+        <a href="#" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" data-i18n="footer_cookies">Cookies</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Nou-Segle-12-100063488074478/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Nou Segle 12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <style>
+    /* ---- Contacto-specifieke stijlen ---- */
+
+    .contact-hero {
+      padding: 64px 40px 48px;
+      text-align: center;
+    }
+    .contact-hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 8px;
+    }
+    .contact-hero p {
+      font-size: 15px;
+      color: #7a7a7a;
+      font-weight: 300;
+    }
+
+    /* Kaart + info naast elkaar */
+    .contact-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* Google Maps embed */
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 100px;
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: block;
+    }
+
+    /* Info paneel */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .info-block {
+      padding-bottom: 32px;
+      border-bottom: 1px solid #e8e0e0;
+    }
+    .info-block:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-block h2 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7e1041;
+      margin-bottom: 14px;
+    }
+
+    .info-block p,
+    .info-block a {
+      font-size: 15px;
+      color: #3a3a3a;
+      line-height: 1.7;
+    }
+
+    .info-block a {
+      color: #3a3a3a;
+      transition: color 0.2s;
+    }
+    .info-block a:hover {
+      color: #7e1041;
+    }
+
+    /* Openingstijden tabel */
+    .uren-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .uren-table td {
+      padding: 5px 0;
+      font-size: 15px;
+      color: #3a3a3a;
+      line-height: 1.5;
+    }
+    .uren-table td:first-child {
+      font-weight: 600;
+      width: 50%;
+    }
+    .uren-table td:last-child {
+      color: #7a7a7a;
+    }
+    .uren-vandaag td {
+      color: #7e1041 !important;
+      font-weight: 600 !important;
+    }
+
+    /* Adres + telefoon iconen */
+    .info-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .info-line svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #7e1041;
+    }
+    .info-line:last-child {
+      margin-bottom: 0;
+    }
+
+    /* WhatsApp blok */
+    .reserveer-blok {
+      background: #faf7f7;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+    }
+    .reserveer-blok p {
+      font-size: 14px;
+      color: #7a7a7a;
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    /* Route beschrijving */
+    .route-blok {
+      background: #faf7f7;
+      border-radius: 10px;
+      padding: 24px 24px 20px;
+    }
+    .route-blok h2 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7e1041;
+      margin-bottom: 12px;
+    }
+    .route-blok p {
+      font-size: 14px;
+      color: #7a7a7a;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px 64px;
+        gap: 32px;
+      }
+      .map-wrap {
+        position: static;
+      }
+      .map-wrap iframe {
+        height: 320px;
+      }
+      .contact-hero {
+        padding: 48px 20px 32px;
+      }
+      .contact-hero h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATIE ==================== -->
+  <nav class="nav nav--solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12" style="height:72px;width:auto;">
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="carta.html" data-i18n="nav_carta">Carta</a></li>
+        <li><a href="quienes-somos.html" data-i18n="nav_quienes">Quiénes somos</a></li>
+        <li><a href="contacto.html" class="active" data-i18n="nav_contacto">Contacto</a></li>
+        <li>
+          <div class="lang-switch">
+            <a href="#" data-lang="es" class="active">ES</a>
+            <a href="#" data-lang="de">DE</a>
+            <a href="#" data-lang="en">EN</a>
+            <a href="#" data-lang="fr">FR</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HEADER ==================== -->
+  <div class="contact-hero">
+    <h1 data-i18n="contacto_title">Cómo llegar</h1>
+    <p>Plaza de L'Orient 1 · 07850 Capdepera, Mallorca</p>
+  </div>
+
+  <!-- ==================== KAART + INFO ==================== -->
+  <div class="contact-grid">
+
+    <!-- Google Maps embed -->
+    <div class="map-wrap">
+      <iframe
+        src="https://maps.google.com/maps?q=Nou+Segle+12,+Plaza+de+l%27Orient+1,+Capdepera,+Mallorca&hl=es&z=17&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Nou Segle 12 — Plaza de L'Orient 1, Capdepera"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Info paneel -->
+    <div class="contact-info">
+
+      <!-- Reserveer knop prominent bovenaan -->
+      <div class="reserveer-blok">
+        <p data-i18n="contacto_res_txt">Reserva tu mesa directamente por WhatsApp.<br>Te respondemos enseguida.</p>
+        <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" data-i18n-href="whatsapp_href_reservar" target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          <span data-i18n="btn_whatsapp">Reservar por WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- Openingstijden -->
+      <div class="info-block">
+        <h2 data-i18n="contacto_horario">Horario</h2>
+        <table class="uren-table">
+          <tr>
+            <td data-i18n="contacto_dia_lun">Lunes</td>
+            <td>08:30 – 23:00</td>
+          </tr>
+          <tr>
+            <td data-i18n="contacto_dia_mar">Martes</td>
+            <td>08:30 – 23:00</td>
+          </tr>
+          <tr>
+            <td data-i18n="contacto_dia_mie">Miércoles</td>
+            <td>08:30 – 23:00</td>
+          </tr>
+          <tr>
+            <td data-i18n="contacto_dia_jue">Jueves</td>
+            <td>08:30 – 23:00</td>
+          </tr>
+          <tr>
+            <td data-i18n="contacto_dia_vie">Viernes</td>
+            <td>08:30 – 23:00</td>
+          </tr>
+          <tr>
+            <td data-i18n="contacto_dia_sab">Sábado</td>
+            <td>08:30 – 23:00</td>
+          </tr>
+          <tr>
+            <td data-i18n="contacto_dia_dom">Domingo</td>
+            <td>08:30 – 23:00</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Adres & contact -->
+      <div class="info-block">
+        <h2 data-i18n="contacto_info_h2">Contacto</h2>
+
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>Plaza de L'Orient 1<br>07850 Capdepera, Mallorca</span>
+        </div>
+
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15z"/>
+          </svg>
+          <a href="tel:+34871201276">+34 871 201 276</a>
+        </div>
+
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#61a229;">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
+          </svg>
+          <a href="https://wa.me/34650895211" target="_blank" rel="noopener" style="color:#61a229;font-weight:600;"><span data-i18n="contacto_wa_label">WhatsApp reservas:</span> +34 650 89 52 11</a>
+        </div>
+
+        <div class="info-line" style="margin-top:8px;">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="color:#7e1041;">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener">@nou_segle_12</a>
+        </div>
+      </div>
+
+      <!-- Route -->
+      <div class="route-blok">
+        <h2 data-i18n="contacto_ruta_title">Cómo llegar</h2>
+        <p data-i18n="contacto_ruta_body">Nos encontramos en la Plaza de L'Orient, en el corazón del casco antiguo de Capdepera. Desde la carretera principal (Ma-15), sigue las indicaciones hacia el centro de Capdepera. Hay aparcamiento disponible en la plaza y en las calles adyacentes.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2026 Nou Segle 12 · Plaza de L'Orient 1, Capdepera · +34 871 201 276</span>
+      <div class="footer-links">
+        <a href="#" data-i18n="footer_legal">Aviso Legal</a>
+        <a href="#" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" data-i18n="footer_cookies">Cookies</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Nou-Segle-12-100063488074478/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

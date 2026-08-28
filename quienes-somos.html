@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiénes somos — Nou Segle 12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <style>
+
+    /* ---- Hero banner ---- */
+    .qs-hero {
+      padding: 72px 40px 56px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .qs-hero h1 {
+      font-size: 40px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 16px;
+    }
+    .qs-hero p {
+      font-size: 16px;
+      color: #7a7a7a;
+      font-weight: 300;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* ---- Michel uitgelicht — grote sectie ---- */
+    /*
+      Elementor-opbouw:
+      Container met achtergrond #faf7f7, 2 kolommen:
+      links Image-widget, rechts Heading + Text + Button widgets
+    */
+    .michel-uitgelicht {
+      background: #f5ede5;
+      padding: 80px 40px;
+    }
+    .michel-uitgelicht-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .michel-foto-groot {
+      position: relative;
+    }
+    .michel-foto-groot img,
+    .michel-foto-groot .placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .michel-quote {
+      font-size: 22px;
+      font-weight: 300;
+      color: #59103d;
+      font-style: italic;
+      line-height: 1.5;
+      border-left: 3px solid #f4aeb7;
+      padding-left: 20px;
+      margin: 24px 0 28px;
+    }
+    .michel-uitgelicht h2 {
+      font-size: 36px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 4px;
+    }
+    .michel-uitgelicht .rol {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a7a7a;
+      margin-bottom: 20px;
+    }
+    .michel-uitgelicht p {
+      font-size: 15px;
+      color: #3a3a3a;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    /* ---- Manuel Herzog ---- */
+    /*
+      Elementor-opbouw:
+      2-koloms container (wit), tekst links, foto rechts
+    */
+    .manuel-sectie {
+      padding: 80px 40px;
+    }
+    .manuel-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: center;
+    }
+    .manuel-tekst h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 4px;
+    }
+    .manuel-tekst .rol {
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a7a7a;
+      margin-bottom: 20px;
+    }
+    .manuel-tekst p {
+      font-size: 15px;
+      color: #3a3a3a;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .manuel-foto img,
+    .manuel-foto .placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    /* ---- Team slider ---- */
+    /*
+      Elementor-opbouw:
+      Image Carousel widget — beschikbaar in Elementor GRATIS.
+      Voeg foto's toe via de widget-instellingen.
+      Aantal zichtbare slides: 3 (desktop), 1 (mobiel).
+    */
+    .team-sectie {
+      background: #f5ede5;
+      padding: 72px 40px;
+    }
+    .team-header {
+      max-width: 1100px;
+      margin: 0 auto 40px;
+    }
+    .team-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #59103d;
+      margin-bottom: 6px;
+    }
+    .team-header p {
+      font-size: 15px;
+      color: #7a7a7a;
+      font-weight: 300;
+    }
+
+    /* Prototype slider: gewone foto-rij als visuele referentie */
+    /* In Elementor vervang je dit 1-op-1 met de Image Carousel widget */
+    .team-slider {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .team-slide {
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .team-slide img,
+    .team-slide .placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+    .team-slide-naam {
+      font-size: 13px;
+      font-weight: 600;
+      color: #3a3a3a;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .team-slider-note {
+      max-width: 1100px;
+      margin: 20px auto 0;
+      font-size: 12px;
+      font-weight: 300;
+      color: #7a7a7a;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* ---- Filosofie ---- */
+    /*
+      Elementor-opbouw:
+      Container wit, 3-koloms of 4-koloms met Icon + Heading + Text per blok
+      (Icon Box widget — beschikbaar in Elementor gratis)
+    */
+    .filosofie-sectie {
+      padding: 80px 40px;
+    }
+    .filosofie-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .filosofie-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .filosofie-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #59103d;
+    }
+    .filosofie-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .filosofie-item {
+      text-align: center;
+    }
+    .filosofie-foto {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .filosofie-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #3a3a3a;
+      margin-bottom: 8px;
+    }
+    .filosofie-item p {
+      font-size: 14px;
+      color: #7a7a7a;
+      line-height: 1.7;
+    }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 768px) {
+      .qs-hero {
+        padding: 48px 20px 40px;
+      }
+      .qs-hero h1 {
+        font-size: 28px;
+      }
+      .michel-uitgelicht {
+        padding: 48px 20px;
+      }
+      .michel-uitgelicht-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .michel-uitgelicht h2 {
+        font-size: 26px;
+      }
+      .michel-quote {
+        font-size: 18px;
+      }
+      .manuel-sectie {
+        padding: 48px 20px;
+      }
+      .manuel-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      /* Op mobiel: foto boven tekst */
+      .manuel-foto {
+        order: -1;
+      }
+      .team-sectie {
+        padding: 48px 20px;
+      }
+      .team-slider {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .filosofie-sectie {
+        padding: 48px 20px;
+      }
+      .filosofie-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAVIGATIE ==================== -->
+  <nav class="nav nav--solid">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12" style="height:72px;width:auto;">
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="carta.html" data-i18n="nav_carta">Carta</a></li>
+        <li><a href="quienes-somos.html" class="active" data-i18n="nav_quienes">Quiénes somos</a></li>
+        <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
+        <li>
+          <div class="lang-switch">
+            <a href="#" data-lang="es" class="active">ES</a>
+            <a href="#" data-lang="de">DE</a>
+            <a href="#" data-lang="en">EN</a>
+            <a href="#" data-lang="fr">FR</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== INTRO ==================== -->
+  <div class="qs-hero">
+    <span class="section-label" data-i18n="quienes_intro_label">Capdepera, Mallorca</span>
+    <h1 data-i18n="quienes_hero_title">Quiénes somos</h1>
+    <p data-i18n="quienes_intro_body">Nou Segle 12 se encuentra en la Plaza de L'Orient, en el corazón de Capdepera. Una terraza grande, una cocina abierta y un equipo apasionado — así es como entendemos la hospitalidad mediterránea.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ==================== MICHEL UITGELICHT ==================== -->
+  <!--
+    ELEMENTOR-OPBOUW:
+    Sectie met achtergrond #f5ede5
+    2-koloms container: links Image-widget, rechts Heading + Text + Button
+  -->
+  <section class="michel-uitgelicht">
+    <div class="michel-uitgelicht-inner">
+
+      <div class="michel-foto-groot">
+        <img src="Brand_assets/Images/Portret_Michel.png" alt="Michel Heijman — Nou Segle 12" style="width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;">
+      </div>
+
+      <div class="michel-tekst">
+        <span class="section-label" data-i18n="quienes_michel_label">El alma del restaurante</span>
+        <h2>Michel Heijman</h2>
+        <p class="rol" data-i18n="quienes_michel_rol">Anfitrión · Nou Segle 12</p>
+
+        <blockquote class="michel-quote" data-i18n="quienes_michel_quote">
+          "Para mí, recibir a los clientes no es un trabajo — es una vocación."
+        </blockquote>
+
+        <p data-i18n="quienes_michel_body">Michel Heijman es el alma de Nou Segle 12. Nacido en los Países Bajos, lleva más de 20 años ligado a la gastronomía de Capdepera y la Cala Ratjada. En ese tiempo ha convertido el restaurante en un lugar donde la hospitalidad no es una formalidad, sino una forma de vida.</p>
+
+        <a href="contacto.html" class="btn-secundair" data-i18n="quienes_michel_cta" style="margin-top:8px;">Reservar una mesa</a>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==================== TEAMFOTO'S SLIDER ==================== -->
+  <section class="team-sectie">
+    <div class="team-header">
+      <span class="section-label" data-i18n="quienes_team_label">Nuestro equipo</span>
+      <h2 data-i18n="quienes_team_title">Las personas detrás del restaurante</h2>
+    </div>
+
+    <div class="team-slider">
+      <div class="team-slide">
+        <img src="Brand_assets/Images/Teamlid_1.png" alt="Equipo Nou Segle 12" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;">
+      </div>
+      <div class="team-slide">
+        <img src="Brand_assets/Images/Teamlid_2.png" alt="Equipo Nou Segle 12" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;">
+      </div>
+      <div class="team-slide">
+        <img src="Brand_assets/Images/Teamlid_3.png" alt="Equipo Nou Segle 12" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;">
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==================== FILOSOFIE ==================== -->
+  <!--
+    ELEMENTOR-OPBOUW:
+    3-koloms sectie met Icon Box widget per kolom (Elementor gratis).
+    Kies een eenvoudig icoon uit de Elementor-bibliotheek.
+  -->
+  <section class="filosofie-sectie">
+    <div class="filosofie-inner">
+      <div class="filosofie-header">
+        <span class="section-label" data-i18n="quienes_filo_label">Nuestra filosofía</span>
+        <h2 data-i18n="quienes_filo_title">Lo que nos mueve</h2>
+      </div>
+
+      <div class="filosofie-grid">
+
+        <div class="filosofie-item">
+          <img class="filosofie-foto" src="Brand_assets/Images/DSC09468 kopie.JPG" alt="Hospitalidad auténtica">
+          <h3 data-i18n="quienes_filo_2_title">Hospitalidad auténtica</h3>
+          <p data-i18n="quienes_filo_2_body">Cada cliente es bienvenido como un amigo. Nos importa cómo te sientes, no solo lo que comes.</p>
+        </div>
+
+        <div class="filosofie-item">
+          <img class="filosofie-foto" src="Brand_assets/Images/DSC09730 kopie.JPG" alt="Ingredientes de temporada">
+          <h3 data-i18n="quienes_filo_1_title">Ingredientes de temporada</h3>
+          <p data-i18n="quienes_filo_1_body">Cocinamos con lo que el mercado nos ofrece cada día. Fresco, local y lleno de sabor mediterráneo.</p>
+        </div>
+
+        <div class="filosofie-item">
+          <img class="filosofie-foto" src="Brand_assets/Images/DSC00030 kopie.JPG" alt="Un lugar para todos">
+          <h3 data-i18n="quienes_filo_3_title">Un lugar para todos</h3>
+          <p data-i18n="quienes_filo_3_body">Familias, parejas, grupos de amigos — en Nou Segle 12 todo el mundo encuentra su sitio en la terraza.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA ==================== -->
+  <div style="text-align:center;padding:48px 40px;border-top:1px solid #e8e0e0;">
+    <span class="section-label" data-i18n="quienes_cta_label" style="display:block;margin-bottom:8px;">Plaza de L'Orient 1 · Capdepera</span>
+    <p data-i18n="quienes_cta_txt" style="font-size:15px;color:#7a7a7a;margin-bottom:24px;">¿Os esperamos esta semana?</p>
+    <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" data-i18n-href="whatsapp_href_reservar" target="_blank" rel="noopener" class="btn-whatsapp">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+      <span data-i18n="btn_whatsapp">Reservar por WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2026 Nou Segle 12 · Plaza de L'Orient 1, Capdepera · +34 871 201 276</span>
+      <div class="footer-links">
+        <a href="#" data-i18n="footer_legal">Aviso Legal</a>
+        <a href="#" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" data-i18n="footer_cookies">Cookies</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Nou-Segle-12-100063488074478/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

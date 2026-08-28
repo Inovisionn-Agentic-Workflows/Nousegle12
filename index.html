@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nou Segle 12 — Capdepera, Mallorca</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<script src="translations.js" defer></script>
+<body>
+
+  <!-- ==================== NAVIGATIE ==================== -->
+  <nav class="nav nav--transparent">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12" style="height:72px;width:auto;">
+      </a>
+
+      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="active" data-i18n="nav_home">Inicio</a></li>
+        <li><a href="carta.html" data-i18n="nav_carta">Carta</a></li>
+        <li><a href="quienes-somos.html" data-i18n="nav_quienes">Quiénes somos</a></li>
+        <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
+        <li>
+          <div class="lang-switch">
+            <a href="#" data-lang="es" class="active">ES</a>
+            <a href="#" data-lang="de">DE</a>
+            <a href="#" data-lang="en">EN</a>
+            <a href="#" data-lang="fr">FR</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-media" style="background-image: url('Brand_assets/Images/Sfeer_foto.jpg');"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Nou Segle 12</h1>
+      <p class="hero-sub" data-i18n="hero_sub">En el corazón de Capdepera</p>
+      <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" data-i18n-href="whatsapp_href_reservar" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        <span data-i18n="btn_whatsapp">Reservar por WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== MICHEL HEIJMAN ==================== -->
+  <section class="michel">
+    <div class="michel-inner">
+      <div class="michel-foto">
+        <img src="Brand_assets/Images/Groeps_foto.jpg" alt="Michel Heijman — Nou Segle 12" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;">
+      </div>
+      <div class="michel-tekst">
+        <span class="section-label" data-i18n="michel_label">El alma del restaurante</span>
+        <h2>Michel Heijman</h2>
+        <p data-i18n="michel_bio">Michel Heijman es el alma de Nou Segle 12. Nacido en los Países Bajos, lleva más de 20 años ligado a la gastronomía de Capdepera y la Cala Ratjada. Para Michel, recibir a los clientes no es un trabajo — es una vocación. Muchos huéspedes vuelven año tras año, no solo por la comida, sino por la forma en que Michel hace que cada visita se sienta especial.</p>
+        <a href="quienes-somos.html" class="btn-link" data-i18n="michel_link">Conoce a Michel →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==================== VIDEO SHOWCASE ==================== -->
+  <!--
+    ELEMENTOR-OPBOUW:
+    - Grote video: 1 Video-widget op volle breedte (YouTube-link invullen)
+    - Grid van 3: Sectie met 3 gelijke kolommen, elk een Video-widget
+    Alles 100% Elementor gratis nabouwbaar.
+  -->
+  <section class="video-showcase">
+    <div class="video-showcase-header">
+      <span class="section-label" data-i18n="video_label">En la cocina</span>
+      <h2 data-i18n="video_title">Lo hacemos con todo el amor</h2>
+    </div>
+
+    <!-- 5-koloms grid met kookvideos -->
+    <div class="video-grid-wrap">
+      <div class="video-grid">
+        <div class="video-grid-item">
+          <video autoplay muted loop playsinline>
+            <source src="Brand_assets/Video's/2 NOU SEGLE  kopie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-grid-item">
+          <video autoplay muted loop playsinline>
+            <source src="Brand_assets/Video's/3 NOU SEGLE  kopie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-grid-item">
+          <video autoplay muted loop playsinline>
+            <source src="Brand_assets/Video's/4 NOU SEGLE  kopie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-grid-item">
+          <video autoplay muted loop playsinline>
+            <source src="Brand_assets/Video's/5 NOU SEGLE 1 kopie.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-grid-item">
+          <video autoplay muted loop playsinline>
+            <source src="Brand_assets/Video's/5 NOU SEGLE -2 kopie.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:13px;color:#7a7a7a;font-weight:300;margin-top:16px;">
+        <span data-i18n="video_ig_text">Más vídeos en nuestro</span>
+        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" style="color:#7e1041;font-weight:600;">Instagram</a>
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==================== FOTOGALERIJ ==================== -->
+  <section class="galerij">
+    <div class="galerij-inner">
+      <div class="galerij-grid">
+        <img src="Brand_assets/Images/DSC09609 kopie.JPG" alt="Tapas en jamón op het terras" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/DSC00030 kopie.JPG" alt="Terras op de Plaza de L'Orient" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/DSC09581 kopie.JPG" alt="Tapas serveren met Nou Segle 12 muur" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/DSC00126 kopie.JPG" alt="Pasta met garnalen" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/DSC09945 kopie.JPG" alt="Steak met groenten en friet" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/DSC09734 kopie.JPG" alt="Avocado tartaar met rode bessen" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SFEER-BAND (parallax foto) ==================== -->
+  <section class="sfeer-band">
+    <div class="sfeer-band-content">
+      <p data-i18n="sfeer_quote">"Una terraza grande, una cocina abierta y un equipo apasionado — así es como entendemos la hospitalidad mediterránea."</p>
+      <span class="sfeer-naam" data-i18n="sfeer_naam">Nou Segle 12 · Capdepera, Mallorca</span>
+    </div>
+  </section>
+
+  <!-- ==================== REVIEWS ==================== -->
+  <!--
+    ELEMENTOR-OPBOUW:
+    3-koloms sectie, elke kolom een Text Editor widget met de reviewkaart.
+    Knop onderaan: Button widget met link naar Google Reviews.
+    100% Elementor gratis nabouwbaar.
+  -->
+  <section class="reviews-sectie">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <span class="section-label" data-i18n="reviews_label">Lo que dicen nuestros clientes</span>
+        <h2 data-i18n="reviews_title">Reseñas</h2>
+        <div class="reviews-sterren-totaal">
+          <span class="sterren">★★★★★</span>
+          <span class="score">4,4 · Google Reviews</span>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-kaart">
+          <div class="review-sterren">★★★★★</div>
+          <blockquote class="review-tekst">
+            "Fantastic experience and excellent food. We had lunch here with our two children (7 and 3). Staff were accommodating, food was excellent and the kids loved dipping in to the tapas with us. Hoping to go back again this holiday."
+          </blockquote>
+          <div class="review-auteur">
+            <div class="review-avatar">JS</div>
+            <div>
+              <div class="review-naam">Jennifer Sancroft</div>
+              <div class="review-datum">Local Guide · 4 months ago</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-kaart">
+          <div class="review-sterren">★★★★★</div>
+          <blockquote class="review-tekst">
+            "What a nice surprise riding into the village and finding Nou Segle 12. Great staff, extensive menu, something for everyone. The Pizza was a major hit, as was gazpacho."
+          </blockquote>
+          <div class="review-auteur">
+            <div class="review-avatar">DS</div>
+            <div>
+              <div class="review-naam">David Simkins</div>
+              <div class="review-datum">Local Guide · 3 months ago</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-kaart">
+          <div class="review-sterren">★★★★★</div>
+          <blockquote class="review-tekst">
+            "Amazing! The best food which we have had in Mallorca so far. Nice and polite staff. Very tasty food. Lovely atmosphere. We will definitely come back 😍 thank you!"
+          </blockquote>
+          <div class="review-auteur">
+            <div class="review-avatar">VK</div>
+            <div>
+              <div class="review-naam">Veronika Kocourová</div>
+              <div class="review-datum">een jaar geleden</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a href="https://maps.google.com/maps?q=Nou+Segle+12,+Capdepera&hl=es" target="_blank" rel="noopener" class="btn-secundair">
+          <span data-i18n="reviews_btn">Ver todas las reseñas en Google →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ==================== PRAKTISCH BLOK ==================== -->
+  <section class="praktisch">
+    <div class="praktisch-inner">
+      <div class="praktisch-item">
+        <h3 data-i18n="praktisch_horario">Horario</h3>
+        <p><span data-i18n="praktisch_dias">Lunes – Domingo</span><br><span class="highlight">08:30 – 23:00</span></p>
+      </div>
+      <div class="praktisch-item">
+        <h3 data-i18n="praktisch_ubicacion">Ubicación</h3>
+        <p>Plaza de L'Orient 1<br>07850 Capdepera, Mallorca</p>
+        <p style="margin-top:8px;font-size:13px;color:#7a7a7a;">+34 871 201 276</p>
+      </div>
+      <div class="praktisch-item">
+        <h3 data-i18n="praktisch_reservas">Reservas</h3>
+        <p style="margin-bottom:16px;" data-i18n="praktisch_res_txt">Reserva tu mesa directamente por WhatsApp.</p>
+        <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" data-i18n-href="whatsapp_href_reservar" target="_blank" rel="noopener" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          <span data-i18n="btn_whatsapp">Reservar por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span>© 2026 Nou Segle 12 · Plaza de L'Orient 1, Capdepera · +34 871 201 276</span>
+      <div class="footer-links">
+        <a href="#" data-i18n="footer_legal">Aviso Legal</a>
+        <a href="#" data-i18n="footer_privacy">Privacidad</a>
+        <a href="#" data-i18n="footer_cookies">Cookies</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/p/Nou-Segle-12-100063488074478/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
