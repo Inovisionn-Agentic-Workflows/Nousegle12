@@ -540,11 +540,11 @@ const TRANSLATIONS = {
     const links = document.querySelector('.nav-links');
     if (!toggle || !links) return;
 
-    toggle.addEventListener('click', (e) => {
-      e.stopPropagation();
+    toggle.onclick = function(e) {
+      if (e) e.stopPropagation();
       const isOpen = links.classList.toggle('open');
       toggle.classList.toggle('open', isOpen);
-    });
+    };
 
     links.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
