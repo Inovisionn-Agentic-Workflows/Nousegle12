@@ -167,32 +167,40 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 24px;
     }
     .team-slide {
-      border-radius: 10px;
+      background: #ffffff;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
     }
-    .team-slide img,
-    .team-slide .placeholder {
+    .team-slide img {
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
+      display: block;
+    }
+    .team-slide-content {
+      padding: 16px 18px 20px;
+      text-align: center;
+      flex-grow: 1;
     }
     .team-slide-naam {
-      font-size: 13px;
-      font-weight: 600;
-      color: #3a3a3a;
-      margin-top: 10px;
-      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      color: #59103d;
+      margin-bottom: 4px;
     }
-    .team-slider-note {
-      max-width: 1100px;
-      margin: 20px auto 0;
-      font-size: 12px;
-      font-weight: 300;
+    .team-slide-verhaal {
+      font-size: 13px;
       color: #7a7a7a;
-      font-style: italic;
+      line-height: 1.6;
+      font-weight: 300;
+      margin: 0;
+    }
       text-align: center;
     }
 
@@ -374,13 +382,25 @@
 
     <div class="team-slider">
       <div class="team-slide">
-        <img src="Brand_assets/Images/Teamlid_1.png" alt="Equipo Nou Segle 12" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/Teamlid_1.png" alt="Equipo Nou Segle 12">
+        <div class="team-slide-content">
+          <h3 class="team-slide-naam" data-i18n="team_1_name">Servicio & Sala</h3>
+          <p class="team-slide-verhaal" data-i18n="team_1_desc">Atención cálida, cercanía y sonrisas en nuestra terraza desde el primer momento.</p>
+        </div>
       </div>
       <div class="team-slide">
-        <img src="Brand_assets/Images/Teamlid_2.png" alt="Equipo Nou Segle 12" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/Teamlid_2.png" alt="Equipo Nou Segle 12">
+        <div class="team-slide-content">
+          <h3 class="team-slide-naam" data-i18n="team_2_name">Cocina & Pasión</h3>
+          <p class="team-slide-verhaal" data-i18n="team_2_desc">Platos mediterráneos elaborados a diario con ingredientes frescos de la isla.</p>
+        </div>
       </div>
       <div class="team-slide">
-        <img src="Brand_assets/Images/Teamlid_3.png" alt="Equipo Nou Segle 12" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;">
+        <img src="Brand_assets/Images/Teamlid_3.png" alt="Equipo Nou Segle 12">
+        <div class="team-slide-content">
+          <h3 class="team-slide-naam" data-i18n="team_3_name">Bar & Ambiente</h3>
+          <p class="team-slide-verhaal" data-i18n="team_3_desc">Vinos mallorquines, sangría casera y copas preparadas para disfrutar en la plaza.</p>
+        </div>
       </div>
     </div>
   </section>
