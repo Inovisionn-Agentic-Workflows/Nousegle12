@@ -529,6 +529,36 @@ const TRANSLATIONS = {
 
     /* Pas direct toe bij laden */
     applyLang(getCurrentLang());
+
+    /* Mobiele navigatie initialiseren */
+    initMobileNav();
+  }
+
+  /* Mobile navigatie toggle & buiten-klik sluiten */
+  function initMobileNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (!toggle || !links) return;
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = links.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+    });
+
+    links.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!links.contains(e.target) && !toggle.contains(e.target)) {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+      }
+    });
   }
 
   if (document.readyState === 'loading') {
