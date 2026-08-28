@@ -715,16 +715,32 @@ a {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
+  border-radius: 6px;
+  z-index: 101;
 }
 
 .nav-toggle span {
   display: block;
   width: 24px;
-  height: 2px;
+  height: 2.5px;
   background: #3a3a3a;
   margin: 5px 0;
-  transition: 0.2s;
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
+}
+
+/* X-animatie bij open menu */
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+  background: #59103d !important;
+}
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background: #59103d !important;
 }
 
 /* ============================================
@@ -732,6 +748,9 @@ a {
    ============================================ */
 @media (max-width: 768px) {
   .nav {
+    padding: 14px 20px;
+  }
+  .nav--solid {
     padding: 12px 20px;
   }
 
@@ -747,22 +766,81 @@ a {
     left: 0;
     right: 0;
     background: #ffffff;
-    border-bottom: 1px solid #f0eded;
-    padding: 20px;
+    border-bottom: 1px solid #ede5d8;
+    padding: 24px 20px;
     gap: 16px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    z-index: 999;
   }
 
   .nav-links.open {
     display: flex;
+    animation: navFadeIn 0.2s ease-out;
+  }
+
+  @keyframes navFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Zorg dat links in mobiele dropdown ALTIJD donker en leesbaar zijn */
+  .nav--transparent .nav-links a,
+  .nav-links a {
+    color: #3a3a3a !important;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  .nav--transparent .nav-links a:hover,
+  .nav--transparent .nav-links a.active,
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #7e1041 !important;
+    font-weight: 700;
+  }
+
+  .lang-switch {
+    width: 100%;
+    justify-content: center;
+    padding-top: 14px;
+    margin-top: 4px;
+    border-top: 1px solid #f0eded;
+    gap: 14px;
+  }
+
+  .nav--transparent .lang-switch a,
+  .lang-switch a {
+    color: #7a7a7a !important;
+    font-size: 14px;
+    padding: 4px 8px;
+    width: auto;
+  }
+
+  .nav--transparent .lang-switch a:hover,
+  .nav--transparent .lang-switch a.active,
+  .lang-switch a:hover,
+  .lang-switch a.active {
+    color: #7e1041 !important;
+    font-weight: 700;
   }
 
   .hero {
-    height: 70vh;
-    min-height: 400px;
+    height: 75vh;
+    min-height: 440px;
   }
 
   .hero-content {
-    padding: 32px 20px;
+    padding: 32px 20px 40px;
   }
 
   .hero-content h1 {
@@ -793,6 +871,7 @@ a {
 
   .galerij-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   .praktisch {
@@ -809,7 +888,7 @@ a {
   }
 
   .video-showcase-header {
-    padding: 0 20px 24px;
+    padding: 0 20px 20px;
   }
 
   .video-main-wrap {
@@ -822,12 +901,13 @@ a {
 
   .video-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 10px;
   }
 
   .footer-content {
     flex-direction: column;
     text-align: center;
+    gap: 16px;
   }
 
   .reviews-sectie {
@@ -842,5 +922,12 @@ a {
   /* Fixed background doesn't work well on iOS — fallback to scroll */
   .sfeer-band {
     background-attachment: scroll;
+    padding: 64px 20px;
+  }
+
+  .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
   }
 }
