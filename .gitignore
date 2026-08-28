@@ -1,0 +1,31 @@
+.DS_Store
+.claude/
+*.pdf
+
+# Only track website assets, ignore unreferenced raw camera footage
+Brand_assets/Images/*
+!Brand_assets/Images/Portret_Michel.png
+!Brand_assets/Images/Teamlid_1.png
+!Brand_assets/Images/Teamlid_2.png
+!Brand_assets/Images/Teamlid_3.png
+!Brand_assets/Images/Nousegle12_logo.png
+!Brand_assets/Images/Sfeer_foto.jpg
+!Brand_assets/Images/Groeps_foto.jpg
+!Brand_assets/Images/DSC00030 kopie.JPG
+!Brand_assets/Images/DSC00126 kopie.JPG
+!Brand_assets/Images/DSC09468 kopie.JPG
+!Brand_assets/Images/DSC09552 kopie.JPG
+!Brand_assets/Images/DSC09581 kopie.JPG
+!Brand_assets/Images/DSC09609 kopie.JPG
+!Brand_assets/Images/DSC09730 kopie.JPG
+!Brand_assets/Images/DSC09734 kopie.JPG
+!Brand_assets/Images/DSC09920 kopie.JPG
+!Brand_assets/Images/DSC09945 kopie.JPG
+!Brand_assets/Images/DSC09960 kopie.JPG
+
+Brand_assets/Video's/*
+!Brand_assets/Video's/2 NOU SEGLE  kopie.mp4
+!Brand_assets/Video's/3 NOU SEGLE  kopie.mp4
+!Brand_assets/Video's/4 NOU SEGLE  kopie.mp4
+!Brand_assets/Video's/5 NOU SEGLE 1 kopie.mp4
+!Brand_assets/Video's/5 NOU SEGLE -2 kopie.mp4
