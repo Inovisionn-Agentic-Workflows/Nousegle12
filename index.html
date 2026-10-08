@@ -373,6 +373,237 @@
       line-height: 1.7;
     }
 
+    /* ======== EN LA COCINA VIDEOS ======== */
+    .cocina-videos {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .cocina-video-item {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #1a1a1a;
+    }
+    .cocina-video-item video {
+      width: 100%;
+      aspect-ratio: 9/16;
+      object-fit: cover;
+      display: block;
+    }
+    .video-play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .video-play-overlay span {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.85);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #993366;
+      padding-left: 3px;
+    }
+
+    /* ======== NUESTRA COCINA FOTOS ======== */
+    .cocina-fotos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ======== INSTAGRAM GRID ======== */
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .btn-ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #993366;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-ig:hover { background: #AF3B75; }
+
+    /* ======== VEN A VERNOS ======== */
+    .ven-a-vernos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .ven-foto {
+      min-height: 360px;
+      overflow: hidden;
+    }
+    .ven-foto .placeholder {
+      border-radius: 0;
+    }
+    .ven-info {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 56px 64px;
+    }
+    .ven-info h2 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #29211F;
+      margin-bottom: 28px;
+    }
+    .ven-adres {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      color: #706A66;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .ven-adres svg { flex-shrink: 0; margin-top: 3px; }
+    .ven-adres strong { color: #29211F; font-weight: 700; }
+    .btn-ubicacion {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #993366;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 2px solid #993366;
+      padding: 12px 24px;
+      border-radius: 40px;
+      text-decoration: none;
+      width: fit-content;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-ubicacion:hover { background: #993366; color: #ffffff; }
+
+    /* ======== FOOTER FINAL ======== */
+    .footer-final {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .footer-final-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+    .footer-final-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(25, 8, 20, 0.78);
+    }
+    .footer-final-content {
+      position: relative;
+      z-index: 1;
+      padding: 72px 40px 48px;
+      color: #ffffff;
+    }
+    .footer-final-cta {
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      color: #ffffff;
+      margin-bottom: 28px;
+      line-height: 1.3;
+    }
+    .footer-final-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #993366;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background 0.2s;
+      margin-bottom: 32px;
+    }
+    .footer-final-btn:hover { background: #AF3B75; }
+    .footer-final-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+    .footer-final-icons a {
+      color: rgba(255,255,255,0.7);
+      transition: color 0.2s;
+    }
+    .footer-final-icons a:hover { color: #ffffff; }
+    .footer-final-logo {
+      height: 56px;
+      margin: 0 auto 12px;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+    .footer-final-naam {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+    .footer-final-sub {
+      font-size: 12px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+    }
+    .footer-final-ciudad {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+    .footer-final-legal {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .footer-final-legal a {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+    }
+    .footer-final-legal a:hover { color: rgba(255,255,255,0.8); }
+
     /* ======== RESPONSIVE ======== */
     @media (max-width: 768px) {
       .nav-v2 { padding: 0 20px; }
@@ -405,6 +636,12 @@
       .personas { padding: 48px 20px; }
       .personas-grid { grid-template-columns: 1fr; gap: 24px; }
       .cta-reservar { padding: 24px 20px; }
+      .cocina-videos { grid-template-columns: repeat(2, 1fr); }
+      .cocina-fotos-grid { grid-template-columns: repeat(2, 1fr); }
+      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
+      .ven-a-vernos { grid-template-columns: 1fr; }
+      .ven-info { padding: 40px 20px; }
+      .footer-final-cta { font-size: 22px; }
     }
   </style>
 </head>
@@ -544,87 +781,140 @@
     </div>
   </section>
 
-  <hr class="divider">
-
-  <!-- ======== EN LA COCINA (videos) ======== -->
-  <section class="video-showcase" id="galeria">
-    <div class="video-showcase-header">
-      <span class="section-label">En la cocina</span>
-      <h2 style="font-size:28px;font-weight:800;color:#AF3B75;margin-bottom:0;">Lo hacemos con todo el amor</h2>
+  <!-- ======== EN LA COCINA ======== -->
+  <section id="galeria" style="padding:64px 40px 48px;text-align:center;background:#ffffff;">
+    <h2 style="font-size:20px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#29211F;margin-bottom:6px;">En la cocina</h2>
+    <p style="font-size:14px;color:#706A66;font-weight:300;margin-bottom:36px;">Lo hacemos con todo amor</p>
+    <div class="cocina-videos">
+      <div class="cocina-video-item">
+        <video autoplay muted loop playsinline>
+          <source src="Brand_assets/Video's/1 NOU SEGLE  kopie.mp4" type="video/mp4">
+        </video>
+        <div class="video-play-overlay"><span>&#9654;</span></div>
+      </div>
+      <div class="cocina-video-item">
+        <video autoplay muted loop playsinline>
+          <source src="Brand_assets/Video's/2 NOU SEGLE  kopie.mp4" type="video/mp4">
+        </video>
+        <div class="video-play-overlay"><span>&#9654;</span></div>
+      </div>
+      <div class="cocina-video-item">
+        <video autoplay muted loop playsinline>
+          <source src="Brand_assets/Video's/3 NOU SEGLE  kopie.mp4" type="video/mp4">
+        </video>
+        <div class="video-play-overlay"><span>&#9654;</span></div>
+      </div>
+      <div class="cocina-video-item">
+        <video autoplay muted loop playsinline>
+          <source src="Brand_assets/Video's/4 NOU SEGLE  kopie.mp4" type="video/mp4">
+        </video>
+        <div class="video-play-overlay"><span>&#9654;</span></div>
+      </div>
+      <div class="cocina-video-item">
+        <video autoplay muted loop playsinline>
+          <source src="Brand_assets/Video's/5 NOU SEGLE 1 kopie.mp4" type="video/mp4">
+        </video>
+        <div class="video-play-overlay"><span>&#9654;</span></div>
+      </div>
     </div>
-    <div class="video-grid-wrap">
-      <div class="video-grid">
-        <div class="video-grid-item">
-          <video autoplay muted loop playsinline>
-            <source src="Brand_assets/Video's/1 NOU SEGLE  kopie.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-grid-item">
-          <video autoplay muted loop playsinline>
-            <source src="Brand_assets/Video's/2 NOU SEGLE  kopie.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-grid-item">
-          <video autoplay muted loop playsinline>
-            <source src="Brand_assets/Video's/3 NOU SEGLE  kopie.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-grid-item">
-          <video autoplay muted loop playsinline>
-            <source src="Brand_assets/Video's/4 NOU SEGLE  kopie.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-grid-item">
-          <video autoplay muted loop playsinline>
-            <source src="Brand_assets/Video's/5 NOU SEGLE 1 kopie.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="video-grid-item">
-          <video autoplay muted loop playsinline>
-            <source src="Brand_assets/Video's/5 NOU SEGLE -2 kopie.mp4" type="video/mp4">
-          </video>
+  </section>
+
+  <!-- ======== NUESTRA COCINA EN IMÁGENES ======== -->
+  <section style="padding:56px 40px;text-align:center;background:#F7F2EA;">
+    <h2 style="font-size:20px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#29211F;margin-bottom:12px;">Nuestra cocina en imágenes</h2>
+    <div class="section-underline" style="margin-bottom:32px;"></div>
+    <div class="cocina-fotos-grid">
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 1</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 2</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 3</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 4</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 5</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 6</div>
+    </div>
+  </section>
+
+  <!-- ======== ¿QUIERES VER MÁS? ======== -->
+  <section style="padding:56px 40px;text-align:center;background:#ffffff;">
+    <h2 style="font-size:20px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#29211F;margin-bottom:12px;">¿Quieres ver más?</h2>
+    <p style="font-size:14px;color:#706A66;margin-bottom:28px;">
+      Visita nuestro Instagram
+      <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" style="color:#993366;font-weight:600;margin-left:6px;display:inline-flex;align-items:center;gap:4px;vertical-align:middle;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#993366"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        @nou_segle_12
+      </a>
+    </p>
+    <div class="instagram-grid">
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 1</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 2</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 3</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 4</div>
+    </div>
+    <div style="margin-top:28px;">
+      <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" class="btn-ig">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        Síguenos en Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- ======== UN LUGAR PARA TODOS ======== -->
+  <section style="padding:64px 40px 0;text-align:center;background:#ffffff;">
+    <h2 style="font-size:20px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#29211F;margin-bottom:12px;">Un lugar para todos</h2>
+    <div class="section-underline" style="margin-bottom:24px;"></div>
+    <p style="font-size:15px;color:#706A66;line-height:1.8;max-width:580px;margin:0 auto 40px;">En pareja, en familia o entre amigos, nuestra terraza es un lugar de encuentro donde compartir buenos momentos, sentirse como en casa y disfrutar sin prisas.</p>
+    <div class="placeholder" style="width:100%;aspect-ratio:16/7;border-radius:0;max-width:100%;">Foto terraza atmosférica</div>
+  </section>
+
+  <!-- ======== VEN A VERNOS ======== -->
+  <section class="ven-a-vernos">
+    <div class="ven-foto">
+      <div class="placeholder" style="width:100%;height:100%;min-height:320px;border-radius:0;">Foto Capdepera / castillo</div>
+    </div>
+    <div class="ven-info">
+      <h2>Ven a vernos</h2>
+      <div class="ven-adres">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#993366"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div>
+          <strong>Nou Segle 12</strong><br>
+          Plaça de l'Orient<br>
+          Capdepera · Mallorca
         </div>
       </div>
-      <p style="text-align:center;font-size:13px;color:#706A66;font-weight:300;margin-top:16px;">
-        Más vídeos en nuestro
-        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" style="color:#993366;font-weight:600;">Instagram</a>
-      </p>
+      <a href="https://maps.google.com/?q=Plaza+de+L'Orient+1,+07850+Capdepera,+Mallorca" target="_blank" rel="noopener" class="btn-ubicacion">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Ver ubicación
+      </a>
     </div>
   </section>
 
   <!-- ======== FOOTER ======== -->
-  <footer class="footer footer--dark">
-    <div class="footer-bg" style="background-image: url('Brand_assets/Images/Sfeer_foto.jpg');"></div>
-    <div class="footer-dark-overlay"></div>
-    <div class="footer-dark-content">
-      <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12" class="footer-logo">
-      <div class="footer-info">
-        <p class="footer-nombre">Nou Segle 12</p>
-        <p>Plaza de L'Orient 1<br>07850 Capdepera, Mallorca</p>
-        <p>+34 871 201 276</p>
-      </div>
-      <p class="footer-cta-text">¡Te esperamos en Nou Segle 12!</p>
-      <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" target="_blank" rel="noopener" class="btn-whatsapp">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-        <span>Reservar mesa</span>
+  <footer class="footer-final">
+    <div class="footer-final-bg" style="background-image:url('Brand_assets/Images/Sfeer_foto.jpg');"></div>
+    <div class="footer-final-overlay"></div>
+    <div class="footer-final-content">
+      <p class="footer-final-cta">Te esperamos en Nou Segle 12</p>
+      <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" target="_blank" rel="noopener" class="footer-final-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 12H7v-1c0-2.67 3.33-4 5-4s5 1.33 5 4v1z"/></svg>
+        Reservar mesa
       </a>
-      <div class="footer-bottom">
-        <div class="footer-social">
-          <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          </a>
-          <a href="https://www.facebook.com/p/Nou-Segle-12-100063488074478/" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </a>
-          <a href="https://maps.google.com/?q=Plaza+de+L'Orient+1,+07850+Capdepera,+Mallorca" target="_blank" rel="noopener" aria-label="Ubicación en Google Maps">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </a>
-        </div>
-        <div class="footer-links">
-          <a href="aviso-legal.html">Aviso Legal</a>
-          <a href="privacidad.html">Privacidad</a>
-        </div>
-        <span class="footer-copy">© 2026 Nou Segle 12</span>
+      <div class="footer-final-icons">
+        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://wa.me/34650895211" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+        </a>
+        <a href="https://maps.google.com/?q=Plaza+de+L'Orient+1,+07850+Capdepera,+Mallorca" target="_blank" rel="noopener" aria-label="Ubicación">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </a>
+      </div>
+      <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12" class="footer-final-logo">
+      <p class="footer-final-naam">NOU SEGLE 12</p>
+      <p class="footer-final-sub">Vinos &amp; Tapas</p>
+      <p class="footer-final-ciudad">CAPDEPERA · MALLORCA</p>
+      <div class="footer-final-legal">
+        <a href="aviso-legal.html">Aviso Legal</a>
+        <a href="privacidad.html">Privacidad</a>
       </div>
     </div>
   </footer>
