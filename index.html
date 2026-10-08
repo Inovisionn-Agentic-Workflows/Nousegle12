@@ -3,79 +3,555 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nou Segle 12 — Capdepera, Mallorca</title>
+  <title>Nou Segle 12 — Vinos & Tapas · Capdepera, Mallorca</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ======== NAV ======== */
+    .nav-v2 {
+      background: #ffffff;
+      border-bottom: 1px solid #e8ddd4;
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+    }
+    .nav-v2-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-v2-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-v2-logo img {
+      height: 52px;
+      width: auto;
+    }
+    .nav-v2-logo-tekst {
+      line-height: 1.2;
+    }
+    .nav-v2-logo-naam {
+      font-size: 13px;
+      font-weight: 800;
+      color: #29211F;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .nav-v2-logo-sub {
+      font-size: 11px;
+      font-weight: 300;
+      color: #706A66;
+      font-style: italic;
+    }
+    .nav-v2-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-v2-links a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #29211F;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-v2-links a:hover,
+    .nav-v2-links a.active {
+      color: #993366;
+    }
+    .nav-v2-links .nav-icon a {
+      color: #29211F;
+      display: flex;
+      align-items: center;
+    }
+    .nav-v2-links .nav-icon a svg {
+      width: 18px;
+      height: 18px;
+    }
+    .nav-v2-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #993366;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 28px;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-v2-btn:hover {
+      background: #AF3B75;
+    }
+    .nav-v2-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-v2-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #29211F;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    /* ======== CAROUSEL ======== */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      height: 70vh;
+      min-height: 460px;
+      background: #29211F;
+    }
+    .carousel-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+    }
+    .carousel-slide-1 { background-image: url('Brand_assets/Images/Sfeer_foto.jpg'); }
+    .carousel-slide-2 { background-color: #3a2030; }
+    .carousel-slide-3 { background-color: #2a1828; }
+    .carousel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(40,10,30,0.65) 0%, rgba(40,10,30,0.1) 60%, transparent 100%);
+    }
+    .carousel-text {
+      position: absolute;
+      bottom: 80px;
+      left: 48px;
+      color: #ffffff;
+      z-index: 2;
+    }
+    .carousel-text h1 {
+      font-size: 48px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.15;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    /* Prev arrow */
+    .carousel-prev {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      z-index: 3;
+      transition: background 0.2s;
+    }
+    .carousel-prev:hover { background: rgba(255,255,255,0.35); }
+    /* Dots */
+    .carousel-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 3;
+    }
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .carousel-dot.active { background: #ffffff; }
+
+    /* ======== CTA BLOCK ======== */
+    .cta-reservar {
+      padding: 32px 40px;
+      text-align: center;
+      background: #ffffff;
+      border-bottom: 1px solid #e8ddd4;
+    }
+    .cta-reservar a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #993366;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cta-reservar a:hover { background: #AF3B75; }
+    .cta-reservar svg { width: 18px; height: 18px; fill: #ffffff; }
+
+    /* ======== MICHEL ======== */
+    .michel-v2 {
+      padding: 72px 40px;
+      background: #ffffff;
+    }
+    .michel-v2-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .michel-v2-foto img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .michel-v2-tekst .alma-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #993366;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .michel-v2-tekst h2 {
+      font-size: 38px;
+      font-weight: 800;
+      color: #29211F;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .michel-v2-tekst .michel-intro {
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 300;
+      color: #29211F;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .michel-v2-tekst .michel-intro strong {
+      font-style: normal;
+      font-weight: 700;
+    }
+    .michel-v2-tekst .michel-body {
+      font-size: 15px;
+      color: #706A66;
+      line-height: 1.8;
+    }
+
+    /* ======== QUIÉNES SOMOS ======== */
+    .quienes-v2 {
+      padding: 72px 40px;
+      background: #F7F2EA;
+      text-align: center;
+    }
+    .quienes-v2-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .quienes-v2 h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #29211F;
+      margin-bottom: 14px;
+    }
+    .section-underline {
+      width: 48px;
+      height: 2px;
+      background: #993366;
+      margin: 0 auto 32px;
+    }
+    .quienes-v2 p {
+      font-size: 15px;
+      color: #706A66;
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+    .quienes-v2 p:last-child {
+      font-weight: 700;
+      color: #29211F;
+      margin-bottom: 0;
+    }
+
+    /* ======== TEAM FOTO ======== */
+    .team-foto-sectie {
+      background: #ffffff;
+    }
+    .team-foto-sectie img {
+      width: 100%;
+      display: block;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    /* ======== LAS PERSONAS ======== */
+    .personas {
+      padding: 72px 40px;
+      background: #ffffff;
+      text-align: center;
+    }
+    .personas-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .personas h2 {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #29211F;
+      margin-bottom: 14px;
+    }
+    .personas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .persona-item img,
+    .persona-item .placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    .persona-item h4 {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #29211F;
+      margin-bottom: 10px;
+    }
+    .persona-item p {
+      font-size: 13px;
+      color: #706A66;
+      line-height: 1.7;
+    }
+
+    /* ======== RESPONSIVE ======== */
+    @media (max-width: 768px) {
+      .nav-v2 { padding: 0 20px; }
+      .nav-v2-links { display: none; }
+      .nav-v2-btn-wrap { display: none; }
+      .nav-v2-toggle { display: block; }
+      .nav-v2-inner { height: 60px; }
+      .nav-v2-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-bottom: 1px solid #e8ddd4;
+        padding: 20px;
+        gap: 16px;
+        z-index: 999;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      }
+      .nav-v2-links a { font-size: 14px; }
+      .carousel { height: 55vh; min-height: 360px; }
+      .carousel-text { left: 20px; bottom: 60px; }
+      .carousel-text h1 { font-size: 28px; }
+      .michel-v2 { padding: 48px 20px; }
+      .michel-v2-inner { grid-template-columns: 1fr; gap: 28px; }
+      .michel-v2-tekst h2 { font-size: 28px; }
+      .quienes-v2 { padding: 48px 20px; }
+      .personas { padding: 48px 20px; }
+      .personas-grid { grid-template-columns: 1fr; gap: 24px; }
+      .cta-reservar { padding: 24px 20px; }
+    }
+  </style>
 </head>
-<script src="translations.js" defer></script>
 <body>
 
-  <!-- ==================== NAVIGATIE ==================== -->
-  <nav class="nav nav--transparent">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12" style="height:72px;width:auto;">
+  <!-- ======== NAVIGATIE V2 ======== -->
+  <nav class="nav-v2">
+    <div class="nav-v2-inner">
+
+      <a href="index.html" class="nav-v2-logo">
+        <img src="Brand_assets/Images/Nousegle12_logo.png" alt="Nou Segle 12">
+        <div class="nav-v2-logo-tekst">
+          <div class="nav-v2-logo-naam">Nou Segle 12</div>
+          <div class="nav-v2-logo-sub">Vinos &amp; Tapas</div>
+        </div>
       </a>
 
-      <button class="nav-toggle" aria-label="Menu">
+      <button class="nav-v2-toggle" aria-label="Menu" id="navToggle">
         <span></span><span></span><span></span>
       </button>
 
-      <ul class="nav-links">
-        <li><a href="index.html" class="active" data-i18n="nav_home">Inicio</a></li>
-        <li><a href="carta.html" data-i18n="nav_carta">Carta</a></li>
-        <li><a href="quienes-somos.html" data-i18n="nav_quienes">Quiénes somos</a></li>
-        <li><a href="contacto.html" data-i18n="nav_contacto">Contacto</a></li>
-        <li>
-          <div class="lang-switch">
-            <a href="#" data-lang="es" class="active">ES</a>
-            <a href="#" data-lang="de">DE</a>
-            <a href="#" data-lang="en">EN</a>
-            <a href="#" data-lang="fr">FR</a>
-          </div>
+      <ul class="nav-v2-links" id="navLinks">
+        <li><a href="index.html" class="active">Inicio</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="carta.html">Nuestra cocina</a></li>
+        <li><a href="index.html#galeria">Galería</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li class="nav-icon">
+          <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
         </li>
       </ul>
+
+      <div class="nav-v2-btn-wrap">
+        <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" target="_blank" rel="noopener" class="nav-v2-btn">
+          Reservar mesa
+        </a>
+      </div>
+
     </div>
   </nav>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="hero">
-    <div class="hero-media" style="background-image: url('Brand_assets/Images/Sfeer_foto.jpg');"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <p class="hero-sub" data-i18n="hero_sub">En el corazón<br>de Capdepera...</p>
-      <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" data-i18n-href="whatsapp_href_reservar" target="_blank" rel="noopener" class="btn-whatsapp">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.818-6.3-2.187l-.44-.362-3.2 1.073 1.073-3.2-.362-.44A9.955 9.955 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
-        <span data-i18n="btn_reservar_mesa">Reservar mesa</span>
-      </a>
+  <!-- ======== HERO CAROUSEL ======== -->
+  <section class="carousel" aria-label="Galería principal">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide carousel-slide-1">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-text">
+          <h1>En el corazón<br>de Capdepera...</h1>
+        </div>
+      </div>
+      <div class="carousel-slide carousel-slide-2">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-text">
+          <h1>En el corazón<br>de Capdepera...</h1>
+        </div>
+      </div>
+      <div class="carousel-slide carousel-slide-3">
+        <div class="carousel-overlay"></div>
+        <div class="carousel-text">
+          <h1>En el corazón<br>de Capdepera...</h1>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-prev" id="carouselPrev" aria-label="Anterior">&#8592;</button>
+
+    <div class="carousel-dots">
+      <button class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+      <button class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
     </div>
   </section>
 
-  <!-- ==================== MICHEL HEIJMAN ==================== -->
-  <section class="michel">
-    <div class="michel-inner">
-      <div class="michel-foto">
+  <!-- ======== CTA RESERVAR MESA ======== -->
+  <div class="cta-reservar">
+    <a href="https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm5 12H7v-1c0-2.67 3.33-4 5-4s5 1.33 5 4v1z"/></svg>
+      Reservar mesa
+    </a>
+  </div>
+
+  <!-- ======== MICHEL ======== -->
+  <section class="michel-v2">
+    <div class="michel-v2-inner">
+      <div class="michel-v2-foto">
         <img src="Brand_assets/Images/MICHEL_FOTO.jpg" alt="Michel Heijman — Nou Segle 12">
       </div>
-      <div class="michel-tekst">
-        <span class="section-label" data-i18n="michel_label">El alma del restaurante</span>
+      <div class="michel-v2-tekst">
+        <span class="alma-label">El alma de Nou Segle</span>
         <h2>Michel Heijman</h2>
-        <p data-i18n="michel_bio">Michel Heijman es el alma de Nou Segle 12. Nacido en los Países Bajos, lleva más de 20 años ligado a la gastronomía de Capdepera y la Cala Ratjada. Para Michel, recibir a los clientes no es un trabajo — es una vocación. Muchos huéspedes vuelven año tras año, no solo por la comida, sino por la forma en que Michel hace que cada visita se sienta especial.</p>
-        <a href="quienes-somos.html" class="btn-link" data-i18n="michel_link">Conoce a Michel →</a>
+        <p class="michel-intro">Apasionado del Mediterráneo, dejó su Holanda natal para disfrutar de la vida poco a poco en <strong>Capdepera</strong>.</p>
+        <p class="michel-body">Su cercanía y su pasión por la hospitalidad, que comparte con todo su equipo, han convertido Nou Segle 12 en mucho más que un restaurante: un lugar donde sentirse como en casa y al que siempre apetece volver.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== QUIÉNES SOMOS ======== -->
+  <section class="quienes-v2">
+    <div class="quienes-v2-inner">
+      <h2>Quiénes somos</h2>
+      <div class="section-underline"></div>
+      <p>En la emblemática Plaça de l'Orient, en el corazón de Capdepera y con vistas al castillo, Nou Segle 12 ofrece una propuesta gastronómica mediterránea, elaborada con mimo y productos de calidad.</p>
+      <p>Una plaza con un encanto especial, una terraza donde disfrutar sin prisas y un equipo que entiende la hospitalidad a través de una sonrisa, una conversación y la atención a los pequeños detalles.</p>
+      <p>Un lugar donde sentirse como en casa y disfrutar de la magia de los momentos compartidos.</p>
+    </div>
+  </section>
+
+  <!-- ======== TEAMFOTO ======== -->
+  <section class="team-foto-sectie">
+    <img src="Brand_assets/Images/TEAM_FOTO.jpg" alt="El equipo de Nou Segle 12">
+  </section>
+
+  <!-- ======== LAS PERSONAS ======== -->
+  <section class="personas">
+    <div class="personas-inner">
+      <h2>Las personas detrás del restaurante</h2>
+      <div class="section-underline"></div>
+      <div class="personas-grid">
+        <div class="persona-item">
+          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:6px;margin-bottom:16px;">Foto servicio</div>
+          <h4>Servicio &amp; Sala</h4>
+          <p>Una sonrisa, una conversación y una atención cercana. Nuestro equipo cuida cada detalle para que te sientas como en casa y disfrutes sin prisas.</p>
+        </div>
+        <div class="persona-item">
+          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:6px;margin-bottom:16px;">Foto cocina</div>
+          <h4>Cocina &amp; Pasión</h4>
+          <p>Un equipo apasionado por la cocina mediterránea, que selecciona productos frescos y de calidad para elaborar cada plato con mimo y dedicación.</p>
+        </div>
+        <div class="persona-item">
+          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:6px;margin-bottom:16px;">Foto bar</div>
+          <h4>Bar &amp; Ambiente</h4>
+          <p>Vinos seleccionados, sangría casera y cócteles preparados con mimo. Una invitación a relajarse, compartir y disfrutar del encanto de nuestra plaza.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <hr class="divider">
 
-  <!-- ==================== EN LA COCINA ==================== -->
-  <section class="video-showcase">
+  <!-- ======== EN LA COCINA (videos) ======== -->
+  <section class="video-showcase" id="galeria">
     <div class="video-showcase-header">
-      <span class="section-label" data-i18n="video_label">En la cocina</span>
-      <h2 data-i18n="video_title">Lo hacemos con todo el amor</h2>
+      <span class="section-label">En la cocina</span>
+      <h2 style="font-size:28px;font-weight:800;color:#AF3B75;margin-bottom:0;">Lo hacemos con todo el amor</h2>
     </div>
-
     <div class="video-grid-wrap">
       <div class="video-grid">
         <div class="video-grid-item">
@@ -109,90 +585,14 @@
           </video>
         </div>
       </div>
-      <p style="text-align:center;font-size:13px;color:#7a7a7a;font-weight:300;margin-top:16px;">
-        <span data-i18n="video_ig_text">Más vídeos en nuestro</span>
-        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" style="color:#7e1041;font-weight:600;">Instagram</a>
+      <p style="text-align:center;font-size:13px;color:#706A66;font-weight:300;margin-top:16px;">
+        Más vídeos en nuestro
+        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" style="color:#993366;font-weight:600;">Instagram</a>
       </p>
     </div>
   </section>
 
-  <hr class="divider">
-
-  <!-- ==================== NUESTRA COCINA EN IMÁGENES ==================== -->
-  <section class="galerij">
-    <div class="galerij-inner">
-      <div class="galerij-header">
-        <span class="section-label">Nuestra cocina en imágenes</span>
-      </div>
-      <div class="galerij-grid">
-        <div class="placeholder placeholder--square">Foto plato 1</div>
-        <div class="placeholder placeholder--square">Foto plato 2</div>
-        <div class="placeholder placeholder--square">Foto plato 3</div>
-        <div class="placeholder placeholder--square">Foto plato 4</div>
-        <div class="placeholder placeholder--square">Foto plato 5</div>
-        <div class="placeholder placeholder--square">Foto plato 6</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== ¿QUIERES VER MÁS? ==================== -->
-  <section class="quieres-ver-mas">
-    <div class="quieres-inner">
-      <h3>¿Quieres ver más?</h3>
-      <div class="quieres-grid">
-        <a href="carta.html" class="quieres-item">
-          <div class="placeholder placeholder--square">Carta</div>
-          <span>Nuestra carta</span>
-        </a>
-        <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" class="quieres-item">
-          <div class="placeholder placeholder--square">Instagram</div>
-          <span>Instagram</span>
-        </a>
-        <a href="quienes-somos.html" class="quieres-item">
-          <div class="placeholder placeholder--square">Equipo</div>
-          <span>Nuestro equipo</span>
-        </a>
-        <a href="contacto.html" class="quieres-item">
-          <div class="placeholder placeholder--square">Contacto</div>
-          <span>Contacto</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <hr class="divider">
-
-  <!-- ==================== QUIÉNES SOMOS ==================== -->
-  <section class="quienes-home">
-    <div class="quienes-home-inner">
-      <span class="section-label">Quiénes somos</span>
-      <h2>Quiénes somos</h2>
-      <p>Se estableció en la Plaza de L'Orient, en el corazón de Capdepera y es un lugar de acogida, de buena comida y de encuentros. Michel Heijman, nacido en los Países Bajos, lleva más de 20 años ligado a la gastronomía de la zona. Para él, la hospitalidad no es un trabajo — es una vocación. Muchos de sus huéspedes vuelven año tras año, atraídos no solo por la cocina, sino por la calidez de quienes les reciben.</p>
-    </div>
-  </section>
-
-  <!-- ==================== UN LUGAR PARA TODOS ==================== -->
-  <section class="lugar-para-todos">
-    <div class="lugar-media" style="background-image: url('Brand_assets/Images/Sfeer_foto.jpg');"></div>
-    <div class="lugar-overlay"></div>
-    <div class="lugar-content">
-      <h2>Un lugar para todos</h2>
-      <p>Una terraza grande, una cocina abierta y un equipo apasionado — así es como entendemos la hospitalidad mediterránea.</p>
-    </div>
-  </section>
-
-  <!-- ==================== LAS PERSONAS DETRÁS DEL RESTAURANTE ==================== -->
-  <section class="team-home">
-    <div class="team-home-inner">
-      <span class="section-label">Las personas detrás del restaurante</span>
-      <h2>Las personas detrás del restaurante</h2>
-      <div style="max-width:900px;margin:0 auto;">
-        <img src="Brand_assets/Images/TEAM_FOTO.jpg" alt="El equipo de Nou Segle 12" style="width:100%;border-radius:12px;object-fit:cover;">
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== FOOTER (donker met CTA) ==================== -->
+  <!-- ======== FOOTER ======== -->
   <footer class="footer footer--dark">
     <div class="footer-bg" style="background-image: url('Brand_assets/Images/Sfeer_foto.jpg');"></div>
     <div class="footer-dark-overlay"></div>
@@ -221,13 +621,38 @@
           </a>
         </div>
         <div class="footer-links">
-          <a href="aviso-legal.html" data-i18n="footer_legal">Aviso Legal</a>
-          <a href="privacidad.html" data-i18n="footer_privacy">Privacidad</a>
+          <a href="aviso-legal.html">Aviso Legal</a>
+          <a href="privacidad.html">Privacidad</a>
         </div>
         <span class="footer-copy">© 2026 Nou Segle 12</span>
       </div>
     </div>
   </footer>
+
+  <script>
+    // Carousel
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let current = 0;
+    const total = 3;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
+    dots.forEach(dot => dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index))));
+
+    // Auto-advance
+    setInterval(() => goTo(current + 1), 5000);
+
+    // Mobile nav toggle
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+  </script>
 
 </body>
 </html>
