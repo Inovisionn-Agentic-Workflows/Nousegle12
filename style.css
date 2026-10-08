@@ -1528,17 +1528,16 @@ a {
     width: 100%;
     text-align: center;
   }
-  .nav-v2-links.open .lang-dropdown-toggle { color: #29211F; justify-content: center; width: 100%; }
+  .nav-v2-links.open .lang-dropdown-toggle { display: none; }
   .nav-v2-links.open .lang-dropdown-menu {
     position: static;
     box-shadow: none;
     border: none;
     display: flex;
-    gap: 8px;
+    gap: 14px;
     justify-content: center;
-    margin-top: 8px;
+    margin-top: 0;
   }
-  .lang-dropdown.open .lang-dropdown-menu { display: flex; }
 
   .footer-final-cta { font-size: 22px; }
   .footer-final-content { padding: 48px 20px 32px; }
