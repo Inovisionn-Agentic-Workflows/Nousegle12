@@ -15,6 +15,7 @@ const TRANSLATIONS = {
     /* --- WhatsApp --- */
     whatsapp_href_reservar: 'https://wa.me/34650895211?text=Hola!%20Quisiera%20reservar%20una%20mesa%20para%20%5Bn%C2%BA%20personas%5D%20personas%2C%20el%20d%C3%ADa%20%5Bfecha%5D%20a%20las%20%5Bhora%5D.%20A%20nombre%20de%3A%20%5Bnombre%5D.%20%C2%A1Gracias!',
     btn_whatsapp: 'Reservar por WhatsApp',
+    nav_galeria:  'Galería',
 
     /* --- Homepage --- */
     hero_sub:            'En el corazón de Capdepera',
@@ -37,6 +38,8 @@ const TRANSLATIONS = {
     footer_legal:        'Aviso Legal',
     footer_privacy:      'Privacidad',
     footer_cookies:      'Cookies',
+    footer_cta:          'Te esperamos en Nou Segle 12',
+    btn_reservar_mesa:   'Reservar mesa',
 
     /* --- Carta --- */
     carta_page_title:  'Nuestra Carta',
@@ -132,6 +135,7 @@ const TRANSLATIONS = {
     /* --- WhatsApp --- */
     whatsapp_href_reservar: 'https://wa.me/34650895211?text=Hallo!%20Ich%20m%C3%B6chte%20gerne%20einen%20Tisch%20reservieren%20f%C3%BCr%20%5BAnzahl%5D%20Personen%20am%20%5BDatum%5D%20um%20%5BUhrzeit%5D.%20Auf%20den%20Namen%3A%20%5BName%5D.%20Vielen%20Dank!',
     btn_whatsapp: 'Per WhatsApp reservieren',
+    nav_galeria:  'Galerie',
 
     /* --- Homepage --- */
     hero_sub:            'Im Herzen von Capdepera',
@@ -154,6 +158,8 @@ const TRANSLATIONS = {
     footer_legal:        'Impressum',
     footer_privacy:      'Datenschutz',
     footer_cookies:      'Cookies',
+    footer_cta:          'Wir freuen uns auf Ihren Besuch',
+    btn_reservar_mesa:   'Tisch reservieren',
 
     /* --- Carta --- */
     carta_page_title:  'Unsere Speisekarte',
@@ -249,6 +255,7 @@ const TRANSLATIONS = {
     /* --- WhatsApp --- */
     whatsapp_href_reservar: 'https://wa.me/34650895211?text=Hello!%20I%20would%20like%20to%20reserve%20a%20table%20for%20%5Bnumber%20of%20people%5D%20on%20%5Bdate%5D%20at%20%5Btime%5D.%20Name%3A%20%5Bname%5D.%20Thank%20you!',
     btn_whatsapp: 'Reserve via WhatsApp',
+    nav_galeria:  'Gallery',
 
     /* --- Homepage --- */
     hero_sub:            'In the heart of Capdepera',
@@ -271,6 +278,8 @@ const TRANSLATIONS = {
     footer_legal:        'Legal notice',
     footer_privacy:      'Privacy policy',
     footer_cookies:      'Cookies',
+    footer_cta:          'We look forward to welcoming you',
+    btn_reservar_mesa:   'Reserve a table',
 
     /* --- Menu --- */
     carta_page_title:  'Our Menu',
@@ -366,6 +375,7 @@ const TRANSLATIONS = {
     /* --- WhatsApp --- */
     whatsapp_href_reservar: 'https://wa.me/34650895211?text=Bonjour%20!%20Je%20voudrais%20r%C3%A9server%20une%20table%20pour%20%5Bnombre%20de%20personnes%5D%20personnes%20le%20%5Bdate%5D%20%C3%A0%20%5Bheure%5D.%20Au%20nom%20de%20%3A%20%5Bnom%5D.%20Merci%20!',
     btn_whatsapp: 'Réserver par WhatsApp',
+    nav_galeria:  'Galerie',
 
     /* --- Page d\'accueil --- */
     hero_sub:            'Au cœur de Capdepera',
@@ -388,6 +398,8 @@ const TRANSLATIONS = {
     footer_legal:        'Mentions légales',
     footer_privacy:      'Confidentialité',
     footer_cookies:      'Cookies',
+    footer_cta:          'Nous vous attendons avec plaisir',
+    btn_reservar_mesa:   'Réserver une table',
 
     /* --- Carte --- */
     carta_page_title:  'Notre Carte',
@@ -536,8 +548,9 @@ const TRANSLATIONS = {
 
   /* Mobile navigatie toggle & buiten-klik sluiten */
   function initMobileNav() {
-    const toggle = document.querySelector('.nav-toggle');
-    const links = document.querySelector('.nav-links');
+    /* Support both old nav (.nav-toggle/.nav-links) and nav-v2 (#navToggle/#navLinks) */
+    const toggle = document.querySelector('.nav-toggle') || document.getElementById('navToggle');
+    const links = document.querySelector('.nav-links') || document.getElementById('navLinks');
     if (!toggle || !links) return;
 
     toggle.onclick = function(e) {
