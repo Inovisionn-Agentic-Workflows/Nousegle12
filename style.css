@@ -1528,7 +1528,8 @@ a {
     width: 100%;
     text-align: center;
   }
-  .nav-v2-links.open .lang-dropdown-toggle { display: none; }
+  .nav-v2-links.open .lang-dropdown-toggle { display: none !important; }
+  .nav-v2-links.open .lang-dropdown-menu { display: flex !important; }
   .nav-v2-links.open .lang-dropdown-menu {
     position: static;
     box-shadow: none;
