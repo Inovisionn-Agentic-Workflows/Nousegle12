@@ -10,13 +10,28 @@
   <style>
     /* ======== NAV ======== */
     .nav-v2 {
+      background: transparent;
+      border-bottom: none;
+      padding: 0 40px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .nav-v2.scrolled {
+      position: fixed;
       background: #ffffff;
       border-bottom: 1px solid #e8ddd4;
-      padding: 0 40px;
-      position: sticky;
-      top: 0;
-      z-index: 200;
     }
+    .nav-v2.scrolled .nav-v2-logo-naam { color: #29211F; }
+    .nav-v2.scrolled .nav-v2-logo-sub { color: #706A66; }
+    .nav-v2.scrolled .nav-v2-links a { color: #29211F; }
+    .nav-v2.scrolled .nav-v2-links a:hover,
+    .nav-v2.scrolled .nav-v2-links a.active { color: #993366; }
+    .nav-v2.scrolled .nav-v2-links .nav-icon a { color: #29211F; }
+    .nav-v2.scrolled .nav-v2-toggle span { background: #29211F; }
     .nav-v2-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -41,14 +56,14 @@
     .nav-v2-logo-naam {
       font-size: 13px;
       font-weight: 800;
-      color: #29211F;
+      color: #ffffff;
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
     .nav-v2-logo-sub {
       font-size: 11px;
       font-weight: 300;
-      color: #706A66;
+      color: rgba(255,255,255,0.75);
       font-style: italic;
     }
     .nav-v2-links {
@@ -62,16 +77,16 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #29211F;
+      color: rgba(255,255,255,0.9);
       text-decoration: none;
       transition: color 0.2s;
     }
     .nav-v2-links a:hover,
     .nav-v2-links a.active {
-      color: #993366;
+      color: #ffffff;
     }
     .nav-v2-links .nav-icon a {
-      color: #29211F;
+      color: rgba(255,255,255,0.9);
       display: flex;
       align-items: center;
     }
@@ -90,7 +105,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 10px 22px;
-      border-radius: 28px;
+      border-radius: 0;
       text-decoration: none;
       transition: background 0.2s;
       white-space: nowrap;
@@ -146,17 +161,21 @@
     }
     .carousel-text {
       position: absolute;
-      bottom: 80px;
-      left: 48px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       color: #ffffff;
       z-index: 2;
+      text-align: center;
+      width: 100%;
+      padding: 0 40px;
     }
     .carousel-text h1 {
-      font-size: 48px;
+      font-size: 52px;
       font-weight: 300;
       font-style: italic;
       line-height: 1.15;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
     /* Prev arrow */
     .carousel-prev {
@@ -169,7 +188,7 @@
       color: #fff;
       width: 40px;
       height: 40px;
-      border-radius: 50%;
+      border-radius: 0;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -219,7 +238,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       padding: 16px 40px;
-      border-radius: 40px;
+      border-radius: 0;
       text-decoration: none;
       transition: background 0.2s;
     }
@@ -243,7 +262,7 @@
       width: 100%;
       aspect-ratio: 4/5;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 0;
     }
     .michel-v2-tekst .alma-label {
       font-size: 11px;
@@ -383,9 +402,10 @@
     }
     .cocina-video-item {
       position: relative;
-      border-radius: 6px;
+      border-radius: 0;
       overflow: hidden;
       background: #1a1a1a;
+      cursor: pointer;
     }
     .cocina-video-item video {
       width: 100%;
@@ -399,19 +419,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: rgba(0,0,0,0.25);
+      transition: opacity 0.2s;
+    }
+    .video-play-overlay.hidden {
+      opacity: 0;
       pointer-events: none;
     }
     .video-play-overlay span {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.85);
-      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 16px;
       color: #993366;
-      padding-left: 3px;
+      padding-left: 4px;
     }
 
     /* ======== NUESTRA COCINA FOTOS ======== */
@@ -442,7 +467,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 14px 32px;
-      border-radius: 40px;
+      border-radius: 0;
       text-decoration: none;
       transition: background 0.2s;
     }
@@ -497,7 +522,7 @@
       text-transform: uppercase;
       border: 2px solid #993366;
       padding: 12px 24px;
-      border-radius: 40px;
+      border-radius: 0;
       text-decoration: none;
       width: fit-content;
       transition: background 0.2s, color 0.2s;
@@ -546,7 +571,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       padding: 16px 40px;
-      border-radius: 40px;
+      border-radius: 0;
       text-decoration: none;
       transition: background 0.2s;
       margin-bottom: 32px;
@@ -753,7 +778,7 @@
 
   <!-- ======== TEAMFOTO ======== -->
   <section class="team-foto-sectie">
-    <img src="Brand_assets/Images/TEAM_FOTO.jpg" alt="El equipo de Nou Segle 12">
+    <img src="Brand_assets/Images/TEAM_FOTO.jpg" alt="El equipo de Nou Segle 12" style="object-position: center 30%;">
   </section>
 
   <!-- ======== LAS PERSONAS ======== -->
@@ -763,17 +788,17 @@
       <div class="section-underline"></div>
       <div class="personas-grid">
         <div class="persona-item">
-          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:6px;margin-bottom:16px;">Foto servicio</div>
+          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;margin-bottom:16px;">Foto servicio</div>
           <h4>Servicio &amp; Sala</h4>
           <p>Una sonrisa, una conversación y una atención cercana. Nuestro equipo cuida cada detalle para que te sientas como en casa y disfrutes sin prisas.</p>
         </div>
         <div class="persona-item">
-          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:6px;margin-bottom:16px;">Foto cocina</div>
+          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;margin-bottom:16px;">Foto cocina</div>
           <h4>Cocina &amp; Pasión</h4>
           <p>Un equipo apasionado por la cocina mediterránea, que selecciona productos frescos y de calidad para elaborar cada plato con mimo y dedicación.</p>
         </div>
         <div class="persona-item">
-          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:6px;margin-bottom:16px;">Foto bar</div>
+          <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;margin-bottom:16px;">Foto bar</div>
           <h4>Bar &amp; Ambiente</h4>
           <p>Vinos seleccionados, sangría casera y cócteles preparados con mimo. Una invitación a relajarse, compartir y disfrutar del encanto de nuestra plaza.</p>
         </div>
@@ -787,31 +812,31 @@
     <p style="font-size:14px;color:#706A66;font-weight:300;margin-bottom:36px;">Lo hacemos con todo amor</p>
     <div class="cocina-videos">
       <div class="cocina-video-item">
-        <video autoplay muted loop playsinline>
+        <video muted playsinline preload="metadata">
           <source src="Brand_assets/Video's/1 NOU SEGLE  kopie.mp4" type="video/mp4">
         </video>
         <div class="video-play-overlay"><span>&#9654;</span></div>
       </div>
       <div class="cocina-video-item">
-        <video autoplay muted loop playsinline>
+        <video muted playsinline preload="metadata">
           <source src="Brand_assets/Video's/2 NOU SEGLE  kopie.mp4" type="video/mp4">
         </video>
         <div class="video-play-overlay"><span>&#9654;</span></div>
       </div>
       <div class="cocina-video-item">
-        <video autoplay muted loop playsinline>
+        <video muted playsinline preload="metadata">
           <source src="Brand_assets/Video's/3 NOU SEGLE  kopie.mp4" type="video/mp4">
         </video>
         <div class="video-play-overlay"><span>&#9654;</span></div>
       </div>
       <div class="cocina-video-item">
-        <video autoplay muted loop playsinline>
+        <video muted playsinline preload="metadata">
           <source src="Brand_assets/Video's/4 NOU SEGLE  kopie.mp4" type="video/mp4">
         </video>
         <div class="video-play-overlay"><span>&#9654;</span></div>
       </div>
       <div class="cocina-video-item">
-        <video autoplay muted loop playsinline>
+        <video muted playsinline preload="metadata">
           <source src="Brand_assets/Video's/5 NOU SEGLE 1 kopie.mp4" type="video/mp4">
         </video>
         <div class="video-play-overlay"><span>&#9654;</span></div>
@@ -824,12 +849,12 @@
     <h2 style="font-size:20px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#29211F;margin-bottom:12px;">Nuestra cocina en imágenes</h2>
     <div class="section-underline" style="margin-bottom:32px;"></div>
     <div class="cocina-fotos-grid">
-      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 1</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 2</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 3</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 4</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 5</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:4px;">Foto plato 6</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;">Foto plato 1</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;">Foto plato 2</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;">Foto plato 3</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;">Foto plato 4</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;">Foto plato 5</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:4/3;border-radius:0;">Foto plato 6</div>
     </div>
   </section>
 
@@ -844,10 +869,10 @@
       </a>
     </p>
     <div class="instagram-grid">
-      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 1</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 2</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 3</div>
-      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:4px;">Foto IG 4</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:0;">Foto IG 1</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:0;">Foto IG 2</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:0;">Foto IG 3</div>
+      <div class="placeholder" style="width:100%;aspect-ratio:1;border-radius:0;">Foto IG 4</div>
     </div>
     <div style="margin-top:28px;">
       <a href="https://www.instagram.com/nou_segle_12/" target="_blank" rel="noopener" class="btn-ig">
@@ -858,11 +883,13 @@
   </section>
 
   <!-- ======== UN LUGAR PARA TODOS ======== -->
-  <section style="padding:64px 40px 0;text-align:center;background:#ffffff;">
-    <h2 style="font-size:20px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#29211F;margin-bottom:12px;">Un lugar para todos</h2>
-    <div class="section-underline" style="margin-bottom:24px;"></div>
-    <p style="font-size:15px;color:#706A66;line-height:1.8;max-width:580px;margin:0 auto 40px;">En pareja, en familia o entre amigos, nuestra terraza es un lugar de encuentro donde compartir buenos momentos, sentirse como en casa y disfrutar sin prisas.</p>
-    <div class="placeholder" style="width:100%;aspect-ratio:16/7;border-radius:0;max-width:100%;">Foto terraza atmosférica</div>
+  <section style="position:relative;background:#29211F;">
+    <div class="placeholder" style="width:100%;aspect-ratio:16/7;border-radius:0;opacity:0.6;display:flex;align-items:center;justify-content:center;">Foto terraza atmosférica</div>
+    <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;pointer-events:none;">
+      <h2 style="font-size:22px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#ffffff;margin-bottom:12px;">Un lugar para todos</h2>
+      <div style="width:48px;height:2px;background:#993366;margin:0 auto 20px;"></div>
+      <p style="font-size:15px;color:rgba(255,255,255,0.88);line-height:1.8;max-width:560px;">En pareja, en familia o entre amigos, nuestra terraza es un lugar de encuentro donde compartir buenos momentos, sentirse como en casa y disfrutar sin prisas.</p>
+    </div>
   </section>
 
   <!-- ======== VEN A VERNOS ======== -->
@@ -934,13 +961,36 @@
 
     document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
     dots.forEach(dot => dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index))));
-
-    // Auto-advance
     setInterval(() => goTo(current + 1), 5000);
+
+    // Sticky nav on scroll
+    const nav = document.querySelector('.nav-v2');
+    const heroHeight = document.querySelector('.carousel').offsetHeight;
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > heroHeight - 80);
+    });
 
     // Mobile nav toggle
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Click-to-play videos
+    document.querySelectorAll('.cocina-video-item').forEach(item => {
+      const video = item.querySelector('video');
+      const overlay = item.querySelector('.video-play-overlay');
+      item.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          overlay.classList.add('hidden');
+        } else {
+          video.pause();
+          overlay.classList.remove('hidden');
+        }
+      });
+      video.addEventListener('ended', () => {
+        overlay.classList.remove('hidden');
+      });
     });
   </script>
 
