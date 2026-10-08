@@ -53,7 +53,6 @@ a {
   z-index: 100;
 }
 
-/* Nav op alle pagina's ZONDER hero-foto: witte achtergrond */
 .nav--solid {
   background: #fdf8f2;
   border-bottom: 1px solid #ede5d8;
@@ -61,7 +60,6 @@ a {
   position: sticky;
 }
 
-/* Links wit in transparante nav (over hero) */
 .nav--transparent .nav-links a,
 .nav--transparent .lang-switch a {
   color: rgba(255,255,255,0.9);
@@ -136,7 +134,6 @@ a {
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  /* Nav zweeft erboven, hero vult volledig scherm */
   margin-top: 0;
 }
 
@@ -153,7 +150,6 @@ a {
   object-fit: cover;
 }
 
-/* Als hero-media als achtergrond wordt gebruikt (foto) */
 .hero-media[style*="background-image"] {
   background-size: cover;
   background-position: center center;
@@ -187,10 +183,12 @@ a {
 }
 
 .hero-content .hero-sub {
-  font-size: 18px;
+  font-size: 36px;
   font-weight: 300;
-  color: #f4aeb7;
+  color: #ffffff;
   margin-bottom: 24px;
+  line-height: 1.2;
+  font-style: italic;
 }
 
 /* --- Knoppen --- */
@@ -259,6 +257,7 @@ a {
   text-transform: uppercase;
   color: #7a7a7a;
   margin-bottom: 8px;
+  display: block;
 }
 
 .section-title {
@@ -295,7 +294,7 @@ a {
   object-fit: cover;
 }
 
-/* Placeholder styling voor video/foto */
+/* Placeholder styling */
 .placeholder {
   background: #cfc0c0;
   display: flex;
@@ -344,38 +343,7 @@ a {
   margin-bottom: 24px;
 }
 
-/* --- Galerij --- */
-.galerij {
-  padding: 48px 40px 64px;
-}
-
-.galerij-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.galerij-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-}
-
-.galerij-grid img,
-.galerij-grid .placeholder {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
 /* --- Video showcase sectie --- */
-/*
-  Elementor-opbouw:
-  - Header: Heading + Text widget
-  - Grote video: Container op volle breedte met Video-widget (YouTube)
-  - 3-koloms grid: Sectie met 3 kolommen, elk een Video-widget (YouTube)
-  Alles 100% Elementor gratis nabouwbaar.
-*/
 .video-showcase {
   padding: 72px 0 64px;
 }
@@ -393,7 +361,6 @@ a {
   margin-bottom: 0;
 }
 
-/* Grote video — gecentreerd, smal zodat 9:16 goed uitkomt */
 .video-main-wrap {
   max-width: 420px;
   margin: 0 auto 20px;
@@ -415,7 +382,6 @@ a {
   object-fit: cover;
 }
 
-/* 3-koloms video grid */
 .video-grid-wrap {
   max-width: 1100px;
   margin: 0 auto;
@@ -443,58 +409,202 @@ a {
   object-fit: cover;
 }
 
+/* --- Galerij --- */
+.galerij {
+  padding: 48px 40px 64px;
+}
+
+.galerij-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.galerij-header {
+  margin-bottom: 24px;
+}
+
+.galerij-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.galerij-grid img,
+.galerij-grid .placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* --- ¿Quieres ver más? --- */
+.quieres-ver-mas {
+  padding: 48px 40px;
+  text-align: center;
+}
+
+.quieres-inner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quieres-inner h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #59103d;
+  margin-bottom: 24px;
+}
+
+.quieres-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.quieres-item {
+  display: block;
+  text-align: center;
+  transition: opacity 0.2s;
+}
+
+.quieres-item:hover {
+  opacity: 0.8;
+}
+
+.quieres-item .placeholder {
+  border-radius: 8px;
+  aspect-ratio: 1;
+  margin-bottom: 8px;
+}
+
+.quieres-item span {
+  font-size: 13px;
+  font-weight: 600;
+  color: #59103d;
+}
+
+/* --- Quiénes somos (homepage) --- */
+.quienes-home {
+  padding: 72px 40px;
+  background: #faf7f7;
+}
+
+.quienes-home-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quienes-home-inner h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #59103d;
+  margin: 8px 0 24px;
+}
+
+.quienes-home-inner p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #3a3a3a;
+}
+
+/* --- Un lugar para todos --- */
+.lugar-para-todos {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.lugar-media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.lugar-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(89, 16, 61, 0.55);
+}
+
+.lugar-content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 40px;
+  color: #ffffff;
+  max-width: 700px;
+}
+
+.lugar-content h2 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.lugar-content p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.9);
+}
+
+/* --- Team (homepage) --- */
+.team-home {
+  padding: 72px 40px;
+}
+
+.team-home-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-home-inner h2 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #59103d;
+  margin: 8px 0 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.team-member img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.team-member h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #59103d;
+  margin-bottom: 4px;
+}
+
+.team-member p {
+  font-size: 13px;
+  color: #7a7a7a;
+  font-weight: 300;
+}
+
 /* --- Sectie scheiding --- */
 .divider {
   border: none;
   border-top: 1px solid #e8e0e0;
   margin: 0 auto;
   max-width: 1100px;
-}
-
-/* --- Praktisch blok --- */
-/* --- Parallax sfeerband --- */
-.sfeer-band {
-  background-image: url('Brand_assets/Images/DSC00030 kopie.JPG');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
-  padding: 80px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.sfeer-band::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(89, 16, 61, 0.55);
-}
-
-.sfeer-band-content {
-  position: relative;
-  z-index: 1;
-  color: #ffffff;
-}
-
-.sfeer-band-content p {
-  font-size: 22px;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto 24px;
-  color: rgba(255,255,255,0.93);
-}
-
-.sfeer-band-content .sfeer-naam {
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: #f4aeb7;
-  font-weight: 300;
 }
 
 /* --- Praktisch blok --- */
@@ -553,6 +663,51 @@ a {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+/* --- Sfeer-band (parallax) --- */
+.sfeer-band {
+  background-image: url('Brand_assets/Images/Sfeer_foto.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 80px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sfeer-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(89, 16, 61, 0.55);
+}
+
+.sfeer-band-content {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.sfeer-band-content p {
+  font-size: 22px;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto 24px;
+  color: rgba(255,255,255,0.93);
+}
+
+.sfeer-band-content .sfeer-naam {
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #f4aeb7;
+  font-weight: 300;
 }
 
 /* --- Reviews sectie --- */
@@ -658,7 +813,7 @@ a {
   font-weight: 300;
 }
 
-/* --- Praktisch blok --- */
+/* --- Footer --- */
 .footer {
   border-top: 1px solid #e8e0e0;
   padding: 24px 40px;
@@ -709,6 +864,102 @@ a {
   height: 20px;
 }
 
+/* --- Donkere footer met CTA --- */
+.footer--dark {
+  position: relative;
+  border-top: none;
+  padding: 0;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.footer-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.footer-dark-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 10, 30, 0.8);
+}
+
+.footer-dark-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 64px 40px;
+  text-align: center;
+}
+
+.footer-logo {
+  height: 64px;
+  margin: 0 auto 20px;
+}
+
+.footer-info {
+  margin-bottom: 32px;
+}
+
+.footer-nombre {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.footer-info p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.footer-cta-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.footer--dark .btn-whatsapp {
+  margin-bottom: 32px;
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer--dark .footer-social a {
+  color: rgba(255,255,255,0.6);
+}
+
+.footer--dark .footer-social a:hover {
+  color: #f4aeb7;
+}
+
+.footer--dark .footer-links a {
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+}
+
+.footer--dark .footer-links a:hover {
+  color: #f4aeb7;
+}
+
+.footer-copy {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+}
+
 /* --- Hamburger menu (mobiel) --- */
 .nav-toggle {
   display: none;
@@ -730,7 +981,6 @@ a {
   transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease;
 }
 
-/* X-animatie bij open menu */
 .nav-toggle.open span:nth-child(1) {
   transform: translateY(7.5px) rotate(45deg);
   background: #59103d !important;
@@ -789,7 +1039,6 @@ a {
     }
   }
 
-  /* Zorg dat links in mobiele dropdown ALTIJD donker en leesbaar zijn */
   .nav--transparent .nav-links a,
   .nav-links a {
     color: #3a3a3a !important;
@@ -848,7 +1097,7 @@ a {
   }
 
   .hero-content .hero-sub {
-    font-size: 15px;
+    font-size: 24px;
   }
 
   .container {
@@ -904,6 +1153,40 @@ a {
     gap: 10px;
   }
 
+  .quieres-ver-mas {
+    padding: 32px 20px;
+  }
+
+  .quieres-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .quienes-home {
+    padding: 48px 20px;
+  }
+
+  .lugar-content {
+    padding: 48px 20px;
+  }
+
+  .lugar-content h2 {
+    font-size: 24px;
+  }
+
+  .team-home {
+    padding: 48px 20px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .footer-dark-content {
+    padding: 48px 20px;
+  }
+
   .footer-content {
     flex-direction: column;
     text-align: center;
@@ -919,7 +1202,6 @@ a {
     gap: 16px;
   }
 
-  /* Fixed background doesn't work well on iOS — fallback to scroll */
   .sfeer-band {
     background-attachment: scroll;
     padding: 64px 20px;
