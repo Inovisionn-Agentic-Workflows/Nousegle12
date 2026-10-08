@@ -2116,11 +2116,12 @@ const TRANSLATIONS = {
     const links = document.querySelector('.nav-links') || document.getElementById('navLinks');
     if (!toggle || !links) return;
 
-    toggle.onclick = function(e) {
-      if (e) e.stopPropagation();
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       const isOpen = links.classList.toggle('open');
       toggle.classList.toggle('open', isOpen);
-    };
+    });
 
     links.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
