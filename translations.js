@@ -525,18 +525,38 @@ const TRANSLATIONS = {
     });
 
     /* Markeer actieve taalknop */
-    document.querySelectorAll('.lang-switch a').forEach(a => {
+    document.querySelectorAll('.lang-switch a, .lang-dropdown-menu a').forEach(a => {
       a.classList.toggle('active', a.getAttribute('data-lang') === lang);
+    });
+
+    /* Update dropdown toggle label */
+    document.querySelectorAll('.lang-dropdown-toggle .lang-code').forEach(el => {
+      el.textContent = lang.toUpperCase();
     });
   }
 
   /* Koppel knoppen */
   function initSwitcher() {
-    document.querySelectorAll('.lang-switch a[data-lang]').forEach(a => {
+    document.querySelectorAll('.lang-switch a[data-lang], .lang-dropdown-menu a[data-lang]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
         applyLang(a.getAttribute('data-lang'));
+        /* Sluit dropdown na keuze */
+        const dropdown = a.closest('.lang-dropdown');
+        if (dropdown) dropdown.classList.remove('open');
       });
+    });
+
+    /* Dropdown toggle */
+    document.querySelectorAll('.lang-dropdown-toggle').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.stopPropagation();
+        const dropdown = btn.closest('.lang-dropdown');
+        dropdown.classList.toggle('open');
+      });
+    });
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.lang-dropdown.open').forEach(d => d.classList.remove('open'));
     });
 
     /* Pas direct toe bij laden */
