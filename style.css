@@ -69,7 +69,7 @@ a {
 .nav--transparent .nav-links a.active,
 .nav--transparent .lang-switch a:hover,
 .nav--transparent .lang-switch a.active {
-  color: #C95D93;
+  color: #AF3B75;
 }
 
 .nav--transparent .nav-toggle span {
@@ -161,8 +161,8 @@ a {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(89, 16, 61, 0.6) 0%,
-    rgba(89, 16, 61, 0.1) 50%,
+    rgba(153, 51, 102, 0.6) 0%,
+    rgba(153, 51, 102, 0.1) 50%,
     transparent 100%
   );
   z-index: 1;
@@ -530,7 +530,7 @@ a {
 .lugar-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(89, 16, 61, 0.55);
+  background: rgba(153, 51, 102, 0.55);
 }
 
 .lugar-content {
@@ -683,7 +683,7 @@ a {
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(89, 16, 61, 0.55);
+  background: rgba(153, 51, 102, 0.55);
 }
 
 .sfeer-band-content {
@@ -706,7 +706,7 @@ a {
   font-size: 13px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #C95D93;
+  color: #AF3B75;
   font-weight: 300;
 }
 
@@ -943,7 +943,7 @@ a {
 }
 
 .footer--dark .footer-social a:hover {
-  color: #C95D93;
+  color: #AF3B75;
 }
 
 .footer--dark .footer-links a {
@@ -952,7 +952,7 @@ a {
 }
 
 .footer--dark .footer-links a:hover {
-  color: #C95D93;
+  color: #AF3B75;
 }
 
 .footer-copy {
