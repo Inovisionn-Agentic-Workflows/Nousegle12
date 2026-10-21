@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" style="scroll-behavior:smooth;">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +35,12 @@
       pointer-events: none;
     }
     .carta-nav {
-      padding: 0 40px 24px;
+      position: sticky;
+      top: 70px;
+      z-index: 10;
+      background: #ffffff;
+      padding: 12px 40px;
+      border-bottom: 1px solid #f0eded;
     }
     .carta-nav-inner {
       max-width: 900px;
@@ -64,47 +69,8 @@
       margin: 0 auto;
       padding: 0 40px 40px;
     }
-    /* Pagination */
-    .carta-page { display: none; }
-    .carta-page.active { display: block; }
-    .carta-pagination {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      padding: 24px 40px 48px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .carta-pagination button {
-      background: none;
-      border: 2px solid #993366;
-      color: #993366;
-      font-size: 18px;
-      width: 44px;
-      height: 44px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s, color 0.2s;
-      font-family: 'Heebo', sans-serif;
-    }
-    .carta-pagination button:hover {
-      background: #993366;
-      color: #fff;
-    }
-    .carta-pagination button:disabled {
-      opacity: 0.3;
-      cursor: default;
-      background: none;
-      color: #993366;
-    }
-    .carta-page-indicator {
-      font-size: 14px;
-      color: #706A66;
-      font-weight: 300;
-    }
+    /* Elementor: alle categorieën staan op één scrollpagina met anchor-links in de nav */
+    [id^="cat-"] { scroll-margin-top: 140px; }
     /* Menu items */
     .menu-category { padding-top: 48px; }
     .menu-category:first-child { padding-top: 0; }
@@ -236,7 +202,11 @@
     @media (max-width: 768px) {
       .carta-hero { padding: 48px 20px 24px; }
       .carta-hero h1 { font-size: 28px; }
-      .carta-nav { padding: 0 20px 24px; }
+      .carta-nav {
+      position: sticky;
+      top: 70px;
+      z-index: 10;
+      background: #ffffff; padding: 0 20px 24px; }
       .carta-nav-inner {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -304,30 +274,24 @@
   <!-- ==================== CATEGORIEENMENU ==================== -->
   <nav class="carta-nav" aria-label="Categorías">
     <div class="carta-nav-inner">
-      <a href="#" data-page="0" data-i18n="cat_nav_manana">Mañana</a>
-      <a href="#" data-page="1" data-i18n="cat_nav_bocadillos">Bocadillos</a>
-      <a href="#" data-page="2" data-i18n="cat_nav_tapas">Tapas</a>
-      <a href="#" data-page="3" data-i18n="cat_nav_tapas2">Tapas II</a>
-      <a href="#" data-page="4" data-i18n="cat_nav_sopas_ensa">Sopas &amp; Ensaladas</a>
-      <a href="#" data-page="5" data-i18n="cat_nav_pizzas">Pizzas</a>
-      <a href="#" data-page="6" data-i18n="cat_nav_flamm_burger">Flammkuchen &amp; Hamburguesas</a>
-      <a href="#" data-page="7" data-i18n="cat_nav_carnes_pesc">Carnes &amp; Pescados</a>
-      <a href="#" data-page="8" data-i18n="cat_nav_pasta">Pasta &amp; Arroz</a>
-      <a href="#" data-page="9" data-i18n="cat_nav_postres">Postres</a>
-      <a href="#" data-page="10" data-i18n="cat_nav_bebidas">Bebidas</a>
+      <a href="#cat-manana" data-i18n="cat_nav_manana">Mañana</a>
+      <a href="#cat-bocadillos" data-i18n="cat_nav_bocadillos">Bocadillos</a>
+      <a href="#cat-tapas" data-i18n="cat_nav_tapas">Tapas</a>
+      <a href="#cat-tapas2" data-i18n="cat_nav_tapas2">Tapas II</a>
+      <a href="#cat-sopas" data-i18n="cat_nav_sopas_ensa">Sopas &amp; Ensaladas</a>
+      <a href="#cat-pizzas" data-i18n="cat_nav_pizzas">Pizzas</a>
+      <a href="#cat-flamm" data-i18n="cat_nav_flamm_burger">Flammkuchen &amp; Hamburguesas</a>
+      <a href="#cat-carnes" data-i18n="cat_nav_carnes_pesc">Carnes &amp; Pescados</a>
+      <a href="#cat-pasta" data-i18n="cat_nav_pasta">Pasta &amp; Arroz</a>
+      <a href="#cat-postres" data-i18n="cat_nav_postres">Postres</a>
+      <a href="#cat-bebidas" data-i18n="cat_nav_bebidas">Bebidas</a>
     </div>
   </nav>
 
-  <!-- ==================== PAGINATION ==================== -->
-  <div class="carta-pagination">
-    <button id="cartaPrev" aria-label="Anterior">&#8592;</button>
-    <span class="carta-page-indicator" id="cartaIndicator">1 / 11</span>
-    <button id="cartaNext" aria-label="Siguiente">&#8594;</button>
-  </div>
 
   <!-- ==================== PAGE 1: MANANA ==================== -->
   <div class="carta-content">
-  <div class="carta-page active" data-page-index="0">
+  <div id="cat-manana">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_manana">Caprichos de la Mañana</h2>
@@ -356,7 +320,7 @@
   </div>
 
   <!-- ==================== PAGE 2: BOCADILLOS ==================== -->
-  <div class="carta-page" data-page-index="1">
+  <div id="cat-bocadillos">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_bocadillos">Bocadillos</h2>
@@ -396,7 +360,7 @@
   </div>
 
   <!-- ==================== PAGE 3: TAPAS Y MAS ==================== -->
-  <div class="carta-page" data-page-index="2">
+  <div id="cat-tapas">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_tapas">Tapas y más...</h2>
@@ -428,7 +392,7 @@
   </div>
 
   <!-- ==================== PAGE 4: TAPAS PESCADO + VEGETARIANAS ==================== -->
-  <div class="carta-page" data-page-index="3">
+  <div id="cat-tapas2">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="menu_tapas_sub_pescado">Tapas de Pescado</h2>
@@ -463,7 +427,7 @@
   </div>
 
   <!-- ==================== PAGE 5: SOPAS + ENSALADAS ==================== -->
-  <div class="carta-page" data-page-index="4">
+  <div id="cat-sopas">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_sopas">Sopas</h2>
@@ -490,7 +454,7 @@
   </div>
 
   <!-- ==================== PAGE 6: PIZZAS ==================== -->
-  <div class="carta-page" data-page-index="5">
+  <div id="cat-pizzas">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_pizzas">Pizzas Caseras</h2>
@@ -515,7 +479,7 @@
   </div>
 
   <!-- ==================== PAGE 7: FLAMMKUCHEN + HAMBURGUESAS ==================== -->
-  <div class="carta-page" data-page-index="6">
+  <div id="cat-flamm">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_flammkuchen">Flammkuchen</h2>
@@ -541,7 +505,7 @@
   </div>
 
   <!-- ==================== PAGE 8: CARNES + PESCADOS ==================== -->
-  <div class="carta-page" data-page-index="7">
+  <div id="cat-carnes">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_carnes">Carnes</h2>
@@ -565,7 +529,7 @@
   </div>
 
   <!-- ==================== PAGE 9: PASTA + ARROZ + INFANTIL ==================== -->
-  <div class="carta-page" data-page-index="8">
+  <div id="cat-pasta">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_pasta">Pasta</h2>
@@ -598,7 +562,7 @@
   </div>
 
   <!-- ==================== PAGE 10: POSTRES ==================== -->
-  <div class="carta-page" data-page-index="9">
+  <div id="cat-postres">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_postres">Postres</h2>
@@ -626,7 +590,7 @@
   </div>
 
   <!-- ==================== PAGE 11: BEBIDAS ==================== -->
-  <div class="carta-page" data-page-index="10">
+  <div id="cat-bebidas">
 
     <section class="menu-category">
       <h2 class="menu-category-title" data-i18n="cat_h2_bebidas">Bebidas</h2>
@@ -808,11 +772,6 @@
   </div><!-- end carta-content -->
 
   <!-- ==================== PAGINATION BOTTOM ==================== -->
-  <div class="carta-pagination">
-    <button id="cartaPrevBottom" aria-label="Anterior">&#8592;</button>
-    <span class="carta-page-indicator" id="cartaIndicatorBottom">1 / 11</span>
-    <button id="cartaNextBottom" aria-label="Siguiente">&#8594;</button>
-  </div>
 
   <!-- ==================== FOOTER ==================== -->
   <footer class="footer-final">
@@ -844,43 +803,18 @@
   </footer>
 
   <script>
-    // Carta pagination
-    const pages = document.querySelectorAll('.carta-page');
-    const navLinks = document.querySelectorAll('.carta-nav a[data-page]');
-    const totalPages = pages.length;
-    let currentPage = 0;
-
-    function showPage(index) {
-      currentPage = Math.max(0, Math.min(index, totalPages - 1));
-      pages.forEach((p, i) => p.classList.toggle('active', i === currentPage));
-      navLinks.forEach((a, i) => a.classList.toggle('active', i === currentPage));
-
-      const label = `${currentPage + 1} / ${totalPages}`;
-      document.getElementById('cartaIndicator').textContent = label;
-      document.getElementById('cartaIndicatorBottom').textContent = label;
-
-      document.getElementById('cartaPrev').disabled = currentPage === 0;
-      document.getElementById('cartaNext').disabled = currentPage === totalPages - 1;
-      document.getElementById('cartaPrevBottom').disabled = currentPage === 0;
-      document.getElementById('cartaNextBottom').disabled = currentPage === totalPages - 1;
-
-      window.scrollTo({ top: document.querySelector('.carta-hero').offsetTop - 80, behavior: 'smooth' });
-    }
-
-    document.getElementById('cartaPrev').addEventListener('click', () => showPage(currentPage - 1));
-    document.getElementById('cartaNext').addEventListener('click', () => showPage(currentPage + 1));
-    document.getElementById('cartaPrevBottom').addEventListener('click', () => showPage(currentPage - 1));
-    document.getElementById('cartaNextBottom').addEventListener('click', () => showPage(currentPage + 1));
-
-    navLinks.forEach(a => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        showPage(parseInt(a.dataset.page));
+    // Highlight active nav link on scroll (optioneel, in Elementor niet nodig)
+    const navLinks = document.querySelectorAll('.carta-nav a[href^="#cat-"]');
+    const sections = document.querySelectorAll('[id^="cat-"]');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 200) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + current);
       });
     });
-
-    // Initialize
-    showPage(0);
   </script>
 
 </body>

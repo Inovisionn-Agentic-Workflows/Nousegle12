@@ -431,32 +431,7 @@
       object-fit: cover;
       display: block;
     }
-    .video-play-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.15);
-      transition: opacity 0.2s;
-    }
-    .video-play-overlay.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
-    .video-play-overlay span {
-      width: 48px;
-      height: 48px;
-      background: rgba(255,255,255,0.92);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: #29211F;
-      padding-left: 4px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.35);
-    }
+    /* Video overlay verwijderd — Elementor Video widget speelt autoplay muted loop */
 
     /* ======== NUESTRA COCINA FOTOS ======== */
     .cocina-fotos-grid {
@@ -735,6 +710,7 @@
   </nav>
 
   <!-- ======== HERO CAROUSEL ======== -->
+  <!-- Elementor: deze carousel nabouwen met Smart Slider 3 (gratis plugin) -->
   <section class="carousel" aria-label="Galería principal">
     <div class="carousel-track" id="carouselTrack">
       <div class="carousel-slide carousel-slide-1">
@@ -835,26 +811,22 @@
   <section id="galeria" style="padding:64px 40px 48px;text-align:center;background:#ffffff;">
     <h2 style="font-size:20px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#29211F;margin-bottom:6px;" data-i18n="home_cocina_title">En la cocina</h2>
     <p style="font-size:14px;color:#706A66;font-weight:300;margin-bottom:36px;" data-i18n="home_cocina_sub">Lo hacemos con todo amor</p>
+    <!-- Elementor: gebruik 5 Video widgets in een 5-koloms container, autoplay + muted + loop -->
     <div class="cocina-videos">
       <div class="cocina-video-item">
-        <video muted playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%207.mp4#t=0.1"></video>
-        <div class="video-play-overlay"><span>&#9654;</span></div>
+        <video autoplay muted loop playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%207.mp4#t=0.1"></video>
       </div>
       <div class="cocina-video-item">
-        <video muted playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%201%20.mp4#t=0.1"></video>
-        <div class="video-play-overlay"><span>&#9654;</span></div>
+        <video autoplay muted loop playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%201%20.mp4#t=0.1"></video>
       </div>
       <div class="cocina-video-item">
-        <video muted playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%203.mp4#t=0.1"></video>
-        <div class="video-play-overlay"><span>&#9654;</span></div>
+        <video autoplay muted loop playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%203.mp4#t=0.1"></video>
       </div>
       <div class="cocina-video-item">
-        <video muted playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%205.mp4#t=0.1"></video>
-        <div class="video-play-overlay"><span>&#9654;</span></div>
+        <video autoplay muted loop playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%205.mp4#t=0.1"></video>
       </div>
       <div class="cocina-video-item">
-        <video muted playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%206.mp4#t=0.1"></video>
-        <div class="video-play-overlay"><span>&#9654;</span></div>
+        <video autoplay muted loop playsinline preload="metadata" src="Brand_assets/Video%27s/Slot%206.mp4#t=0.1"></video>
       </div>
     </div>
   </section>
@@ -993,23 +965,8 @@
 
     // Mobile nav toggle is handled by translations.js (initMobileNav)
 
-    // Click-to-play videos
-    document.querySelectorAll('.cocina-video-item').forEach(item => {
-      const video = item.querySelector('video');
-      const overlay = item.querySelector('.video-play-overlay');
-      item.addEventListener('click', () => {
-        if (video.paused) {
-          video.play();
-          overlay.classList.add('hidden');
-        } else {
-          video.pause();
-          overlay.classList.remove('hidden');
-        }
-      });
-      video.addEventListener('ended', () => {
-        overlay.classList.remove('hidden');
-      });
-    });
+    // Video's spelen nu autoplay muted loop — geen click-handler nodig
+    // In Elementor: gebruik Video widget per item met autoplay + muted + loop
   </script>
 
 </body>
