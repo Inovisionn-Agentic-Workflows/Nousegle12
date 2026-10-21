@@ -19,7 +19,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   color: #29211F;
-  background: #F7F2EA;
+  background: #F5F5F5;
 }
 
 img {
@@ -54,7 +54,7 @@ a {
 }
 
 .nav--solid {
-  background: #F7F2EA;
+  background: #F5F5F5;
   border-bottom: 1px solid #e8ddd4;
   padding: 10px 40px;
   position: sticky;
@@ -486,7 +486,7 @@ a {
 /* --- Quiénes somos (homepage) --- */
 .quienes-home {
   padding: 72px 40px;
-  background: #F7F2EA;
+  background: #F5F5F5;
 }
 
 .quienes-home-inner {
@@ -610,7 +610,7 @@ a {
 /* --- Praktisch blok --- */
 .praktisch {
   padding: 64px 40px;
-  background: #F7F2EA;
+  background: #F5F5F5;
 }
 
 .praktisch-inner {
@@ -713,7 +713,7 @@ a {
 /* --- Reviews sectie --- */
 .reviews-sectie {
   padding: 72px 40px;
-  background: #F7F2EA;
+  background: #F5F5F5;
 }
 
 .reviews-inner {
@@ -1141,7 +1141,7 @@ a {
   text-transform: uppercase;
   transition: background 0.15s, color 0.15s;
 }
-.lang-dropdown-menu a:hover { background: #F7F2EA; color: #993366 !important; }
+.lang-dropdown-menu a:hover { background: #F5F5F5; color: #993366 !important; }
 .lang-dropdown-menu a.active { font-weight: 700; color: #993366 !important; }
 .nav-v2-btn {
   display: inline-flex;

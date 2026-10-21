@@ -74,7 +74,7 @@ const TRANSLATIONS = {
 
     /* --- Carta --- */
     carta_page_title:  'Nuestra Carta',
-    carta_page_sub:    'Agosto 2026 · Plaza de L\'Orient 1, Capdepera · Todos los precios incluyen IVA',
+    carta_page_sub:    'Agosto 2026 · Plaça de l\'Orient 1, Capdepera · Todos los precios incluyen IVA',
     carta_cta_txt:     '¿Te apetece? Reserva tu mesa directamente por WhatsApp.',
     carta_alergen_h:   'Información sobre Alérgenos',
     carta_alergen_1:   'Este establecimiento cuenta con información sobre alérgenos de todos sus productos (Real Decreto 126/2015). Consulte por nuestra carta de alérgenos.',
@@ -96,6 +96,10 @@ const TRANSLATIONS = {
     cat_nav_infantil:    'Infantil',
     cat_nav_postres:     'Postres',
     cat_nav_bebidas:     'Bebidas',
+    cat_nav_tapas2:      'Tapas II',
+    cat_nav_sopas_ensa:  'Sopas & Ensaladas',
+    cat_nav_flamm_burger:'Flammkuchen & Hamburguesas',
+    cat_nav_carnes_pesc: 'Carnes & Pescados',
     cat_h2_manana:       'Caprichos de la Mañana',
     cat_h2_bocadillos:   'Bocadillos',
     cat_h2_tapas:        'Tapas y más…',
@@ -420,7 +424,7 @@ const TRANSLATIONS = {
     /* --- Quiénes somos --- */
     quienes_intro_label:  'Capdepera, Mallorca',
     quienes_hero_title:   'Quiénes somos',
-    quienes_intro_body:   'Nou Segle 12 se encuentra en la Plaza de L\'Orient, en el corazón de Capdepera. Una terraza grande, una cocina abierta y un equipo apasionado — así es como entendemos la hospitalidad mediterránea.',
+    quienes_intro_body:   'Nou Segle 12 se encuentra en la Plaça de l\'Orient, en el corazón de Capdepera. Una terraza grande, una cocina abierta y un equipo apasionado — así es como entendemos la hospitalidad mediterránea.',
     quienes_michel_label: 'El alma del restaurante',
     quienes_michel_rol:   'Anfitrión · Nou Segle 12',
     quienes_michel_quote: '"Para mí, recibir a los clientes no es un trabajo — es una vocación."',
@@ -442,7 +446,7 @@ const TRANSLATIONS = {
     quienes_filo_2_body:  'Cocinamos con lo que el mercado nos ofrece cada día. Fresco, local y lleno de sabor mediterráneo.',
     quienes_filo_3_title: 'Un lugar para todos',
     quienes_filo_3_body:  'Familias, parejas, grupos de amigos — en Nou Segle 12 todo el mundo encuentra su sitio en la terraza.',
-    quienes_cta_label:    'Plaza de L\'Orient 1 · Capdepera',
+    quienes_cta_label:    'Plaça de l\'Orient 1 · Capdepera',
     quienes_cta_txt:      '¿Os esperamos esta semana?',
 
     /* --- Contacto --- */
@@ -459,7 +463,7 @@ const TRANSLATIONS = {
     contacto_wa_label:     'WhatsApp reservas:',
     contacto_res_txt:      'Reserva tu mesa directamente por WhatsApp.',
     contacto_ruta_title:   'Cómo llegar',
-    contacto_ruta_body:    'Nos encontramos en la Plaza de L\'Orient, en el corazón del casco antiguo de Capdepera. Desde la carretera principal (Ma-15), sigue las indicaciones hacia el centro de Capdepera. Hay aparcamiento disponible en la plaza y en las calles adyacentes.',
+    contacto_ruta_body:    'Nos encontramos en la Plaça de l\'Orient, en el corazón del casco antiguo de Capdepera. Desde la carretera principal (Ma-15), sigue las indicaciones hacia el centro de Capdepera. Hay aparcamiento disponible en la plaza y en las calles adyacentes.',
 
     /* --- Aviso Legal --- */
     legal_label:           'Información legal',
@@ -472,7 +476,7 @@ const TRANSLATIONS = {
     legal_sec1_li2_label:  'Titular / Razón social:',
     legal_sec1_li2_val:    'Michel Heijman',
     legal_sec1_li3_label:  'Domicilio social:',
-    legal_sec1_li3_val:    'Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), España',
+    legal_sec1_li3_val:    'Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), España',
     legal_sec1_li4_label:  'Teléfono de contacto:',
     legal_sec1_li4_val:    '+34 871 201 276',
     legal_sec1_li5_label:  'WhatsApp:',
@@ -495,7 +499,7 @@ const TRANSLATIONS = {
     priv_sec1_title:      '1. Responsable del tratamiento',
     priv_sec1_body:       'El responsable del tratamiento de los datos personales recabados a través de los canales de contacto de este sitio web es:',
     priv_sec1_li1:        '<strong>Responsable:</strong> Michel Heijman (Nou Segle 12)',
-    priv_sec1_li2:        '<strong>Dirección:</strong> Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), España',
+    priv_sec1_li2:        '<strong>Dirección:</strong> Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), España',
     priv_sec1_li3:        '<strong>Teléfono / WhatsApp:</strong> +34 871 201 276 / +34 650 89 52 11',
     priv_sec1_li4:        '<strong>Finalidad principal:</strong> Gestión de reservas de mesas y atención a clientes',
     priv_sec2_title:      '2. Datos recopilados y finalidad',
@@ -507,7 +511,7 @@ const TRANSLATIONS = {
     priv_cookies_summary: '<strong>Transparencia:</strong> En Nou Segle 12 valoramos su privacidad. Este sitio web <strong>no utiliza cookies de seguimiento, publicidad ni análisis de terceros</strong> para rastrear su navegación.',
     priv_cookies_detail:  'El sitio web solo utiliza cookies técnicas indispensables y elementos de funcionalidad mínima para el correcto funcionamiento de la página (como recordar la preferencia de idioma seleccionada durante su visita). Al no utilizar cookies publicitarias ni de perfilado, no es necesario el uso de banners invasivos de consentimiento de cookies.',
     priv_sec4_title:      '4. Derechos del usuario',
-    priv_sec4_body:       'Usted tiene derecho a acceder a sus datos personales, solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando los datos ya no sean necesarios para los fines que fueron recogidos. Puede ejercer sus derechos contactándonos directamente por teléfono o en nuestro establecimiento en Plaza de L\'Orient 1, Capdepera.',
+    priv_sec4_body:       'Usted tiene derecho a acceder a sus datos personales, solicitar la rectificación de los datos inexactos o, en su caso, solicitar su supresión cuando los datos ya no sean necesarios para los fines que fueron recogidos. Puede ejercer sus derechos contactándonos directamente por teléfono o en nuestro establecimiento en Plaça de l\'Orient 1, Capdepera.',
   },
 
   de: {
@@ -579,7 +583,7 @@ const TRANSLATIONS = {
 
     /* --- Carta --- */
     carta_page_title:  'Unsere Speisekarte',
-    carta_page_sub:    'August 2026 · Plaza de L\'Orient 1, Capdepera · Alle Preise inkl. MwSt.',
+    carta_page_sub:    'August 2026 · Plaça de l\'Orient 1, Capdepera · Alle Preise inkl. MwSt.',
     carta_cta_txt:     'Appetit bekommen? Reservieren Sie Ihren Tisch direkt per WhatsApp.',
     carta_alergen_h:   'Allergeninformationen',
     carta_alergen_1:   'Dieses Restaurant verfügt über Allergeninformationen zu allen Produkten (Real Decreto 126/2015). Bitte fragen Sie unser Personal nach der Allergenkarte.',
@@ -601,6 +605,10 @@ const TRANSLATIONS = {
     cat_nav_infantil:    'Kinderkarte',
     cat_nav_postres:     'Desserts',
     cat_nav_bebidas:     'Getränke',
+    cat_nav_tapas2:      'Tapas II',
+    cat_nav_sopas_ensa:  'Suppen & Salate',
+    cat_nav_flamm_burger:'Flammkuchen & Burger',
+    cat_nav_carnes_pesc: 'Fleisch & Fisch',
     cat_h2_manana:       'Frühstücksgenüsse',
     cat_h2_bocadillos:   'Belegte Brote',
     cat_h2_tapas:        'Tapas und mehr…',
@@ -925,7 +933,7 @@ const TRANSLATIONS = {
     /* --- Über uns --- */
     quienes_intro_label:  'Capdepera, Mallorca',
     quienes_hero_title:   'Über uns',
-    quienes_intro_body:   'Das Nou Segle 12 liegt an der Plaza de L\'Orient im Herzen von Capdepera. Eine große Terrasse, eine offene Küche und ein leidenschaftliches Team — so verstehen wir mediterrane Gastfreundschaft.',
+    quienes_intro_body:   'Das Nou Segle 12 liegt an der Plaça de l\'Orient im Herzen von Capdepera. Eine große Terrasse, eine offene Küche und ein leidenschaftliches Team — so verstehen wir mediterrane Gastfreundschaft.',
     quienes_michel_label: 'Die Seele des Restaurants',
     quienes_michel_rol:   'Gastgeber · Nou Segle 12',
     quienes_michel_quote: '"Für mich ist das Empfangen von Gästen keine Arbeit — es ist eine Berufung."',
@@ -947,7 +955,7 @@ const TRANSLATIONS = {
     quienes_filo_2_body:  'Wir kochen mit dem, was der Markt uns jeden Tag bietet. Frisch, regional und voller mediterraner Aromen.',
     quienes_filo_3_title: 'Ein Platz für alle',
     quienes_filo_3_body:  'Familien, Paare, Freundesgruppen — im Nou Segle 12 findet jeder seinen Platz auf unserer Terrasse.',
-    quienes_cta_label:    'Plaza de L\'Orient 1 · Capdepera',
+    quienes_cta_label:    'Plaça de l\'Orient 1 · Capdepera',
     quienes_cta_txt:      'Dürfen wir Sie diese Woche begrüßen?',
 
     /* --- Kontakt --- */
@@ -964,7 +972,7 @@ const TRANSLATIONS = {
     contacto_wa_label:     'WhatsApp Reservierung:',
     contacto_res_txt:      'Reservieren Sie Ihren Tisch direkt per WhatsApp.',
     contacto_ruta_title:   'So finden Sie uns',
-    contacto_ruta_body:    'Wir befinden uns an der Plaza de L\'Orient im Herzen der Altstadt von Capdepera. Von der Hauptstraße (Ma-15) folgen Sie den Schildern zum Zentrum von Capdepera. Parkplätze finden Sie auf dem Platz und in den angrenzenden Straßen.',
+    contacto_ruta_body:    'Wir befinden uns an der Plaça de l\'Orient im Herzen der Altstadt von Capdepera. Von der Hauptstraße (Ma-15) folgen Sie den Schildern zum Zentrum von Capdepera. Parkplätze finden Sie auf dem Platz und in den angrenzenden Straßen.',
 
     /* --- Aviso Legal --- */
     legal_label:           'Rechtliche Informationen',
@@ -977,7 +985,7 @@ const TRANSLATIONS = {
     legal_sec1_li2_label:  'Betreiber / Inhaber:',
     legal_sec1_li2_val:    'Michel Heijman',
     legal_sec1_li3_label:  'Geschäftssitz:',
-    legal_sec1_li3_val:    'Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), Spanien',
+    legal_sec1_li3_val:    'Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), Spanien',
     legal_sec1_li4_label:  'Telefon:',
     legal_sec1_li4_val:    '+34 871 201 276',
     legal_sec1_li5_label:  'WhatsApp:',
@@ -1000,7 +1008,7 @@ const TRANSLATIONS = {
     priv_sec1_title:      '1. Verantwortlicher für die Datenverarbeitung',
     priv_sec1_body:       'Der Verantwortliche für die Verarbeitung der personenbezogenen Daten, die über die Kontaktkanäle dieser Website erhoben werden, ist:',
     priv_sec1_li1:        '<strong>Verantwortlicher:</strong> Michel Heijman (Nou Segle 12)',
-    priv_sec1_li2:        '<strong>Adresse:</strong> Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), Spanien',
+    priv_sec1_li2:        '<strong>Adresse:</strong> Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), Spanien',
     priv_sec1_li3:        '<strong>Telefon / WhatsApp:</strong> +34 871 201 276 / +34 650 89 52 11',
     priv_sec1_li4:        '<strong>Hauptzweck:</strong> Verwaltung von Tischreservierungen und Kundenbetreuung',
     priv_sec2_title:      '2. Erhobene Daten und Zweck',
@@ -1012,7 +1020,7 @@ const TRANSLATIONS = {
     priv_cookies_summary: '<strong>Transparenz:</strong> Bei Nou Segle 12 schätzen wir Ihre Privatsphäre. Diese Website <strong>verwendet keine Tracking-, Werbe- oder Analyse-Cookies von Drittanbietern</strong>, um Ihr Surfverhalten zu verfolgen.',
     priv_cookies_detail:  'Die Website verwendet ausschließlich technisch notwendige Cookies und Mindestfunktionalitätselemente für den ordnungsgemäßen Betrieb der Seite (z. B. um die während Ihres Besuchs gewählte Sprachpräferenz zu speichern). Da keine Werbe- oder Profiling-Cookies verwendet werden, sind keine aufdringlichen Cookie-Zustimmungsbanner erforderlich.',
     priv_sec4_title:      '4. Rechte der betroffenen Person',
-    priv_sec4_body:       'Sie haben das Recht, auf Ihre personenbezogenen Daten zuzugreifen, unrichtige Daten berichtigen zu lassen oder gegebenenfalls deren Löschung zu verlangen, wenn die Daten für die Zwecke, für die sie erhoben wurden, nicht mehr erforderlich sind. Sie können Ihre Rechte ausüben, indem Sie uns direkt per Telefon oder in unserem Betrieb in der Plaza de L\'Orient 1, Capdepera, kontaktieren.',
+    priv_sec4_body:       'Sie haben das Recht, auf Ihre personenbezogenen Daten zuzugreifen, unrichtige Daten berichtigen zu lassen oder gegebenenfalls deren Löschung zu verlangen, wenn die Daten für die Zwecke, für die sie erhoben wurden, nicht mehr erforderlich sind. Sie können Ihre Rechte ausüben, indem Sie uns direkt per Telefon oder in unserem Betrieb in der Plaça de l\'Orient 1, Capdepera, kontaktieren.',
   },
 
   en: {
@@ -1084,7 +1092,7 @@ const TRANSLATIONS = {
 
     /* --- Menu --- */
     carta_page_title:  'Our Menu',
-    carta_page_sub:    'August 2026 · Plaza de L\'Orient 1, Capdepera · All prices include VAT',
+    carta_page_sub:    'August 2026 · Plaça de l\'Orient 1, Capdepera · All prices include VAT',
     carta_cta_txt:     'Fancy something? Reserve your table directly via WhatsApp.',
     carta_alergen_h:   'Allergen information',
     carta_alergen_1:   'This establishment has allergen information for all its products (Real Decreto 126/2015). Please ask our staff for the allergen card.',
@@ -1106,6 +1114,10 @@ const TRANSLATIONS = {
     cat_nav_infantil:    'Kids\' menu',
     cat_nav_postres:     'Desserts',
     cat_nav_bebidas:     'Drinks',
+    cat_nav_tapas2:      'Tapas II',
+    cat_nav_sopas_ensa:  'Soups & Salads',
+    cat_nav_flamm_burger:'Flammkuchen & Burgers',
+    cat_nav_carnes_pesc: 'Meat & Fish',
     cat_h2_manana:       'Morning Favourites',
     cat_h2_bocadillos:   'Sandwiches',
     cat_h2_tapas:        'Tapas & more…',
@@ -1430,7 +1442,7 @@ const TRANSLATIONS = {
     /* --- About us --- */
     quienes_intro_label:  'Capdepera, Mallorca',
     quienes_hero_title:   'About us',
-    quienes_intro_body:   'Nou Segle 12 is located on Plaza de L\'Orient in the heart of Capdepera. A large terrace, an open kitchen and a passionate team — this is how we understand Mediterranean hospitality.',
+    quienes_intro_body:   'Nou Segle 12 is located on Plaça de l\'Orient in the heart of Capdepera. A large terrace, an open kitchen and a passionate team — this is how we understand Mediterranean hospitality.',
     quienes_michel_label: 'The soul of the restaurant',
     quienes_michel_rol:   'Host · Nou Segle 12',
     quienes_michel_quote: '"For me, welcoming guests is not a job — it is a calling."',
@@ -1452,7 +1464,7 @@ const TRANSLATIONS = {
     quienes_filo_2_body:  'We cook with what the market offers us each day. Fresh, local and full of Mediterranean flavour.',
     quienes_filo_3_title: 'A place for everyone',
     quienes_filo_3_body:  'Families, couples, groups of friends — at Nou Segle 12 everyone finds their spot on our terrace.',
-    quienes_cta_label:    'Plaza de L\'Orient 1 · Capdepera',
+    quienes_cta_label:    'Plaça de l\'Orient 1 · Capdepera',
     quienes_cta_txt:      'Shall we expect you this week?',
 
     /* --- Contact --- */
@@ -1469,7 +1481,7 @@ const TRANSLATIONS = {
     contacto_wa_label:     'WhatsApp reservations:',
     contacto_res_txt:      'Reserve your table directly via WhatsApp.',
     contacto_ruta_title:   'Getting here',
-    contacto_ruta_body:    'We are located on Plaza de L\'Orient in the heart of Capdepera\'s old town. From the main road (Ma-15), follow the signs to the centre of Capdepera. Parking is available on the square and in the surrounding streets.',
+    contacto_ruta_body:    'We are located on Plaça de l\'Orient in the heart of Capdepera\'s old town. From the main road (Ma-15), follow the signs to the centre of Capdepera. Parking is available on the square and in the surrounding streets.',
 
     /* --- Aviso Legal --- */
     legal_label:           'Legal information',
@@ -1482,7 +1494,7 @@ const TRANSLATIONS = {
     legal_sec1_li2_label:  'Owner / Legal name:',
     legal_sec1_li2_val:    'Michel Heijman',
     legal_sec1_li3_label:  'Registered address:',
-    legal_sec1_li3_val:    'Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), Spain',
+    legal_sec1_li3_val:    'Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), Spain',
     legal_sec1_li4_label:  'Contact telephone:',
     legal_sec1_li4_val:    '+34 871 201 276',
     legal_sec1_li5_label:  'WhatsApp:',
@@ -1505,7 +1517,7 @@ const TRANSLATIONS = {
     priv_sec1_title:      '1. Data controller',
     priv_sec1_body:       'The controller responsible for processing the personal data collected through the contact channels of this website is:',
     priv_sec1_li1:        '<strong>Controller:</strong> Michel Heijman (Nou Segle 12)',
-    priv_sec1_li2:        '<strong>Address:</strong> Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), Spain',
+    priv_sec1_li2:        '<strong>Address:</strong> Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), Spain',
     priv_sec1_li3:        '<strong>Telephone / WhatsApp:</strong> +34 871 201 276 / +34 650 89 52 11',
     priv_sec1_li4:        '<strong>Primary purpose:</strong> Management of table reservations and customer service',
     priv_sec2_title:      '2. Data collected and purpose',
@@ -1517,7 +1529,7 @@ const TRANSLATIONS = {
     priv_cookies_summary: '<strong>Transparency:</strong> At Nou Segle 12 we value your privacy. This website <strong>does not use tracking, advertising or third-party analytics cookies</strong> to monitor your browsing.',
     priv_cookies_detail:  'The website only uses strictly necessary technical cookies and minimal functionality elements required for the proper operation of the page (such as remembering the language preference selected during your visit). As no advertising or profiling cookies are used, intrusive cookie consent banners are not required.',
     priv_sec4_title:      '4. User rights',
-    priv_sec4_body:       'You have the right to access your personal data, request the rectification of inaccurate data or, where applicable, request its erasure when the data is no longer necessary for the purposes for which it was collected. You may exercise your rights by contacting us directly by telephone or at our premises at Plaza de L\'Orient 1, Capdepera.',
+    priv_sec4_body:       'You have the right to access your personal data, request the rectification of inaccurate data or, where applicable, request its erasure when the data is no longer necessary for the purposes for which it was collected. You may exercise your rights by contacting us directly by telephone or at our premises at Plaça de l\'Orient 1, Capdepera.',
   },
 
   fr: {
@@ -1589,7 +1601,7 @@ const TRANSLATIONS = {
 
     /* --- Carte --- */
     carta_page_title:  'Notre Carte',
-    carta_page_sub:    'Août 2026 · Plaza de L\'Orient 1, Capdepera · Tous les prix incluent la TVA',
+    carta_page_sub:    'Août 2026 · Plaça de l\'Orient 1, Capdepera · Tous les prix incluent la TVA',
     carta_cta_txt:     'Envie de goûter ? Réservez votre table directement par WhatsApp.',
     carta_alergen_h:   'Informations sur les allergènes',
     carta_alergen_1:   'Cet établissement dispose d\'informations sur les allergènes pour tous ses produits (Real Decreto 126/2015). Veuillez consulter notre personnel pour la carte des allergènes.',
@@ -1611,6 +1623,10 @@ const TRANSLATIONS = {
     cat_nav_infantil:    'Menu enfants',
     cat_nav_postres:     'Desserts',
     cat_nav_bebidas:     'Boissons',
+    cat_nav_tapas2:      'Tapas II',
+    cat_nav_sopas_ensa:  'Soupes & Salades',
+    cat_nav_flamm_burger:'Flammkuchen & Hamburgers',
+    cat_nav_carnes_pesc: 'Viandes & Poissons',
     cat_h2_manana:       'Plaisirs du matin',
     cat_h2_bocadillos:   'Sandwiches',
     cat_h2_tapas:        'Tapas et plus…',
@@ -1935,7 +1951,7 @@ const TRANSLATIONS = {
     /* --- Qui sommes-nous --- */
     quienes_intro_label:  'Capdepera, Majorque',
     quienes_hero_title:   'Qui sommes-nous',
-    quienes_intro_body:   'Le Nou Segle 12 est situé sur la Plaza de L\'Orient, au cœur de Capdepera. Une grande terrasse, une cuisine ouverte et une équipe passionnée — c\'est ainsi que nous vivons l\'hospitalité méditerranéenne.',
+    quienes_intro_body:   'Le Nou Segle 12 est situé sur la Plaça de l\'Orient, au cœur de Capdepera. Une grande terrasse, une cuisine ouverte et une équipe passionnée — c\'est ainsi que nous vivons l\'hospitalité méditerranéenne.',
     quienes_michel_label: 'L\'âme du restaurant',
     quienes_michel_rol:   'Hôte · Nou Segle 12',
     quienes_michel_quote: '"Pour moi, accueillir les clients n\'est pas un travail — c\'est une vocation."',
@@ -1957,7 +1973,7 @@ const TRANSLATIONS = {
     quienes_filo_2_body:  'Nous cuisinons avec ce que le marché nous offre chaque jour. Frais, local et plein de saveurs méditerranéennes.',
     quienes_filo_3_title: 'Un lieu pour tous',
     quienes_filo_3_body:  'Familles, couples, groupes d\'amis — au Nou Segle 12, chacun trouve sa place sur notre terrasse.',
-    quienes_cta_label:    'Plaza de L\'Orient 1 · Capdepera',
+    quienes_cta_label:    'Plaça de l\'Orient 1 · Capdepera',
     quienes_cta_txt:      'On vous attend cette semaine ?',
 
     /* --- Contact --- */
@@ -1974,7 +1990,7 @@ const TRANSLATIONS = {
     contacto_wa_label:     'Réservations WhatsApp :',
     contacto_res_txt:      'Réservez votre table directement par WhatsApp.',
     contacto_ruta_title:   'Comment venir',
-    contacto_ruta_body:    'Nous nous trouvons sur la Plaza de L\'Orient, au cœur de la vieille ville de Capdepera. Depuis la route principale (Ma-15), suivez les indications vers le centre de Capdepera. Des places de stationnement sont disponibles sur la place et dans les rues adjacentes.',
+    contacto_ruta_body:    'Nous nous trouvons sur la Plaça de l\'Orient, au cœur de la vieille ville de Capdepera. Depuis la route principale (Ma-15), suivez les indications vers le centre de Capdepera. Des places de stationnement sont disponibles sur la place et dans les rues adjacentes.',
 
     /* --- Aviso Legal --- */
     legal_label:           'Informations légales',
@@ -1987,7 +2003,7 @@ const TRANSLATIONS = {
     legal_sec1_li2_label:  'Responsable / Raison sociale :',
     legal_sec1_li2_val:    'Michel Heijman',
     legal_sec1_li3_label:  'Siège social :',
-    legal_sec1_li3_val:    'Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), Espagne',
+    legal_sec1_li3_val:    'Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), Espagne',
     legal_sec1_li4_label:  'Téléphone de contact :',
     legal_sec1_li4_val:    '+34 871 201 276',
     legal_sec1_li5_label:  'WhatsApp :',
@@ -2010,7 +2026,7 @@ const TRANSLATIONS = {
     priv_sec1_title:      '1. Responsable du traitement',
     priv_sec1_body:       'Le responsable du traitement des données personnelles collectées via les canaux de contact de ce site web est :',
     priv_sec1_li1:        '<strong>Responsable :</strong> Michel Heijman (Nou Segle 12)',
-    priv_sec1_li2:        '<strong>Adresse :</strong> Plaza de L\'Orient 1, 07580 Capdepera (Illes Balears), Espagne',
+    priv_sec1_li2:        '<strong>Adresse :</strong> Plaça de l\'Orient 1, 07580 Capdepera (Illes Balears), Espagne',
     priv_sec1_li3:        '<strong>Téléphone / WhatsApp :</strong> +34 871 201 276 / +34 650 89 52 11',
     priv_sec1_li4:        '<strong>Finalité principale :</strong> Gestion des réservations de tables et service à la clientèle',
     priv_sec2_title:      '2. Données collectées et finalité',
@@ -2022,7 +2038,7 @@ const TRANSLATIONS = {
     priv_cookies_summary: '<strong>Transparence :</strong> Chez Nou Segle 12, nous respectons votre vie privée. Ce site web <strong>n\'utilise pas de cookies de suivi, de publicité ni d\'analyse de tiers</strong> pour suivre votre navigation.',
     priv_cookies_detail:  'Le site web utilise uniquement des cookies techniques indispensables et des éléments de fonctionnalité minimale nécessaires au bon fonctionnement de la page (tels que la mémorisation de la préférence linguistique choisie lors de votre visite). N\'utilisant pas de cookies publicitaires ni de profilage, l\'utilisation de bannières intrusives de consentement aux cookies n\'est pas nécessaire.',
     priv_sec4_title:      '4. Droits de l\'utilisateur',
-    priv_sec4_body:       'Vous avez le droit d\'accéder à vos données personnelles, de demander la rectification des données inexactes ou, le cas échéant, de demander leur suppression lorsque les données ne sont plus nécessaires aux fins pour lesquelles elles ont été collectées. Vous pouvez exercer vos droits en nous contactant directement par téléphone ou dans notre établissement, Plaza de L\'Orient 1, Capdepera.',
+    priv_sec4_body:       'Vous avez le droit d\'accéder à vos données personnelles, de demander la rectification des données inexactes ou, le cas échéant, de demander leur suppression lorsque les données ne sont plus nécessaires aux fins pour lesquelles elles ont été collectées. Vous pouvez exercer vos droits en nous contactant directement par téléphone ou dans notre établissement, Plaça de l\'Orient 1, Capdepera.',
   },
 };
 
