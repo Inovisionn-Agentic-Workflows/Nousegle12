@@ -42,9 +42,9 @@ const TRANSLATIONS = {
     btn_reservar_mesa:   'Reservar mesa',
 
     /* --- Hero carousel --- */
-    hero_slide1: 'En el corazón<br>de Capdepera...',
-    hero_slide2: 'Buena gastronomía,<br>una sonrisa y el placer<br>de sentirse como en casa.',
-    hero_slide3: 'Un rincón único<br>del Mediterráneo.',
+    hero_slide1: 'En el corazón de Capdepera...',
+    hero_slide2: 'Buena gastronomía, una sonrisa y el placer de sentirse como en casa.',
+    hero_slide3: 'Un rincón único del Mediterráneo.',
 
     /* --- Homepage body --- */
     home_michel_label:   'El alma de Nou Segle',
@@ -552,9 +552,9 @@ const TRANSLATIONS = {
     btn_reservar_mesa:   'Tisch reservieren',
 
     /* --- Hero carousel --- */
-    hero_slide1: 'Im Herzen<br>von Capdepera...',
-    hero_slide2: 'Gute Gastronomie,<br>ein Lächeln und das Vergnügen,<br>sich wie zu Hause zu fühlen.',
-    hero_slide3: 'Ein einzigartiger Ort<br>am Mittelmeer.',
+    hero_slide1: 'Im Herzen von Capdepera...',
+    hero_slide2: 'Gute Gastronomie, ein Lächeln und das Vergnügen, sich wie zu Hause zu fühlen.',
+    hero_slide3: 'Ein einzigartiger Ort am Mittelmeer.',
 
     /* --- Homepage body --- */
     home_michel_label:   'Die Seele von Nou Segle',
@@ -1062,9 +1062,9 @@ const TRANSLATIONS = {
     btn_reservar_mesa:   'Reserve a table',
 
     /* --- Hero carousel --- */
-    hero_slide1: 'In the heart<br>of Capdepera...',
-    hero_slide2: 'Great gastronomy,<br>a smile and the pleasure<br>of feeling at home.',
-    hero_slide3: 'A unique corner<br>of the Mediterranean.',
+    hero_slide1: 'In the heart of Capdepera...',
+    hero_slide2: 'Great gastronomy, a smile and the pleasure of feeling at home.',
+    hero_slide3: 'A unique corner of the Mediterranean.',
 
     /* --- Homepage body --- */
     home_michel_label:   'The soul of Nou Segle',
@@ -1572,9 +1572,9 @@ const TRANSLATIONS = {
     btn_reservar_mesa:   'Réserver une table',
 
     /* --- Hero carousel --- */
-    hero_slide1: 'Au cœur<br>de Capdepera...',
-    hero_slide2: 'Bonne gastronomie,<br>un sourire et le plaisir<br>de se sentir comme chez soi.',
-    hero_slide3: 'Un coin unique<br>de la Méditerranée.',
+    hero_slide1: 'Au cœur de Capdepera...',
+    hero_slide2: 'Bonne gastronomie, un sourire et le plaisir de se sentir comme chez soi.',
+    hero_slide3: 'Un coin unique de la Méditerranée.',
 
     /* --- Homepage body --- */
     home_michel_label:   'L\'âme de Nou Segle',

@@ -11,8 +11,8 @@
   <style>
     /* ======== NAV ======== */
     .nav-v2 {
-      background: transparent;
-      border-bottom: none;
+      background: #ffffff;
+      border-bottom: 1px solid #e8ddd4;
       padding: 0 40px;
       position: absolute;
       top: 0;
@@ -50,10 +50,6 @@
     .nav-v2-logo img {
       height: 52px;
       width: auto;
-      filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
-    }
-    .nav-v2.scrolled .nav-v2-logo img {
-      filter: none;
     }
     .nav-v2-logo-tekst {
       line-height: 1.2;
@@ -61,14 +57,14 @@
     .nav-v2-logo-naam {
       font-size: 13px;
       font-weight: 800;
-      color: #ffffff;
+      color: #29211F;
       letter-spacing: 0.05em;
       text-transform: uppercase;
     }
     .nav-v2-logo-sub {
       font-size: 11px;
       font-weight: 300;
-      color: rgba(255,255,255,0.75);
+      color: #706A66;
       font-style: italic;
     }
     .nav-v2-links {
@@ -82,16 +78,16 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
+      color: #29211F;
       text-decoration: none;
       transition: color 0.2s;
     }
     .nav-v2-links a:hover,
     .nav-v2-links a.active {
-      color: #ffffff;
+      color: #993366;
     }
     .nav-v2-links .nav-icon a {
-      color: rgba(255,255,255,0.9);
+      color: #29211F;
       display: flex;
       align-items: center;
     }
@@ -129,7 +125,7 @@
       display: block;
       width: 24px;
       height: 2px;
-      background: #ffffff;
+      background: #29211F;
       margin: 5px 0;
       border-radius: 2px;
       transition: all 0.25s;
@@ -672,7 +668,7 @@
 <body>
 
   <!-- ======== NAVIGATIE V2 ======== -->
-  <nav class="nav-v2">
+  <nav class="nav-v2 nav-solid">
     <div class="nav-v2-inner">
 
       <a href="index.html" class="nav-v2-logo">
