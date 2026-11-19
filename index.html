@@ -702,6 +702,50 @@
       color: #706A66;
       line-height: 1.7;
     }
+
+    /* ---- Un lugar para todos ---- */
+    .lugar-section {
+      background: #F5F5F5;
+    }
+    .lugar-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .lugar-foto {
+      min-height: 400px;
+    }
+    .lugar-tekst {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px 48px;
+    }
+    .lugar-tekst h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #29211F;
+      margin-bottom: 12px;
+    }
+    .lugar-tekst p {
+      font-size: 15px;
+      color: #706A66;
+      line-height: 1.8;
+    }
+    @media (max-width: 768px) {
+      .lugar-inner {
+        grid-template-columns: 1fr;
+      }
+      .lugar-foto {
+        min-height: 300px;
+      }
+      .lugar-tekst {
+        padding: 40px 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -972,21 +1016,19 @@
     </div>
   </section>
 
-  <!-- witruimte boven Un lugar -->
-  <div style="height:12px;background:#ffffff;"></div>
-
   <!-- ======== UN LUGAR PARA TODOS ======== -->
-  <section>
-    <img src="Brand_assets/Images/Terras foto.jpg" alt="Terraza de Nou Segle 12" style="width:100%;aspect-ratio:16/9;object-fit:cover;object-position:center 30%;display:block;">
+  <section class="lugar-section">
+    <div class="lugar-inner">
+      <div class="lugar-foto">
+        <img src="Brand_assets/Images/IMG_0005.jpg" alt="Terraza de Nou Segle 12" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="lugar-tekst">
+        <h2 data-i18n="home_lugar_title">Un lugar para todos</h2>
+        <div style="width:48px;height:2px;background:#993366;margin-bottom:20px;"></div>
+        <p data-i18n="home_lugar_desc">En pareja, en familia o entre amigos, nuestra terraza es un lugar de encuentro donde compartir buenos momentos, sentirse como en casa y disfrutar sin prisas.</p>
+      </div>
+    </div>
   </section>
-
-  <section style="background:#F5F5F5;text-align:center;padding:48px 40px;">
-    <h2 style="font-size:22px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#29211F;margin-bottom:12px;" data-i18n="home_lugar_title">Un lugar para todos</h2>
-    <div style="width:48px;height:2px;background:#993366;margin:0 auto 20px;"></div>
-    <p style="font-size:15px;color:#706A66;line-height:1.8;max-width:560px;margin:0 auto;" data-i18n="home_lugar_desc">En pareja, en familia o entre amigos, nuestra terraza es un lugar de encuentro donde compartir buenos momentos, sentirse como en casa y disfrutar sin prisas.</p>
-  </section>
-
-  <div style="height:12px;background:#ffffff;"></div>
   <!-- ======== VEN A VERNOS ======== -->
   <section class="ven-a-vernos">
     <div class="ven-foto">
