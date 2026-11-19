@@ -48,7 +48,7 @@ const TRANSLATIONS = {
 
     /* --- Homepage body --- */
     home_michel_label:   'El alma de Nou Segle',
-    home_michel_intro:   'Michel Heijman es el alma de Nou Segle 12. Nacido en los Países Bajos, lleva más de 20 años formando parte de la escena gastronómica de Capdepera y Cala Ratjada. En ese tiempo ha convertido el restaurante en un lugar donde la hospitalidad no es una formalidad, sino una forma de vida. Muchos huéspedes vuelven año tras año — no solo por la comida, sino por la manera en que Michel hace que cada visita sea especial. Capdepera es su hogar. Y Nou Segle 12 es su forma de compartirlo con el mundo.',
+    home_michel_intro:   'Apasionado del Mediterráneo, dejó su Holanda natal para disfrutar de la vida poc a poc en Capdepera. Su cercanía y su pasión por la hospitalidad, que comparte con todo su equipo, han convertido Nou Segle 12 en mucho más que un restaurante: un lugar donde sentirse como en casa y al que siempre apetece volver.',
     home_quienes_title:  'Quiénes somos',
     home_quienes_p1:     'En la emblemática Plaça de l\'Orient, en el corazón de Capdepera y con vistas al castillo, Nou Segle 12 ofrece una propuesta gastronómica mediterránea, elaborada con mimo y productos de calidad.',
     home_quienes_p2:     'Una plaza con un encanto especial, una terraza donde disfrutar sin prisas y un equipo que entiende la hospitalidad a través de una sonrisa, una conversación y la atención a los pequeños detalles.',
@@ -556,7 +556,7 @@ const TRANSLATIONS = {
 
     /* --- Homepage body --- */
     home_michel_label:   'Die Seele von Nou Segle',
-    home_michel_intro:   'Michel Heijman ist die Seele von Nou Segle 12. In den Niederlanden geboren, ist er seit über 20 Jahren Teil der Gastronomieszene in Capdepera und Cala Ratjada. In dieser Zeit hat er das Restaurant in einen Ort verwandelt, an dem Gastfreundschaft keine Formalität ist, sondern eine Lebensart. Viele Gäste kommen Jahr für Jahr zurück — nicht nur wegen des Essens, sondern wegen der Art, wie Michel jeden Besuch besonders macht. Capdepera ist sein Zuhause. Und Nou Segle 12 ist seine Art, es mit der Welt zu teilen.',
+    home_michel_intro:   'Leidenschaftlich begeistert vom Mittelmeer, verließ er seine Heimat Holland, um das Leben poc a poc in Capdepera zu genießen. Seine Herzlichkeit und seine Leidenschaft für Gastfreundschaft, die er mit seinem gesamten Team teilt, haben Nou Segle 12 in viel mehr als ein Restaurant verwandelt: einen Ort, an dem man sich wie zu Hause fühlt und zu dem man immer gerne zurückkehrt.',
     home_quienes_title:  'Über uns',
     home_quienes_p1:     'Nou Segle 12 befindet sich an der emblematischen Plaça de l\'Orient, im Herzen von Capdepera mit Blick auf die Burg. Ein mediterranes gastronomisches Angebot, mit Liebe und hochwertigen Produkten zubereitet.',
     home_quienes_p2:     'Ein Platz mit besonderem Charme, eine Terrasse zum Genießen ohne Eile und ein Team, das Gastfreundschaft durch ein Lächeln, ein Gespräch und die Aufmerksamkeit für kleine Details versteht.',
@@ -1064,7 +1064,7 @@ const TRANSLATIONS = {
 
     /* --- Homepage body --- */
     home_michel_label:   'The soul of Nou Segle',
-    home_michel_intro:   'Michel Heijman is the soul of Nou Segle 12. Born in the Netherlands, he has been part of the gastronomy scene in Capdepera and Cala Ratjada for over 20 years. In that time he has turned the restaurant into a place where hospitality is not a formality, but a way of life. Many guests return year after year — not just for the food, but for the way Michel makes every visit feel special. Capdepera is his home. And Nou Segle 12 is his way of sharing it with the world.',
+    home_michel_intro:   'Passionate about the Mediterranean, he left his native Holland to enjoy the poc a poc way of life in Capdepera. His warmth and passion for hospitality, which he shares with his entire team, have turned Nou Segle 12 into much more than a restaurant: a place where you feel at home and always want to come back to.',
     home_quienes_title:  'About us',
     home_quienes_p1:     'Nou Segle 12 is located on the emblematic Plaça de l\'Orient, in the heart of Capdepera with views of the castle. A Mediterranean gastronomic experience, crafted with care and quality ingredients.',
     home_quienes_p2:     'A square with a special charm, a terrace to enjoy without rush, and a team that understands hospitality through a smile, a conversation, and attention to the small details.',
@@ -1572,7 +1572,7 @@ const TRANSLATIONS = {
 
     /* --- Homepage body --- */
     home_michel_label:   'L\'âme de Nou Segle',
-    home_michel_intro:   'Michel Heijman est l\'âme de Nou Segle 12. Né aux Pays-Bas, il fait partie de la scène gastronomique de Capdepera et Cala Ratjada depuis plus de 20 ans. Pendant ce temps, il a transformé le restaurant en un lieu où l\'hospitalité n\'est pas une formalité, mais un mode de vie. De nombreux clients reviennent année après année — pas seulement pour la cuisine, mais pour la façon dont Michel rend chaque visite spéciale. Capdepera est sa maison. Et Nou Segle 12 est sa façon de la partager avec le monde.',
+    home_michel_intro:   'Passionné par la Méditerranée, il a quitté sa Hollande natale pour profiter de la vie poc a poc à Capdepera. Sa proximité et sa passion pour l\'hospitalité, qu\'il partage avec toute son équipe, ont fait de Nou Segle 12 bien plus qu\'un restaurant : un endroit où l\'on se sent comme chez soi et où l\'on a toujours envie de revenir.',
     home_quienes_title:  'Qui sommes-nous',
     home_quienes_p1:     'Nou Segle 12 se trouve sur l\'emblématique Plaça de l\'Orient, au cœur de Capdepera avec vue sur le château. Une proposition gastronomique méditerranéenne, élaborée avec soin et des produits de qualité.',
     home_quienes_p2:     'Une place au charme particulier, une terrasse pour profiter sans se presser et une équipe qui comprend l\'hospitalité à travers un sourire, une conversation et l\'attention aux petits détails.',
