@@ -710,17 +710,19 @@
     .lugar-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      max-width: 1200px;
-      margin: 0 auto;
     }
     .lugar-foto {
       min-height: 400px;
+      order: 2;
     }
     .lugar-tekst {
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 60px 48px;
+      max-width: 600px;
+      margin-left: auto;
+      order: 1;
     }
     .lugar-tekst h2 {
       font-size: 22px;
@@ -741,9 +743,12 @@
       }
       .lugar-foto {
         min-height: 300px;
+        order: 1;
       }
       .lugar-tekst {
         padding: 40px 20px;
+        order: 2;
+        margin-left: 0;
       }
     }
   </style>
